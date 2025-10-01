@@ -26,13 +26,36 @@ class EquipmentType(str, Enum):
 
 class TreatmentItem(BaseModel):
     id: Optional[str] = None
+    # Key Factor: 정보 수집 채널
+    source_url: str
+    source_channel: Optional[str] = Field(None, description="정보 수집 채널 (웹사이트명)")
+
+    # Key Factor: 병원명
     clinic_name: str
+
+    # Key Factor: 상품명・옵션명
     treatment_name: str
-    treatment_type: TreatmentType
+    option_name: Optional[str] = Field(None, description="시술 옵션명 (예: 300샷, 600샷)")
+
+    # Key Factor: 기기
     equipment_used: List[EquipmentType] = []
-    price: float
-    original_price: Optional[float] = None
-    discount_rate: Optional[float] = None
+    equipment_name: Optional[str] = Field(None, description="기기명 (예: 써마지FLX, 울쎄라)")
+
+    # Key Factor: 약물
+    medication: Optional[str] = Field(None, description="사용되는 약물명")
+
+    # Key Factor: 용량・단위
+    dosage: Optional[str] = Field(None, description="용량 (예: 300샷, 1cc)")
+    unit: Optional[str] = Field(None, description="단위 (예: 샷, cc, 회)")
+
+    # Key Factor: 가격 (정상가・이벤트가・할인율)
+    price: float = Field(description="현재 판매가격 (이벤트가 또는 할인가)")
+    original_price: Optional[float] = Field(None, description="정상가")
+    discount_rate: Optional[float] = Field(None, description="할인율 (%)")
+    event_price: Optional[float] = Field(None, description="이벤트 가격")
+
+    # 기존 필드들
+    treatment_type: TreatmentType
     duration: Optional[int] = Field(None, description="Duration in minutes")
     target_area: List[str] = []
     description: Optional[str] = None
@@ -43,7 +66,6 @@ class TreatmentItem(BaseModel):
     location: Optional[str] = None
     clinic_rating: Optional[float] = None
     review_count: Optional[int] = None
-    source_url: str
     scraped_at: datetime = Field(default_factory=datetime.now)
     additional_info: Dict[str, Any] = {}
 

@@ -62,37 +62,59 @@ class GeminiTreatmentExtractor:
 
     def _create_extraction_prompt(self, text_content: str, source_url: str) -> str:
         return f"""
-다음 피부과/미용 클리닉 웹페이지 텍스트에서 시술 정보를 추출해주세요.
+다음 피부과/미용 클리닉 웹페이지 텍스트에서 시술 정보를 정확하게 추출해주세요.
 
 웹페이지 내용:
 {text_content}
 
 출처 URL: {source_url}
 
-다음 JSON 형식으로 시술 정보를 추출해주세요:
+다음 JSON 형식으로 시술 정보를 추출해주세요. 각 key factor를 정확히 추출하는 것이 매우 중요합니다:
 
 {{
+  "clinic_name": "병원명 (URL이나 페이지에서 추출)",
   "treatments": [
     {{
-      "treatment_name": "시술명",
-      "price": 가격_숫자만(원단위),
-      "treatment_type": "laser|injection|skincare|surgical|device|none 중 하나", // 없으면 none
-      "equipment_used": ["co2_laser", "picosure", "ulthera", "botox", "filler", "thread_lift", "hifu", "rf", "ipl", "none" 중 하나], // 없으면 none
+      "treatment_name": "시술명 (예: 써마지FLX, 울쎄라)",
+      "option_name": "옵션명 (예: 300샷, 600샷, 아이써마지 225샷)",
+      "equipment_name": "기기명 (예: 써마지FLX, 울쎄라피 프라임)",
+      "medication": "약물명 (있다면)",
+      "dosage": "용량 (예: 300샷, 1cc)",
+      "unit": "단위 (예: 샷, cc, 회)",
+      "price": 현재_판매가격_숫자만,
+      "original_price": 정상가_숫자만,
+      "discount_rate": 할인율_퍼센트_숫자만,
+      "treatment_type": "laser|injection|skincare|surgical|device 중 하나",
+      "equipment_used": ["co2_laser", "picosure", "ulthera", "botox", "filler", "thread_lift", "hifu", "rf", "ipl"],
       "description": "시술 설명",
       "duration": 시술시간_분단위_숫자만,
-      "target_area": ["얼굴", "몸", "특정부위" 등],
+      "target_area": ["타겟 부위"],
       "benefits": ["효과1", "효과2"],
-      "recovery_time": "회복기간 설명"
+      "recovery_time": "회복기간"
     }}
   ]
 }}
 
-추출 규칙:
-1. 명확한 시술명이 있는 것 추출
-2. 가격이 있으면 숫자만 (원 단위로 변환)
-3. 가격이 없으면 null로 설정
-4. 시술과 관련없는 일반적인 텍스트는 제외
-5. 중복되는 시술은 하나만
+핵심 추출 규칙:
+1. **가격 정보**: 정상가와 할인가를 정확히 구분하여 추출
+   - 정상가: 원래 가격 (취소선이 있거나 "원가" 표시)
+   - 현재가: 실제 판매 가격 (강조 표시된 가격)
+   - 할인율: (정상가-현재가)/정상가 * 100
+
+2. **상품명/옵션명**:
+   - 상품명: 기본 시술명 (예: "써마지FLX")
+   - 옵션명: 세부 옵션 (예: "300샷", "아이써마지 225샷")
+
+3. **기기/약물/용량**:
+   - 기기명: 사용되는 장비명 정확히 추출
+   - 약물: 보톡스, 필러 등 주입되는 약물
+   - 용량: 샷 수, cc 수 등 구체적 용량
+
+4. **병원명**: URL 도메인이나 페이지 제목에서 추출
+
+5. 가격이 없으면 null, 정보가 없으면 null로 설정
+6. 시술과 무관한 내용은 제외
+7. 중복 시술은 하나만 추출
 
 JSON만 응답해주세요:
 """
@@ -111,10 +133,13 @@ JSON만 응답해주세요:
             json_str = json_match.group()
             data = json.loads(json_str)
 
+            # 병원명 추출
+            clinic_name = data.get("clinic_name") or self._extract_clinic_name(source_url)
+
             treatments = []
             for item in data.get("treatments", []):
                 try:
-                    treatment = self._create_treatment_item(item, source_url)
+                    treatment = self._create_treatment_item(item, source_url, clinic_name)
                     if treatment:
                         treatments.append(treatment)
                 except Exception as e:
@@ -132,7 +157,7 @@ JSON만 응답해주세요:
             return []
 
     def _create_treatment_item(
-        self, item: Dict[str, Any], source_url: str
+        self, item: Dict[str, Any], source_url: str, clinic_name: str
     ) -> Optional[TreatmentItem]:
         """딕셔너리에서 TreatmentItem 생성"""
         try:
@@ -140,15 +165,16 @@ JSON만 응답해주세요:
             if not treatment_name:
                 return None
 
-            # 가격 처리
-            price = item.get("price")
-            if price is None:
-                price = 0.0  # null인 경우 0.0으로 설정 (TreatmentItem에서 float 필요)
-            elif isinstance(price, str):
-                price = re.sub(r"[^\d]", "", price)
-                price = float(price) if price else 0.0
-            else:
-                price = float(price) if price else 0.0
+            # 가격 처리 (할인율 계산 포함)
+            price = self._parse_price(item.get("price"))
+            original_price = self._parse_price(item.get("original_price"))
+
+            # 할인율 계산
+            discount_rate = None
+            if original_price and original_price > 0 and price < original_price:
+                discount_rate = round(((original_price - price) / original_price) * 100, 1)
+            elif item.get("discount_rate"):
+                discount_rate = float(item.get("discount_rate"))
 
             # 시술 유형 매핑
             type_mapping = {
@@ -181,22 +207,61 @@ JSON만 응답해주세요:
                     equipment_used.append(equipment_mapping[eq])
 
             return TreatmentItem(
-                clinic_name=self._extract_clinic_name(source_url),
+                # Key Factors
+                source_url=source_url,
+                source_channel=self._extract_source_channel(source_url),
+                clinic_name=clinic_name,
                 treatment_name=treatment_name,
+                option_name=item.get("option_name"),
+                equipment_name=item.get("equipment_name"),
+                medication=item.get("medication"),
+                dosage=item.get("dosage"),
+                unit=item.get("unit"),
+                price=price,
+                original_price=original_price,
+                discount_rate=discount_rate,
+                # 기존 필드들
                 treatment_type=treatment_type,
                 equipment_used=equipment_used,
-                price=float(price),
                 description=item.get("description", ""),
                 duration=item.get("duration"),
                 target_area=item.get("target_area", []),
                 benefits=item.get("benefits", []),
                 recovery_time=item.get("recovery_time"),
-                source_url=source_url,
             )
 
         except Exception as e:
             tqdm.write(f"⚠️  TreatmentItem 생성 오류: {str(e)}")
             return None
+
+    def _parse_price(self, price_value: Any) -> float:
+        """가격 값을 파싱하여 float로 변환"""
+        if price_value is None:
+            return 0.0
+        if isinstance(price_value, str):
+            # 숫자가 아닌 문자 제거
+            price_str = re.sub(r"[^\d]", "", price_value)
+            return float(price_str) if price_str else 0.0
+        return float(price_value) if price_value else 0.0
+
+    def _extract_source_channel(self, source_url: str) -> str:
+        """URL에서 정보 수집 채널명 추출"""
+        if "xenia.clinic" in source_url:
+            return "세니아 클리닉"
+        elif "feeline.network" in source_url:
+            return "피라인 네트워크"
+        elif "gu.clinic" in source_url:
+            return "GU 클리닉"
+        elif "beautyleader.co.kr" in source_url:
+            return "뷰티리더"
+        else:
+            # 도메인에서 채널명 추출
+            try:
+                from urllib.parse import urlparse
+                domain = urlparse(source_url).netloc
+                return domain.replace("www.", "")
+            except:
+                return "알 수 없음"
 
     def _make_api_request_with_retry(
         self, prompt: str, source_url: str, text_content: str, max_retries: int = 3
@@ -261,11 +326,23 @@ JSON만 응답해주세요:
 
     def _extract_clinic_name(self, source_url: str) -> str:
         """URL에서 클리닉 이름 추출"""
-        if "feeline.network" in source_url:
-            return "Feeline Network Skin Clinic"
+        if "xenia.clinic" in source_url:
+            return "세니아 클리닉"
+        elif "feeline.network" in source_url:
+            return "피라인 네트워크"
         elif "gu.clinic" in source_url:
-            return "GU Clinic"
+            return "GU 클리닉"
         elif "beautyleader.co.kr" in source_url:
-            return "Beauty Leader"
+            return "뷰티리더"
         else:
-            return "Unknown Clinic"
+            # 도메인에서 클리닉명 추출 시도
+            try:
+                from urllib.parse import urlparse
+                domain = urlparse(source_url).netloc.replace("www.", "")
+                # 도메인을 기반으로 클리닉명 생성
+                if "clinic" in domain:
+                    return domain.replace(".com", "").replace(".co.kr", "").title() + " 클리닉"
+                else:
+                    return domain.replace(".com", "").replace(".co.kr", "").title()
+            except:
+                return "알 수 없는 클리닉"

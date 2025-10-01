@@ -72,11 +72,9 @@ async def main():
     """메인 실행 함수"""
     gemini_api_key = load_gemini_api_key()
 
-    # 스크래핑할 사이트 설정
+    # 스크래핑할 사이트 설정 - 세니아 클리닉 테스트
     sites = [
-        ("GU Clinic", "https://gu.clinic/", 20),
-        ("Beauty Leader", "https://beautyleader.co.kr/", 15),
-        ("Feeline Network", "http://sinchon.feeline.network/skinclinic_", 15),
+        ("Xenia Clinic", "https://xenia.clinic/ko/products/", 5),
     ]
 
     all_treatments = []
