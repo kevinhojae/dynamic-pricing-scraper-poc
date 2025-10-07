@@ -1,0 +1,56 @@
+================================================================================
+JSON 파싱 에러 로그
+시간: 2025-10-07T21:12:11.068386
+모델: gemini
+URL: https://test.com
+에러: Expecting ',' delimiter: line 20 column 6 (char 448)
+================================================================================
+
+전체 응답 텍스트:
+----------------------------------------
+{
+  "clinic_name": "테스트 클리닉",
+  "category": "테스트 카테고리",
+  "products": [
+    {
+      "product_name": "테스트 상품",
+      "product_original_price": 100000,
+      "product_event_price": 50000,
+      "treatments": [
+        {
+          "name": "테스트 시술",
+          "dosage": 1,
+          "unit": "회",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "테스트용 시술입니다"
+        }
+      ]
+    }
+  ]
+----------------------------------------
+
+추출된 JSON 문자열:
+----------------------------------------
+{
+  "clinic_name": "테스트 클리닉",
+  "category": "테스트 카테고리",
+  "products": [
+    {
+      "product_name": "테스트 상품",
+      "product_original_price": 100000,
+      "product_event_price": 50000,
+      "treatments": [
+        {
+          "name": "테스트 시술",
+          "dosage": 1,
+          "unit": "회",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "테스트용 시술입니다"
+        }
+      ]
+    }
+----------------------------------------

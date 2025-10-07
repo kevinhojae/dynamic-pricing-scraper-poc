@@ -1,0 +1,77 @@
+version: "1.0"
+description: "Prompts for medical/aesthetic clinic product extraction"
+author: "Dynamic Pricing POC"
+created_date: "2025-10-07"
+
+prompts:
+  product_extraction:
+    version: "1.0"
+    description: "Extract individual product options from clinic webpages"
+    template: |
+      다음 피부과/미용 클리닉 웹페이지 텍스트에서 개별 상품 옵션 정보를 정확하게 추출해주세요.
+
+      웹페이지 내용:
+      {text_content}
+
+      출처 URL: {source_url}
+
+      각 개별 상품 옵션을 별도의 product로 추출하여 다음 JSON 형식으로 응답해주세요:
+
+      {{
+        "clinic_name": "병원명 (URL이나 페이지에서 추출)",
+        "category": "시술 카테고리 (예: 탄력/리프팅)",
+        "description": "카테고리 전체 설명",
+        "products": [
+          {{
+            "product_name": "개별 상품 옵션명 (예: 더마 슈링크 100샷 (이마, 목주름), 슈링크 유니버스 울트라 MP모드 300샷 + 얼굴지방분해주사 3cc)",
+            "product_original_price": 정상가_숫자만,
+            "product_event_price": 이벤트가_숫자만,
+            "product_description": "상품 설명",
+            "treatments": [
+              {{
+                "name": "시술 구성 요소명 (예: 슈링크 유니버스 울트라 MP모드, 얼굴지방분해주사)",
+                "dosage": 용량_숫자만,
+                "unit": "단위 (예: 샷, cc, 회)",
+                "equipments": ["장비명1", "장비명2"],
+                "medications": ["약물명1", "약물명2"],
+                "treatment_type": "laser|injection|skincare|surgical|device 중 하나",
+                "description": "시술 설명",
+                "duration": 시술시간_분단위_숫자만,
+                "target_area": ["타겟 부위"],
+                "benefits": ["효과1", "효과2"],
+                "recovery_time": "회복기간"
+              }}
+            ]
+          }}
+        ]
+      }}
+
+      핵심 추출 규칙:
+
+      1. **개별 상품 옵션 처리**: 각 가격이 표시된 개별 옵션을 별도의 product로 추출
+         - 예: "더마 슈링크 100샷" → 하나의 product
+         - 예: "슈링크 300샷 + 지방분해주사 3cc" → 하나의 product (하지만 treatments에 2개 요소)
+
+      2. **복합 상품 처리**: "A + B" 형태의 상품은 treatments 배열에 각 구성 요소를 분리
+         - 상품명: "슈링크 유니버스 울트라 MP모드 300샷 + 얼굴지방분해주사 (비스테로이드) 3cc"
+         - treatments: [
+             {{"name": "슈링크 유니버스 울트라 MP모드", "dosage": 300, "unit": "샷"}},
+             {{"name": "얼굴지방분해주사 (비스테로이드)", "dosage": 3, "unit": "cc"}}
+           ]
+
+      3. **가격 정보**: product 레벨에서 추출
+         - product_original_price: 취소선이 있는 높은 가격
+         - product_event_price: 강조 표시된 낮은 가격
+
+      4. **용량/단위**: 숫자는 dosage, 문자는 unit으로 분리
+         - "300샷" → dosage: 300, unit: "샷"
+         - "3cc" → dosage: 3, unit: "cc"
+
+      5. **장비/약물**: 각각 배열로 추출
+         - equipments: ["슈링크", "울쎄라"]
+         - medications: ["GT38", "보톡스"]
+
+      6. 정보가 없으면 null 또는 빈 배열로 설정
+      7. 시술과 무관한 내용은 제외
+
+      JSON만 응답해주세요:

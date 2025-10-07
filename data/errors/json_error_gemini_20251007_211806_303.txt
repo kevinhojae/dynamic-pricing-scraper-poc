@@ -1,0 +1,5593 @@
+================================================================================
+JSON 파싱 에러 로그
+시간: 2025-10-07T21:18:06.303407
+모델: gemini
+URL: https://global.ppeum.com/front/reservation?branchMap=global_kr
+에러: Expecting property name enclosed in double quotes: line 2788 column 58 (char 86860)
+================================================================================
+
+전체 응답 텍스트:
+----------------------------------------
+```json
+{
+  "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)",
+  "category": "리프팅/안티에이징",
+  "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+  "products": [
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [신규 런칭] 슈링크 유니버스 이중턱 리미티드 100샷",
+      "product_original_price": 80000,
+      "product_event_price": 45000,
+      "product_description": "이중턱 리미티드 100샷",
+      "treatments": [
+        {
+          "name": "슈링크 유니버스",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "이중턱 리미티드",
+          "duration": null,
+          "target_area": ["이중턱"],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [1회 한정가] 슈링크 유니버스 울트라 1000샷 *분할사용가능",
+      "product_original_price": 390000,
+      "product_event_price": 199000,
+      "product_description": "슈링크 유니버스 울트라 1000샷",
+      "treatments": [
+        {
+          "name": "슈링크 유니버스 울트라",
+          "dosage": 1000,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "분할사용가능",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [1회 한정가]볼뉴머 100샷 + 슈링크 유니버스 울트라 100샷 + 슈링크 쫀쫀밴드 1매",
+      "product_original_price": 195000,
+      "product_event_price": 99000,
+      "product_description": "볼뉴머 100샷 + 슈링크 유니버스 울트라 100샷 + 슈링크 쫀쫀밴드 1매",
+      "treatments": [
+        {
+          "name": "볼뉴머",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["볼뉴머"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "슈링크 유니버스 울트라",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "슈링크 쫀쫀밴드",
+          "dosage": 1,
+          "unit": "매",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [고주파로 탄력up] 볼뉴머 100샷",
+      "product_original_price": 150000,
+      "product_event_price": 99000,
+      "product_description": "볼뉴머 100샷",
+      "treatments": [
+        {
+          "name": "볼뉴머",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["볼뉴머"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 아이 볼뉴머 100샷",
+      "product_original_price": 170000,
+      "product_event_price": 99000,
+      "product_description": "아이 볼뉴머 100샷",
+      "treatments": [
+        {
+          "name": "아이 볼뉴머",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["볼뉴머"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [V라인 탄력 동안 패키지]슈링크 유니버스 울트라 300샷 + 슈링크 유니버스 부스터 300샷 + 오로라앰플 3cc",
+      "product_original_price": 324000,
+      "product_event_price": 169000,
+      "product_description": "슈링크 유니버스 울트라 300샷 + 슈링크 유니버스 부스터 300샷 + 오로라앰플 3cc",
+      "treatments": [
+        {
+          "name": "슈링크 유니버스 울트라",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+          "duration": null,
+          "target_area": ["V라인"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "슈링크 유니버스 부스터",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+          "duration": null,
+          "target_area": ["V라인"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "오로라앰플",
+          "dosage": 3,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["오로라앰플(GT38)"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [눈가 탄력 동안 패키지]슈링크 유니버스 아이리프팅 200샷 + 아이 볼뉴머 100샷 + 필로드 아이 1cc + 국산 눈가 주름보톡스",
+      "product_original_price": 529000,
+      "product_event_price": 299000,
+      "product_description": "슈링크 유니버스 아이리프팅 200샷 + 아이 볼뉴머 100샷 + 필로드 아이 1cc + 국산 눈가 주름보톡스",
+      "treatments": [
+        {
+          "name": "슈링크 유니버스 아이리프팅",
+          "dosage": 200,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "아이 볼뉴머",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["볼뉴머"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "필로드 아이",
+          "dosage": 1,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["필로드 아이"],
+          "treatment_type": "injection",
+          "description": "눈가 주름, 피부 탄력 개선이 가능한 눈가전용 스킨부스터",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["눈가 잔주름 개선", "피부 재생 효과", "피부 탄력 증진"],
+          "recovery_time": null
+        },
+        {
+          "name": "국산 눈가 주름보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["눈가 주름"],
+          "benefits": ["주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [프리미엄 탄력/콜라겐/피부재생 프리미엄 3종 패키지]티타늄 40KJ + 볼뉴머 300샷 + 얼굴 전체 필로드 4cc",
+      "product_original_price": 1910000,
+      "product_event_price": 990000,
+      "product_description": "티타늄 40KJ + 볼뉴머 300샷 + 얼굴 전체 필로드 4cc",
+      "treatments": [
+        {
+          "name": "티타늄 리프팅",
+          "dosage": 40,
+          "unit": "KJ",
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과, 티타늄! 다운타임 ZERO! 처진 피부 탄력/콜라겐 생성/불필요한 지방 감소/피부톤 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["탄력 개선", "콜라겐 생성", "지방 감소", "피부톤 개선"],
+          "recovery_time": "ZERO"
+        },
+        {
+          "name": "볼뉴머",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["볼뉴머"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "필로드",
+          "dosage": 4,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["필로드"],
+          "treatment_type": "injection",
+          "description": "친환경 연어과 어류에서 추출한 PN성분으로 피부 복원과 재생을 동시에",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 재생 효과", "피부 탄력 증진", "잔주름 개선", "피부결 개선", "모공 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [울트라 티타늄] 울트라인 300샷 + 티타늄 리프팅 40KJ",
+      "product_original_price": 1950000,
+      "product_event_price": 990000,
+      "product_description": "울트라인 300샷 + 티타늄 리프팅 40KJ",
+      "treatments": [
+        {
+          "name": "울트라인",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 깊은 층까지 에너지 전달하는 고강도 집속 초음파(HIFU) 정확하고 일정한 타겟팅으로 부담 없이 균일한 효과 콜라겐 재생으로 강력한 피부 탄력 및 리프팅 효과",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 탄력", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "티타늄 리프팅",
+          "dosage": 40,
+          "unit": "KJ",
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과, 티타늄! 다운타임 ZERO! 처진 피부 탄력/콜라겐 생성/불필요한 지방 감소/피부톤 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 탄력", "콜라겐 생성", "지방 감소", "피부톤 개선"],
+          "recovery_time": "ZERO"
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [앵콜/1차완판] 울트라인 100샷",
+      "product_original_price": 350000,
+      "product_event_price": 249000,
+      "product_description": "울트라인 100샷",
+      "treatments": [
+        {
+          "name": "울트라인",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 깊은 층까지 에너지 전달하는 고강도 집속 초음파(HIFU) 지방세포 감소와 윤곽 개선, 점진적인 탄력 콜라겐 재생으로 강력한 피부 탄력 및 리프팅 효과",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["지방세포 감소", "윤곽 개선", "탄력", "리프팅"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [눈가전용] 아이 울트라인 100샷 + 필로드 아이 1CC",
+      "product_original_price": 525000,
+      "product_event_price": 299000,
+      "product_description": "아이 울트라인 100샷 + 필로드 아이 1CC",
+      "treatments": [
+        {
+          "name": "아이 울트라인",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 깊은 층까지 에너지 전달하는 고강도 집속 초음파(HIFU)",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "필로드 아이",
+          "dosage": 1,
+          "unit": "CC",
+          "equipments": [],
+          "medications": ["필로드 아이"],
+          "treatment_type": "injection",
+          "description": "눈가 주름, 피부 탄력 개선이 가능한 눈가전용 스킨부스터",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["눈가 잔주름 개선", "피부 재생 효과", "피부 탄력 증진"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [바디전용] 울트라인 바디 100샷 *원하는 부위만 정밀하게 시술",
+      "product_original_price": 590000,
+      "product_event_price": 490000,
+      "product_description": "울트라인 바디 100샷",
+      "treatments": [
+        {
+          "name": "울트라인 바디",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "원하는 부위만 정밀하게 시술",
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [복부전용] 울트라인 복부 1부위 *상복부/하복부/옆구리 中 택 1",
+      "product_original_price": 350000,
+      "product_event_price": 249000,
+      "product_description": "울트라인 복부 1부위",
+      "treatments": [
+        {
+          "name": "울트라인 복부",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "상복부/하복부/옆구리 中 택 1",
+          "duration": null,
+          "target_area": ["복부"],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [울트라 바디 패키지] 바디온다 리프팅 60KJ + 울트라인 바디 300샷",
+      "product_original_price": 3020000,
+      "product_event_price": 1590000,
+      "product_description": "바디온다 리프팅 60KJ + 울트라인 바디 300샷",
+      "treatments": [
+        {
+          "name": "바디온다 리프팅",
+          "dosage": 60,
+          "unit": "KJ",
+          "equipments": ["바디온다"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "새로운 기술과 시술법인 최초 극초단파(Microwave) 를 이용한 신개념 리프팅&타이트닝 레이저 시술 후 즉각적이고, 시간이 지날수록 극대화 되는 시술효과 마취 필요 없을 정도로 통증 걱정없이 편안하게 받을 수 있는 리프팅 시술",
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": ["리프팅", "타이트닝"],
+          "recovery_time": null
+        },
+        {
+          "name": "울트라인 바디",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [이중턱까지 풀페이스] 슈링크 유니버스 이중턱 리미티드 200샷 + 울트라인 300샷",
+      "product_original_price": 1210000,
+      "product_event_price": 690000,
+      "product_description": "슈링크 유니버스 이중턱 리미티드 200샷 + 울트라인 300샷",
+      "treatments": [
+        {
+          "name": "슈링크 유니버스 이중턱 리미티드",
+          "dosage": 200,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": ["이중턱", "풀페이스"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "울트라인",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": ["풀페이스"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [추석 특가] 페이스 온다 리프팅 60KJ",
+      "product_original_price": 770000,
+      "product_event_price": 490000,
+      "product_description": "페이스 온다 리프팅 60KJ",
+      "treatments": [
+        {
+          "name": "페이스 온다 리프팅",
+          "dosage": 60,
+          "unit": "KJ",
+          "equipments": ["페이스 온다 리프팅"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "시술 후 즉각적이고, 시간이 지날수록 극대화 되는 효과",
+          "duration": null,
+          "target_area": ["얼굴"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [추석 특가] 튠페이스 40kj",
+      "product_original_price": 560000,
+      "product_event_price": 390000,
+      "product_description": "튠페이스 40kj",
+      "treatments": [
+        {
+          "name": "튠페이스",
+          "dosage": 40,
+          "unit": "kj",
+          "equipments": ["튠페이스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "40.68MHz 멀티 고주파로 콜라겐 재생과 생성 유도",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["콜라겐 재생", "콜라겐 생성"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [여드름 Basic] 큐페이셜 풀케어 + 포텐자레이저(팁포함) + 제네시스 레이저 + 수입 독일산 얼굴전체 스킨보톡스",
+      "product_original_price": 809000,
+      "product_event_price": 590000,
+      "product_description": "큐페이셜 풀케어 + 포텐자레이저(팁포함) + 제네시스 레이저 + 수입 독일산 얼굴전체 스킨보톡스",
+      "treatments": [
+        {
+          "name": "큐페이셜 풀케어",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["큐페이셜"],
+          "medications": [],
+          "treatment_type": "skincare",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        },
+        {
+          "name": "포텐자레이저",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["포텐자레이저"],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        },
+        {
+          "name": "제네시스 레이저",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["제네시스 레이저"],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "피부 속 콜라겐 섬유 재생을 촉진하여 표피의 손상없이 피부를 재생",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 재생"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 독일산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 주름과 탄력 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["주름 개선", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [리프팅 Signature] 페이스 온다 리프팅 60KJ + 튠라이너 2부위",
+      "product_original_price": 1090000,
+      "product_event_price": 590000,
+      "product_description": "페이스 온다 리프팅 60KJ + 튠라이너 2부위",
+      "treatments": [
+        {
+          "name": "페이스 온다 리프팅",
+          "dosage": 60,
+          "unit": "KJ",
+          "equipments": ["페이스 온다 리프팅"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "시술 후 즉각적이고, 시간이 지날수록 극대화 되는 효과",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["리프팅", "타이트닝"],
+          "recovery_time": null
+        },
+        {
+          "name": "튠라이너",
+          "dosage": 2,
+          "unit": "부위",
+          "equipments": ["튠라이너"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "3D 입체초음파로 지방세포 선택적 제거 지방 감소 및 불균형 얼굴 라인 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["지방 감소", "얼굴 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [1회 한정가] 수입 독일산 주름보톡스 1부위 *입꼬리 포함",
+      "product_original_price": 57000,
+      "product_event_price": 29000,
+      "product_description": "수입 독일산 주름보톡스 1부위",
+      "treatments": [
+        {
+          "name": "수입 독일산 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "입꼬리 포함",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [1회 한정가] 쥬비덤 1cc",
+      "product_original_price": 390000,
+      "product_event_price": 270000,
+      "product_description": "쥬비덤 1cc",
+      "treatments": [
+        {
+          "name": "쥬비덤",
+          "dosage": 1,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["쥬비덤"],
+          "treatment_type": "injection",
+          "description": "수입필러로 자연스럽고 생기있는 얼굴볼륨",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["볼륨", "생기"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [퀵리프팅] 민트실 6줄 + 수입 독일산 얼굴전체 스킨보톡스",
+      "product_original_price": 730000,
+      "product_event_price": 499000,
+      "product_description": "민트실 6줄 + 수입 독일산 얼굴전체 스킨보톡스",
+      "treatments": [
+        {
+          "name": "민트실",
+          "dosage": 6,
+          "unit": "줄",
+          "equipments": ["민트실"],
+          "medications": [],
+          "treatment_type": "surgical",
+          "description": "FDA, KFDA 동시 승인을 받은 4세대 실리프팅 민트실 몰딩형 최소 침습 안면 조직 고정용 3D돌기, 녹는실, 고정력과 유지력 우수",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["리프팅", "고정력", "유지력"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 독일산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 피부 타이트닝, 주름, 모공 축소 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 타이트닝", "주름 개선", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [빠르고 쉽게] 목주름 티타늄 20kj + 목주름 벨로테로 필러 1cc + 목주름 지우개주사",
+      "product_original_price": 930000,
+      "product_event_price": 479000,
+      "product_description": "목주름 티타늄 20kj + 목주름 벨로테로 필러 1cc + 목주름 지우개주사",
+      "treatments": [
+        {
+          "name": "티타늄 리프팅",
+          "dosage": 20,
+          "unit": "kj",
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": ["목주름"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "벨로테로 필러",
+          "dosage": 1,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["벨로테로 필러"],
+          "treatment_type": "injection",
+          "description": "20대부터 시작되는 목주름 노화 고민, 일자로 깊게 파인 목주름 개선 안티에이징",
+          "duration": null,
+          "target_area": ["목주름"],
+          "benefits": ["목주름 개선", "안티에이징"],
+          "recovery_time": null
+        },
+        {
+          "name": "목주름 지우개주사",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": "20대부터 시작되는 목주름 노화 고민, 일자로 깊게 파인 목주름 개선 안티에이징",
+          "duration": null,
+          "target_area": ["목주름"],
+          "benefits": ["목주름 개선", "안티에이징"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [투명 톤업] 트리플토닝 1회",
+      "product_original_price": 290000,
+      "product_event_price": 149000,
+      "product_description": "트리플토닝 1회",
+      "treatments": [
+        {
+          "name": "트리플토닝",
+          "dosage": 1,
+          "unit": "회",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "단순한 한가지 토닝이 아닌 색소치료에 필요한 3가지 파장의 레이저를 이용한 프리미엄 트리플토닝",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["색소 치료", "톤업"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [화이트닝 패키지] 플라필 + 피코토닝 1회",
+      "product_original_price": 129000,
+      "product_event_price": 69000,
+      "product_description": "플라필 + 피코토닝 1회",
+      "treatments": [
+        {
+          "name": "플라필",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["플라필"],
+          "treatment_type": "skincare",
+          "description": "PHA, LHA, Pt백금 3가지 핵심성분과 특허성분이 조합된 피부솔루션 극예민 피부 진정, 악건성 피부 각질 제거 피지과다, 모공, 여드름 개선 및 노폐물 제거 피부 재생력 강화, 피부결, 보습, 컨디션, 미백개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["진정", "각질 제거", "피지 제거", "모공 개선", "여드름 개선", "피부 재생", "피부결 개선", "보습", "미백"],
+          "recovery_time": null
+        },
+        {
+          "name": "피코토닝",
+          "dosage": 1,
+          "unit": "회",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "피코초 단위로 순간 레이저파워를 이용하여 집중적으로 원하는 타겟 색소만 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["색소 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [모공쫀쫀템] 실펌레이저(팁 미포함) + 촉촉팩",
+      "product_original_price": 195000,
+      "product_event_price": 99000,
+      "product_description": "실펌레이저(팁 미포함) + 촉촉팩",
+      "treatments": [
+        {
+          "name": "실펌레이저",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["실펌X 레이저"],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "피부 속 진피층의 이상혈관을 선택적으로 정확하게 타겟하여 기미,홍조,모공 등 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["기미 개선", "홍조 개선", "모공 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "촉촉팩",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "skincare",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [저자극 보습] 워터풀케어 + 촉촉팩",
+      "product_original_price": 50000,
+      "product_event_price": 29000,
+      "product_description": "워터풀케어 + 촉촉팩",
+      "treatments": [
+        {
+          "name": "워터풀케어",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "skincare",
+          "description": "건조한 피부 속 수분 보충관리",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["수분 보충"],
+          "recovery_time": null
+        },
+        {
+          "name": "촉촉팩",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "skincare",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [타임리턴] 고농도 줄기세포 유도 인자 180cc (정맥주사+스킨부스터) + 티타늄 리프팅 40kj",
+      "product_original_price": 3700000,
+      "product_event_price": 1890000,
+      "product_description": "고농도 줄기세포 유도 인자 180cc (정맥주사+스킨부스터) + 티타늄 리프팅 40kj",
+      "treatments": [
+        {
+          "name": "고농도 줄기세포 유도 인자",
+          "dosage": 180,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["줄기세포 유도 인자"],
+          "treatment_type": "injection",
+          "description": "항노화 효과, 면역력 증가, 피부 문제 동시 개선 및 재생능력 강화",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["항노화", "면역력 증가", "피부 문제 개선", "재생 능력 강화"],
+          "recovery_time": null
+        },
+        {
+          "name": "티타늄 리프팅",
+          "dosage": 40,
+          "unit": "kj",
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과, 티타늄! 다운타임 ZERO! 처진 피부 탄력/콜라겐 생성/불필요한 지방 감소/피부톤 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 탄력", "콜라겐 생성", "지방 감소", "피부톤 개선"],
+          "recovery_time": "ZERO"
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [재생/탄력개선] 풀페이스 셀르디엠 1vial",
+      "product_original_price": 1160000,
+      "product_event_price": 590000,
+      "product_description": "풀페이스 셀르디엠 1vial",
+      "treatments": [
+        {
+          "name": "셀르디엠",
+          "dosage": 1,
+          "unit": "vial",
+          "equipments": [],
+          "medications": ["셀르디엠"],
+          "treatment_type": "injection",
+          "description": "ECM 성분으로 피부 구조를 재현한 ADM 스킨부스터 자연스러운 미세 입자 흡수로 탄력·주름·보습 개선 #20년 노하우 #검증된 안전성 #FDA인증",
+          "duration": null,
+          "target_area": ["풀페이스"],
+          "benefits": ["탄력 개선", "주름 개선", "보습 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [장벽강화] 리쥬란힐러 2cc",
+      "product_original_price": 270000,
+      "product_event_price": 179000,
+      "product_description": "리쥬란힐러 2cc",
+      "treatments": [
+        {
+          "name": "리쥬란힐러",
+          "dosage": 2,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["리쥬란힐러"],
+          "treatment_type": "injection",
+          "description": "피부의 DNA를 근본부터 재구성하여 진피 조직 재생효과와 탄력 회복을 동시에",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 장벽 강화", "진피 조직 재생", "탄력 회복"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [수분광채] 릴리이드 히알루론산 주사 5cc",
+      "product_original_price": 195000,
+      "product_event_price": 99000,
+      "product_description": "릴리이드 히알루론산 주사 5cc",
+      "treatments": [
+        {
+          "name": "릴리이드 히알루론산 주사",
+          "dosage": 5,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["히알루론산"],
+          "treatment_type": "injection",
+          "description": "고용량 프리미엄 히알루론산(HA) 하이엔드 히알루론산 스킨부스터 피부재생/수분 장벽 구축/진피층 콜라겐 증가/유수분 밸러스 유지 피부 표면과 속까지 촉촉하고 탄탄하게 잡아주어 주름/탄력/흉터 개선 효과 기대",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["수분 광채", "피부 재생", "수분 장벽 구축", "콜라겐 증가", "유수분 밸런스 유지", "주름 개선", "탄력 개선", "흉터 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [모공/피부결개선] 쥬베룩 스킨부스터 2cc (부분/눈밑제외)",
+      "product_original_price": 250000,
+      "product_event_price": 149000,
+      "product_description": "쥬베룩 스킨부스터 2cc",
+      "treatments": [
+        {
+          "name": "쥬베룩 스킨부스터",
+          "dosage": 2,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["쥬베룩"],
+          "treatment_type": "injection",
+          "description": "고분자 PLA와 인체 피부 조직에 존재하는 HA(히알루론산) 성분을 결합시킨 자가조직재생 콜라겐 부스터 자연스러운 볼륨/피부 탄력/잔주름/피부 결 개선",
+          "duration": null,
+          "target_area": ["부분/눈밑제외"],
+          "benefits": ["모공 개선", "피부결 개선", "볼륨", "피부 탄력", "잔주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [좁은부위까지 확실하게] SS주사 10cc",
+      "product_original_price": 39000,
+      "product_event_price": 25000,
+      "product_description": "SS주사 10cc",
+      "treatments": [
+        {
+          "name": "SS주사",
+          "dosage": 10,
+          "unit": "cc",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["좁은부위"],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [슬림톡스] 국산 바디보톡스 100U *부위 : 승모근/민소매/종아리/앞허벅지",
+      "product_original_price": 77000,
+      "product_event_price": 49000,
+      "product_description": "국산 바디보톡스 100U",
+      "treatments": [
+        {
+          "name": "국산 바디보톡스",
+          "dosage": 100,
+          "unit": "U",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "부위 : 승모근/민소매/종아리/앞허벅지",
+          "duration": null,
+          "target_area": ["승모근", "민소매", "종아리", "앞허벅지"],
+          "benefits": ["바디 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [피부톤 회복] 착색토닝 1회 한정가 *부위: 겨드랑이/팔꿈치/복숭아뼈/무릎 中 택 1",
+      "product_original_price": 19500,
+      "product_event_price": 9900,
+      "product_description": "착색토닝 1회",
+      "treatments": [
+        {
+          "name": "착색토닝",
+          "dosage": 1,
+          "unit": "회",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "부위: 겨드랑이/팔꿈치/복숭아뼈/무릎 中 택 1",
+          "duration": null,
+          "target_area": ["겨드랑이", "팔꿈치", "복숭아뼈", "무릎"],
+          "benefits": ["피부톤 회복", "착색 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [바이탈업] 바이탈샷 패키지",
+      "product_original_price": 90000,
+      "product_event_price": 45900,
+      "product_description": "바이탈샷 패키지",
+      "treatments": [
+        {
+          "name": "바이탈샷",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 국산 주름보톡스 1부위 *입꼬리 제외",
+      "product_original_price": 9900,
+      "product_event_price": 5000,
+      "product_description": "국산 주름보톡스 1부위",
+      "treatments": [
+        {
+          "name": "국산 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "입꼬리 제외",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 인모드 FX 얼굴전체",
+      "product_original_price": 115000,
+      "product_event_price": 59000,
+      "product_description": "인모드 FX 얼굴전체",
+      "treatments": [
+        {
+          "name": "인모드 FX",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["인모드"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["지방 제거", "콜라겐 재생", "얼굴 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 국산 바디보톡스 100u *종아리/승모근 中 택 1",
+      "product_original_price": 57000,
+      "product_event_price": 29000,
+      "product_description": "국산 바디보톡스 100u",
+      "treatments": [
+        {
+          "name": "국산 바디보톡스",
+          "dosage": 100,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "종아리/승모근 中 택 1",
+          "duration": null,
+          "target_area": ["종아리", "승모근"],
+          "benefits": ["바디 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 바디온다 10kj",
+      "product_original_price": 150000,
+      "product_event_price": 79000,
+      "product_description": "바디온다 10kj",
+      "treatments": [
+        {
+          "name": "바디온다 리프팅",
+          "dosage": 10,
+          "unit": "kj",
+          "equipments": ["바디온다"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "새로운 기술과 시술법인 최초 극초단파(Microwave) 를 이용한 신개념 리프팅&타이트닝 레이저 시술 후 즉각적이고, 시간이 지날수록 극대화 되는 시술효과 마취 필요 없을 정도로 통증 걱정없이 편안하게 받을 수 있는 리프팅 시술",
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": ["리프팅", "타이트닝"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] SS주사 10cc",
+      "product_original_price": 19500,
+      "product_event_price": 9900,
+      "product_description": "SS주사 10cc",
+      "treatments": [
+        {
+          "name": "SS주사",
+          "dosage": 10,
+          "unit": "cc",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 피코토닝 1회 (팩 미포함)",
+      "product_original_price": 19500,
+      "product_event_price": 9900,
+      "product_description": "피코토닝 1회",
+      "treatments": [
+        {
+          "name": "피코토닝",
+          "dosage": 1,
+          "unit": "회",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "피코초 단위로 순간 레이저파워를 이용하여 집중적으로 원하는 타겟 색소만 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["색소 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 히알루론산주사 1CC",
+      "product_original_price": 19500,
+      "product_event_price": 9900,
+      "product_description": "히알루론산주사 1CC",
+      "treatments": [
+        {
+          "name": "히알루론산주사",
+          "dosage": 1,
+          "unit": "CC",
+          "equipments": [],
+          "medications": ["히알루론산"],
+          "treatment_type": "injection",
+          "description": "히알루론산 성분 주입으로 칙칙하고 푸석한 피부에 즉각적인 수분보충과 피부톤, 탄력개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["수분 보충", "피부톤 개선", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 국산 눈밑 스킨보톡스",
+      "product_original_price": 57000,
+      "product_event_price": 29000,
+      "product_description": "국산 눈밑 스킨보톡스",
+      "treatments": [
+        {
+          "name": "국산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["눈밑"],
+          "benefits": ["주름 개선", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 점제거 1개 (2mm이하)",
+      "product_original_price": 1950,
+      "product_event_price": 990,
+      "product_description": "점제거 1개 (2mm이하)",
+      "treatments": [
+        {
+          "name": "점제거",
+          "dosage": 1,
+          "unit": "개",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "surgical",
+          "description": "최대 10개까지 가능",
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 국산 입술 필러 패키지(입술+입꼬리)",
+      "product_original_price": 97000,
+      "product_event_price": 49000,
+      "product_description": "국산 입술 필러 패키지(입술+입꼬리)",
+      "treatments": [
+        {
+          "name": "국산 입술 필러",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["필러"],
+          "treatment_type": "injection",
+          "description": "자연스러운 입술라인으로 개선",
+          "duration": null,
+          "target_area": ["입술", "입꼬리"],
+          "benefits": ["입술 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "화/수/목 골든티켓",
+      "product_original_price": null,
+      "product_event_price": 50000,
+      "product_description": "5만원 골든티켓 발급! *50만원 이상 결제 시 *현장에서 즉시 사용 가능",
+      "treatments": []
+    },
+    {
+      "product_name": "New 원데이 패키지 [톤업 올인원]포텐자 기미모드(팁포함)+트리플토닝+플라필+연어주사2CC+큐페이셜 LDM모드 6분",
+      "product_original_price": 930000,
+      "product_event_price": 550000,
+      "product_description": "포텐자 기미모드(팁포함)+트리플토닝+플라필+연어주사2CC+큐페이셜 LDM모드 6분",
+      "treatments": [
+        {
+          "name": "포텐자 기미모드",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["포텐자레이저"],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": ["기미 개선", "톤업"],
+          "recovery_time": null
+        },
+        {
+          "name": "트리플토닝",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "단순한 한가지 토닝이 아닌 색소치료에 필요한 3가지 파장의 레이저를 이용한 프리미엄 트리플토닝",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["색소 치료", "톤업"],
+          "recovery_time": null
+        },
+        {
+          "name": "플라필",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["플라필"],
+          "treatment_type": "skincare",
+          "description": "PHA, LHA, Pt백금 3가지 핵심성분과 특허성분이 조합된 피부솔루션 극예민 피부 진정, 악건성 피부 각질 제거 피지과다, 모공, 여드름 개선 및 노폐물 제거 피부 재생력 강화, 피부결, 보습, 컨디션, 미백개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["진정", "각질 제거", "피지 제거", "모공 개선", "여드름 개선", "피부 재생", "피부결 개선", "보습", "미백"],
+          "recovery_time": null
+        },
+        {
+          "name": "연어주사",
+          "dosage": 2,
+          "unit": "CC",
+          "equipments": [],
+          "medications": ["연어주사(PDRN)"],
+          "treatment_type": "injection",
+          "description": "연어에서 추출한 PDRN 성분을 이용한 피부재생 시술",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 재생"],
+          "recovery_time": null
+        },
+        {
+          "name": "큐페이셜 LDM모드",
+          "dosage": 6,
+          "unit": "분",
+          "equipments": ["큐페이셜"],
+          "medications": [],
+          "treatment_type": "skincare",
+          "description": "프리미엄 피부 관리 장비로 고밀도 초음파 에너지를 통해 피부 속 콜라겐 생성을 촉진 수분 밸런스를 조절하여 건강하고 탄력있는 피부로 개선",
+          "duration": 6,
+          "target_area": [],
+          "benefits": ["콜라겐 생성", "수분 밸런스 조절", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [울써마지 올인원 #1]울쎄라 프라임600샷 + 써마지600샷 + 수입 턱라인 스킨보톡스",
+      "product_original_price": 7350000,
+      "product_event_price": 3790000,
+      "product_description": "울쎄라 프라임600샷 + 써마지600샷 + 수입 턱라인 스킨보톡스",
+      "treatments": [
+        {
+          "name": "울쎄라 프라임",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["울쎄라"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "16년만의 업그레이드된 2세대 울쎄라 프라임으로 더욱 강력해진 탄력 효과와 정밀해진 DEEP SEE 기술",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["탄력 개선", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "써마지 FLX",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["써마지 FLX"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "고주파 에너지로 피부 콜라겐 활성화와 재생성을 촉진 및 무너지지 않는 피부 탄력층을 형성",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["콜라겐 활성화", "콜라겐 재생", "피부 탄력"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 턱라인 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [울써마지 올인원 #2]울쎄라 프라임600샷 + 써마지600샷 + 수입 턱라인 스킨보톡스 + 리쥬란2cc + 쥬베룩4cc(더마샤인 팁포함)",
+      "product_original_price": 6500000,
+      "product_event_price": 4490000,
+      "product_description": "울쎄라 프라임600샷 + 써마지600샷 + 수입 턱라인 스킨보톡스 + 리쥬란2cc + 쥬베룩4cc(더마샤인 팁포함)",
+      "treatments": [
+        {
+          "name": "울쎄라 프라임",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["울쎄라"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "16년만의 업그레이드된 2세대 울쎄라 프라임으로 더욱 강력해진 탄력 효과와 정밀해진 DEEP SEE 기술",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["탄력 개선", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "써마지 FLX",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["써마지 FLX"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "고주파 에너지로 피부 콜라겐 활성화와 재생성을 촉진 및 무너지지 않는 피부 탄력층을 형성",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["콜라겐 활성화", "콜라겐 재생", "피부 탄력"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 턱라인 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "리쥬란힐러",
+          "dosage": 2,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["리쥬란힐러"],
+          "treatment_type": "injection",
+          "description": "피부의 DNA를 근본부터 재구성하여 진피 조직 재생효과와 탄력 회복을 동시에",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 장벽 강화", "진피 조직 재생", "탄력 회복"],
+          "recovery_time": null
+        },
+        {
+          "name": "쥬베룩 스킨부스터",
+          "dosage": 4,
+          "unit": "cc",
+          "equipments": ["더마샤인 팁포함"],
+          "medications": ["쥬베룩"],
+          "treatment_type": "injection",
+          "description": "고분자 PLA와 인체 피부 조직에 존재하는 HA(히알루론산) 성분을 결합시킨 자가조직재생 콜라겐 부스터 자연스러운 볼륨/피부 탄력/잔주름/피부 결 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["볼륨", "피부 탄력", "잔주름 개선", "피부 결 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [티타늄 올인원] 티타늄 얼굴전체 고강도 리프팅 + 인모드 얼굴전체 1가지모드(Fx or FORMA) + 수입 턱라인 스킨보톡스",
+      "product_original_price": 1850000,
+      "product_event_price": 1190000,
+      "product_description": "티타늄 얼굴전체 고강도 리프팅 + 인모드 얼굴전체 1가지모드(Fx or FORMA) + 수입 턱라인 스킨보톡스",
+      "treatments": [
+        {
+          "name": "티타늄 리프팅",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과, 티타늄! 다운타임 ZERO! 처진 피부 탄력/콜라겐 생성/불필요한 지방 감소/피부톤 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["리프팅", "탄력", "콜라겐 생성", "지방 감소", "피부톤 개선"],
+          "recovery_time": "ZERO"
+        },
+        {
+          "name": "인모드",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["인모드"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "얼굴전체 1가지모드(Fx or FORMA)",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["지방 제거", "콜라겐 재생", "얼굴 라인 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 턱라인 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [울써티 올인원]울쎄라 프라임 300샷 + 써마지600샷 + 티타늄 얼굴전체 + 수입 턱라인 스킨보톡스 + 리쥬란2cc+쥬베룩2cc",
+      "product_original_price": 8590000,
+      "product_event_price": 4390000,
+      "product_description": "울쎄라 프라임 300샷 + 써마지600샷 + 티타늄 얼굴전체 + 수입 턱라인 스킨보톡스 + 리쥬란2cc+쥬베룩2cc",
+      "treatments": [
+        {
+          "name": "울쎄라 프라임",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["울쎄라"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "16년만의 업그레이드된 2세대 울쎄라 프라임으로 더욱 강력해진 탄력 효과와 정밀해진 DEEP SEE 기술",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["탄력 개선", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "써마지 FLX",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["써마지 FLX"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "고주파 에너지로 피부 콜라겐 활성화와 재생성을 촉진 및 무너지지 않는 피부 탄력층을 형성",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["콜라겐 활성화", "콜라겐 재생", "피부 탄력"],
+          "recovery_time": null
+        },
+        {
+          "name": "티타늄 리프팅",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과, 티타늄! 다운타임 ZERO! 처진 피부 탄력/콜라겐 생성/불필요한 지방 감소/피부톤 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["리프팅", "탄력", "콜라겐 생성", "지방 감소", "피부톤 개선"],
+          "recovery_time": "ZERO"
+        },
+        {
+          "name": "수입 턱라인 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "리쥬란힐러",
+          "dosage": 2,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["리쥬란힐러"],
+          "treatment_type": "injection",
+          "description": "피부의 DNA를 근본부터 재구성하여 진피 조직 재생효과와 탄력 회복을 동시에",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 장벽 강화", "진피 조직 재생", "탄력 회복"],
+          "recovery_time": null
+        },
+        {
+          "name": "쥬베룩 스킨부스터",
+          "dosage": 2,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["쥬베룩"],
+          "treatment_type": "injection",
+          "description": "고분자 PLA와 인체 피부 조직에 존재하는 HA(히알루론산) 성분을 결합시킨 자가조직재생 콜라겐 부스터 자연스러운 볼륨/피부 탄력/잔주름/피부 결 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["볼륨", "피부 탄력", "잔주름 개선", "피부 결 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [바디 올인원 베이직(1 부위)]바디 인모드 FX (10분) + 바디 울쎄라 프라임 300샷 + 수입 바디 보톡스 100U + 바디 조각주사(보톡스 성분 포함) 1부위 + SS주사 100cc (1부위)",
+      "product_original_price": 3680000,
+      "product_event_price": 2490000,
+      "product_description": "바디 인모드 FX (10분) + 바디 울쎄라 프라임 300샷 + 수입 바디 보톡스 100U + 바디 조각주사(보톡스 성분 포함) 1부위 + SS주사 100cc (1부위)",
+      "treatments": [
+        {
+          "name": "바디 인모드 FX",
+          "dosage": 10,
+          "unit": "분",
+          "equipments": ["인모드"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "원하는 부위 지방세포 사멸 & 탄력있는 바디리프팅",
+          "duration": 10,
+          "target_area": ["바디 (1부위)"],
+          "benefits": ["지방세포 사멸", "바디 리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "바디 울쎄라 프라임",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["울쎄라"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "바디 전용 초음파 리프팅 레이저로 팔뚝, 복부, 허벅지, 종아리 지방 분해 및 콜라겐 형성",
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": ["지방 분해", "콜라겐 형성", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 바디 보톡스",
+          "dosage": 100,
+          "unit": "U",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["바디 (1부위)"],
+          "benefits": ["바디 라인 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "바디 조각주사",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스 성분 포함"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["바디 (1부위)"],
+          "benefits": [],
+          "recovery_time": null
+        },
+        {
+          "name": "SS주사",
+          "dosage": 100,
+          "unit": "cc",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": "삼투압 원리를 이용해 지방세포수를 감소시켜 바디 사이즈 감소 개선",
+          "duration": null,
+          "target_area": ["바디 (1부위)"],
+          "benefits": ["바디 사이즈 감소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [바디 올인원 프리미엄(2 부위)]바디 인모드 Fx (20분) + 바디 울쎄라 프라임 600샷 + 수입 바디 보톡스 200U + 바디 조각주사(보톡스 성분 포함) 2부위 + SS주사 200cc (2부위) + 슬림컷 300cc (2부위)",
+      "product_original_price": 7490000,
+      "product_event_price": 4890000,
+      "product_description": "바디 인모드 Fx (20분) + 바디 울쎄라 프라임 600샷 + 수입 바디 보톡스 200U + 바디 조각주사(보톡스 성분 포함) 2부위 + SS주사 200cc (2부위) + 슬림컷 300cc (2부위)",
+      "treatments": [
+        {
+          "name": "바디 인모드 Fx",
+          "dosage": 20,
+          "unit": "분",
+          "equipments": ["인모드"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "원하는 부위 지방세포 사멸 & 탄력있는 바디리프팅",
+          "duration": 20,
+          "target_area": ["바디 (2부위)"],
+          "benefits": ["지방세포 사멸", "바디 리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "바디 울쎄라 프라임",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["울쎄라"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "바디 전용 초음파 리프팅 레이저로 팔뚝, 복부, 허벅지, 종아리 지방 분해 및 콜라겐 형성",
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": ["지방 분해", "콜라겐 형성", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 바디 보톡스",
+          "dosage": 200,
+          "unit": "U",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["바디 (2부위)"],
+          "benefits": ["바디 라인 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "바디 조각주사",
+          "dosage": 2,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스 성분 포함"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["바디 (2부위)"],
+          "benefits": [],
+          "recovery_time": null
+        },
+        {
+          "name": "SS주사",
+          "dosage": 200,
+          "unit": "cc",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": "삼투압 원리를 이용해 지방세포수를 감소시켜 바디 사이즈 감소 개선",
+          "duration": null,
+          "target_area": ["바디 (2부위)"],
+          "benefits": ["바디 사이즈 감소"],
+          "recovery_time": null
+        },
+        {
+          "name": "슬림컷주사",
+          "dosage": 300,
+          "unit": "cc",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": "스테로이드NO, 피부 속 깊은 지방층에 침투하여 지방을 제거하는 바디시술",
+          "duration": null,
+          "target_area": ["바디 (2부위)"],
+          "benefits": ["지방 제거"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 턱보톡스 50u",
+      "product_original_price": null,
+      "product_event_price": 19000,
+      "product_description": "발달된 근육 축소로 페이스 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 턱보톡스",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "발달된 근육 축소로 페이스 라인 개선",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["페이스 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 주름보톡스 1부위",
+      "product_original_price": null,
+      "product_event_price": 19000,
+      "product_description": "부위 : 미간/눈가/눈밑/콧잔등/자갈턱/콧볼/이마",
+      "treatments": [
+        {
+          "name": "국산 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "부위 : 미간/눈가/눈밑/콧잔등/자갈턱/콧볼/이마",
+          "duration": null,
+          "target_area": ["미간", "눈가", "눈밑", "콧잔등", "자갈턱", "콧볼", "이마"],
+          "benefits": ["주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 입꼬리보톡스",
+      "product_original_price": null,
+      "product_event_price": 30000,
+      "product_description": "입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 입꼬리보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 인중축소 보톡스",
+      "product_original_price": 50000,
+      "product_event_price": 30000,
+      "product_description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+      "treatments": [
+        {
+          "name": "국산 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["중안부 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 스킨보톡스 1부위 (턱라인/나비존/이마)",
+      "product_original_price": null,
+      "product_event_price": 57000,
+      "product_description": "간편하고 자연스럽게 턱라인 탄력 개선",
+      "treatments": [
+        {
+          "name": "국산 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인", "나비존", "이마"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 얼굴 전체 스킨보톡스",
+      "product_original_price": null,
+      "product_event_price": 110000,
+      "product_description": "간편하고 자연스럽게 주름과 탄력 개선",
+      "treatments": [
+        {
+          "name": "국산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 주름과 탄력 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["주름 개선", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 침샘보톡스 (턱밑샘/귀밑샘)",
+      "product_original_price": null,
+      "product_event_price": 70000,
+      "product_description": "턱밑샘/귀밑샘",
+      "treatments": [
+        {
+          "name": "국산 침샘보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "턱밑샘/귀밑샘",
+          "duration": null,
+          "target_area": ["턱밑샘", "귀밑샘"],
+          "benefits": ["침샘 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 특수부위 보톡스 턱관절/잇몸노출/측두근",
+      "product_original_price": null,
+      "product_event_price": 100000,
+      "product_description": "턱관절/잇몸노출/측두근",
+      "treatments": [
+        {
+          "name": "국산 특수부위 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "턱관절/잇몸노출/측두근",
+          "duration": null,
+          "target_area": ["턱관절", "잇몸노출", "측두근"],
+          "benefits": ["근육 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 턱보톡스 50U",
+      "product_original_price": 100000,
+      "product_event_price": 55000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 발달된 턱 근육 축소하여 턱 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 턱보톡스",
+          "dosage": 50,
+          "unit": "U",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 발달된 턱 근육 축소하여 턱 라인 개선",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["턱 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 주름보톡스 1부위",
+      "product_original_price": 45000,
+      "product_event_price": 34000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자글 자글한 얼굴 잔주름 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자글 자글한 얼굴 잔주름 개선",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["잔주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 입꼬리 보톡스",
+      "product_original_price": 80000,
+      "product_event_price": 59000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 입꼬리 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 인중축소 보톡스",
+      "product_original_price": 80000,
+      "product_event_price": 59000,
+      "product_description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["중안부 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 스킨보톡스 1부위",
+      "product_original_price": 100000,
+      "product_event_price": 89000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자연스럽게 피부 타이트닝, 주름, 모공 축소 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자연스럽게 피부 타이트닝, 주름, 모공 축소 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 타이트닝", "주름 개선", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 얼굴 전체 스킨보톡스",
+      "product_original_price": 160000,
+      "product_event_price": 145000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자연스럽게 피부 타이트닝, 주름, 모공 축소 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자연스럽게 피부 타이트닝, 주름, 모공 축소 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 타이트닝", "주름 개선", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 침샘보톡스",
+      "product_original_price": 120000,
+      "product_event_price": 89000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 과도한 침분비를 억제하여 침샘의 크기 축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 침샘보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 과도한 침분비를 억제하여 침샘의 크기 축소",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["침샘 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 특수부위보톡스",
+      "product_original_price": null,
+      "product_event_price": 150000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 과도하게 발달한 근육을 억제하여 고민부위의 근육의 크기 축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 특수부위보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 과도하게 발달한 근육을 억제하여 고민부위의 근육의 크기 축소",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["근육 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 턱보톡스 50u",
+      "product_original_price": 110000,
+      "product_event_price": 79000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #턱근육 축소 #턱 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 턱보톡스",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #턱근육 축소 #턱 라인 개선",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["턱근육 축소", "턱 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 주름보톡스 1부위",
+      "product_original_price": 55000,
+      "product_event_price": 45000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #잔주름 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #잔주름 개선",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["잔주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 입꼬리보톡스",
+      "product_original_price": null,
+      "product_event_price": 80000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #자연스러운 입매 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 입꼬리보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #자연스러운 입매 라인 개선",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 인중축소 보톡스",
+      "product_original_price": null,
+      "product_event_price": 80000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #길어진 인중 길이 교정",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #길어진 인중 길이 교정",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["인중 길이 교정"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스 1부위",
+      "product_original_price": null,
+      "product_event_price": 100000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 타이트닝", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 얼굴전체 스킨보톡스",
+      "product_original_price": null,
+      "product_event_price": 190000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 타이트닝", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 침샘 보톡스",
+      "product_original_price": null,
+      "product_event_price": 130000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 침샘 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["침샘 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 특수부위 보톡스",
+      "product_original_price": null,
+      "product_event_price": 160000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 특수부위 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+          "duration": null,
+          "target_area": ["턱관절", "잇몸노출", "측두근"],
+          "benefits": ["근육 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 턱보톡스 50u",
+      "product_original_price": 110000,
+      "product_event_price": 79000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #턱근육 축소 #턱 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 턱보톡스",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #턱근육 축소 #턱 라인 개선",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["턱근육 축소", "턱 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 주름보톡스 1부위",
+      "product_original_price": 55000,
+      "product_event_price": 45000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #잔주름 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #잔주름 개선",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["잔주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 입꼬리보톡스",
+      "product_original_price": null,
+      "product_event_price": 80000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #자연스러운 입매 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 입꼬리보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #자연스러운 입매 라인 개선",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 인중축소 보톡스",
+      "product_original_price": null,
+      "product_event_price": 80000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #길어진 인중 길이 교정",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #길어진 인중 길이 교정",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["인중 길이 교정"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스 1부위",
+      "product_original_price": null,
+      "product_event_price": 100000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 타이트닝", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 얼굴전체 스킨보톡스",
+      "product_original_price": null,
+      "product_event_price": 190000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 타이트닝", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 침샘 보톡스",
+      "product_original_price": null,
+      "product_event_price": 130000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 침샘 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["침샘 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 특수부위 보톡스",
+      "product_original_price": null,
+      "product_event_price": 160000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 특수부위 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+          "duration": null,
+          "target_area": ["턱관절", "잇몸노출", "측두근"],
+          "benefits": ["근육 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 바디보톡스 100u",
+      "product_original_price": null,
+      "product_event_price": 180000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 부위 : 승모근/민소매/종아리/허벅지",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 바디보톡스",
+          "dosage": 100,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 부위 : 승모근/민소매/종아리/허벅지",
+          "duration": null,
+          "target_area": ["승모근", "민소매", "종아리", "허벅지"],
+          "benefits": ["바디 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 겨드랑이 다한증 50u",
+      "product_original_price": null,
+      "product_event_price": 140000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #땀억제효과",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 겨드랑이 다한증",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #땀억제효과",
+          "duration": null,
+          "target_area": ["겨드랑이"],
+          "benefits": ["땀 억제"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 턱보톡스 50u",
+      "product_original_price": 120000,
+      "product_event_price": 99000,
+      "product_description": "내성 걱정 없는 독일산 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 독일산 턱보톡스",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 독일산 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["턱 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 주름보톡스 1부위",
+      "product_original_price": 60000,
+      "product_event_price": 49000,
+      "product_description": "부위 : 미간/눈가/눈밑/콧잔등/자갈턱/콧볼/이마 내성적은 독일산 수입 보톡스로 잔주름 개선",
+      "treatments": [
+        {
+          "name": "수입 독일산 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "부위 : 미간/눈가/눈밑/콧잔등/자갈턱/콧볼/이마 내성적은 독일산 수입 보톡스로 잔주름 개선",
+          "duration": null,
+          "target_area": ["미간", "눈가", "눈밑", "콧잔등", "자갈턱", "콧볼", "이마"],
+          "benefits": ["잔주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 입꼬리 보톡스",
+      "product_original_price": null,
+      "product_event_price": 90000,
+      "product_description": "입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선 내성적은 독일산 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 독일산 입꼬리 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선 내성적은 독일산 수입 보톡스",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 인중축소 보톡스",
+      "product_original_price": null,
+      "product_event_price": 100000,
+      "product_description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+      "treatments": [
+        {
+          "name": "수입 독일산 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["중안부 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 스킨보톡스 1부위 (턱라인/나비존/이마)",
+      "product_original_price": null,
+      "product_event_price": 120000,
+      "product_description": "간편하고 자연스럽게 턱라인 탄력 개선",
+      "treatments": [
+        {
+          "name": "수입 독일산 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인", "나비존", "이마"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 얼굴전체 스킨보톡스",
+      "product_original_price": null,
+      "product_event_price": 190000,
+      "product_description": "간편하고 자연스럽게 주름과 탄력 개선",
+      "treatments": [
+        {
+          "name": "수입 독일산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 주름과 탄력 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["주름 개선", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 침샘보톡스 (턱밑샘/귀밑샘)",
+      "product_original_price": null,
+      "product_event_price": 150000,
+      "product_description": "턱밑샘/귀밑샘",
+      "treatments": [
+        {
+          "name": "수입 독일산 침샘보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "턱밑샘/귀밑샘",
+          "duration": null,
+          "target_area": ["턱밑샘", "귀밑샘"],
+          "benefits": ["침샘 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 특수부위 보톡스 턱관절/잇몸노출/측두근",
+      "product_original_price": null,
+      "product_event_price": 180000,
+      "product_description": "턱관절/잇몸노출/측두근",
+      "treatments": [
+        {
+          "name": "수입 독일산 특수부위 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "턱관절/잇몸노출/측두근",
+          "duration": null,
+          "target_area": ["턱관절", "잇몸노출", "측두근"],
+          "benefits": ["근육 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 턱보톡스 50u",
+      "product_original_price": null,
+      "product_event_price": 150000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 미국산 턱보톡스",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["턱 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 주름보톡스 1부위",
+      "product_original_price": null,
+      "product_event_price": 80000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 미국산 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 입꼬리 보톡스",
+      "product_original_price": null,
+      "product_event_price": 110000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 미국산 입꼬리 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 인중축소 보톡스",
+      "product_original_price": null,
+      "product_event_price": 290000,
+      "product_description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+      "treatments": [
+        {
+          "name": "수입 미국산 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["중안부 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 스킨보톡스 1부위 (턱라인/나비존/이마)",
+      "product_original_price": null,
+      "product_event_price": 190000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 미국산 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["턱라인", "나비존", "이마"],
+          "benefits": ["피부 타이트닝"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 얼굴전체 스킨보톡스",
+      "product_original_price": null,
+      "product_event_price": 290000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 미국산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 타이트닝", "주름 개선", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 침샘보톡스 (턱밑샘/귀밑샘)",
+      "product_original_price": null,
+      "product_event_price": 250000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      
+----------------------------------------
+
+추출된 JSON 문자열:
+----------------------------------------
+{
+  "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)",
+  "category": "리프팅/안티에이징",
+  "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+  "products": [
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [신규 런칭] 슈링크 유니버스 이중턱 리미티드 100샷",
+      "product_original_price": 80000,
+      "product_event_price": 45000,
+      "product_description": "이중턱 리미티드 100샷",
+      "treatments": [
+        {
+          "name": "슈링크 유니버스",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "이중턱 리미티드",
+          "duration": null,
+          "target_area": ["이중턱"],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [1회 한정가] 슈링크 유니버스 울트라 1000샷 *분할사용가능",
+      "product_original_price": 390000,
+      "product_event_price": 199000,
+      "product_description": "슈링크 유니버스 울트라 1000샷",
+      "treatments": [
+        {
+          "name": "슈링크 유니버스 울트라",
+          "dosage": 1000,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "분할사용가능",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [1회 한정가]볼뉴머 100샷 + 슈링크 유니버스 울트라 100샷 + 슈링크 쫀쫀밴드 1매",
+      "product_original_price": 195000,
+      "product_event_price": 99000,
+      "product_description": "볼뉴머 100샷 + 슈링크 유니버스 울트라 100샷 + 슈링크 쫀쫀밴드 1매",
+      "treatments": [
+        {
+          "name": "볼뉴머",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["볼뉴머"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "슈링크 유니버스 울트라",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "슈링크 쫀쫀밴드",
+          "dosage": 1,
+          "unit": "매",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [고주파로 탄력up] 볼뉴머 100샷",
+      "product_original_price": 150000,
+      "product_event_price": 99000,
+      "product_description": "볼뉴머 100샷",
+      "treatments": [
+        {
+          "name": "볼뉴머",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["볼뉴머"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 아이 볼뉴머 100샷",
+      "product_original_price": 170000,
+      "product_event_price": 99000,
+      "product_description": "아이 볼뉴머 100샷",
+      "treatments": [
+        {
+          "name": "아이 볼뉴머",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["볼뉴머"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [V라인 탄력 동안 패키지]슈링크 유니버스 울트라 300샷 + 슈링크 유니버스 부스터 300샷 + 오로라앰플 3cc",
+      "product_original_price": 324000,
+      "product_event_price": 169000,
+      "product_description": "슈링크 유니버스 울트라 300샷 + 슈링크 유니버스 부스터 300샷 + 오로라앰플 3cc",
+      "treatments": [
+        {
+          "name": "슈링크 유니버스 울트라",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+          "duration": null,
+          "target_area": ["V라인"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "슈링크 유니버스 부스터",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+          "duration": null,
+          "target_area": ["V라인"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "오로라앰플",
+          "dosage": 3,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["오로라앰플(GT38)"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [눈가 탄력 동안 패키지]슈링크 유니버스 아이리프팅 200샷 + 아이 볼뉴머 100샷 + 필로드 아이 1cc + 국산 눈가 주름보톡스",
+      "product_original_price": 529000,
+      "product_event_price": 299000,
+      "product_description": "슈링크 유니버스 아이리프팅 200샷 + 아이 볼뉴머 100샷 + 필로드 아이 1cc + 국산 눈가 주름보톡스",
+      "treatments": [
+        {
+          "name": "슈링크 유니버스 아이리프팅",
+          "dosage": 200,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "아이 볼뉴머",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["볼뉴머"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "필로드 아이",
+          "dosage": 1,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["필로드 아이"],
+          "treatment_type": "injection",
+          "description": "눈가 주름, 피부 탄력 개선이 가능한 눈가전용 스킨부스터",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["눈가 잔주름 개선", "피부 재생 효과", "피부 탄력 증진"],
+          "recovery_time": null
+        },
+        {
+          "name": "국산 눈가 주름보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["눈가 주름"],
+          "benefits": ["주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "볼뉴머 X 슈링크 콜라보위크 [프리미엄 탄력/콜라겐/피부재생 프리미엄 3종 패키지]티타늄 40KJ + 볼뉴머 300샷 + 얼굴 전체 필로드 4cc",
+      "product_original_price": 1910000,
+      "product_event_price": 990000,
+      "product_description": "티타늄 40KJ + 볼뉴머 300샷 + 얼굴 전체 필로드 4cc",
+      "treatments": [
+        {
+          "name": "티타늄 리프팅",
+          "dosage": 40,
+          "unit": "KJ",
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과, 티타늄! 다운타임 ZERO! 처진 피부 탄력/콜라겐 생성/불필요한 지방 감소/피부톤 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["탄력 개선", "콜라겐 생성", "지방 감소", "피부톤 개선"],
+          "recovery_time": "ZERO"
+        },
+        {
+          "name": "볼뉴머",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["볼뉴머"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "필로드",
+          "dosage": 4,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["필로드"],
+          "treatment_type": "injection",
+          "description": "친환경 연어과 어류에서 추출한 PN성분으로 피부 복원과 재생을 동시에",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 재생 효과", "피부 탄력 증진", "잔주름 개선", "피부결 개선", "모공 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [울트라 티타늄] 울트라인 300샷 + 티타늄 리프팅 40KJ",
+      "product_original_price": 1950000,
+      "product_event_price": 990000,
+      "product_description": "울트라인 300샷 + 티타늄 리프팅 40KJ",
+      "treatments": [
+        {
+          "name": "울트라인",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 깊은 층까지 에너지 전달하는 고강도 집속 초음파(HIFU) 정확하고 일정한 타겟팅으로 부담 없이 균일한 효과 콜라겐 재생으로 강력한 피부 탄력 및 리프팅 효과",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 탄력", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "티타늄 리프팅",
+          "dosage": 40,
+          "unit": "KJ",
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과, 티타늄! 다운타임 ZERO! 처진 피부 탄력/콜라겐 생성/불필요한 지방 감소/피부톤 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 탄력", "콜라겐 생성", "지방 감소", "피부톤 개선"],
+          "recovery_time": "ZERO"
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [앵콜/1차완판] 울트라인 100샷",
+      "product_original_price": 350000,
+      "product_event_price": 249000,
+      "product_description": "울트라인 100샷",
+      "treatments": [
+        {
+          "name": "울트라인",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 깊은 층까지 에너지 전달하는 고강도 집속 초음파(HIFU) 지방세포 감소와 윤곽 개선, 점진적인 탄력 콜라겐 재생으로 강력한 피부 탄력 및 리프팅 효과",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["지방세포 감소", "윤곽 개선", "탄력", "리프팅"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [눈가전용] 아이 울트라인 100샷 + 필로드 아이 1CC",
+      "product_original_price": 525000,
+      "product_event_price": 299000,
+      "product_description": "아이 울트라인 100샷 + 필로드 아이 1CC",
+      "treatments": [
+        {
+          "name": "아이 울트라인",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "피부 깊은 층까지 에너지 전달하는 고강도 집속 초음파(HIFU)",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "필로드 아이",
+          "dosage": 1,
+          "unit": "CC",
+          "equipments": [],
+          "medications": ["필로드 아이"],
+          "treatment_type": "injection",
+          "description": "눈가 주름, 피부 탄력 개선이 가능한 눈가전용 스킨부스터",
+          "duration": null,
+          "target_area": ["눈가"],
+          "benefits": ["눈가 잔주름 개선", "피부 재생 효과", "피부 탄력 증진"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [바디전용] 울트라인 바디 100샷 *원하는 부위만 정밀하게 시술",
+      "product_original_price": 590000,
+      "product_event_price": 490000,
+      "product_description": "울트라인 바디 100샷",
+      "treatments": [
+        {
+          "name": "울트라인 바디",
+          "dosage": 100,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "원하는 부위만 정밀하게 시술",
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [복부전용] 울트라인 복부 1부위 *상복부/하복부/옆구리 中 택 1",
+      "product_original_price": 350000,
+      "product_event_price": 249000,
+      "product_description": "울트라인 복부 1부위",
+      "treatments": [
+        {
+          "name": "울트라인 복부",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "상복부/하복부/옆구리 中 택 1",
+          "duration": null,
+          "target_area": ["복부"],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [울트라 바디 패키지] 바디온다 리프팅 60KJ + 울트라인 바디 300샷",
+      "product_original_price": 3020000,
+      "product_event_price": 1590000,
+      "product_description": "바디온다 리프팅 60KJ + 울트라인 바디 300샷",
+      "treatments": [
+        {
+          "name": "바디온다 리프팅",
+          "dosage": 60,
+          "unit": "KJ",
+          "equipments": ["바디온다"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "새로운 기술과 시술법인 최초 극초단파(Microwave) 를 이용한 신개념 리프팅&타이트닝 레이저 시술 후 즉각적이고, 시간이 지날수록 극대화 되는 시술효과 마취 필요 없을 정도로 통증 걱정없이 편안하게 받을 수 있는 리프팅 시술",
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": ["리프팅", "타이트닝"],
+          "recovery_time": null
+        },
+        {
+          "name": "울트라인 바디",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [이중턱까지 풀페이스] 슈링크 유니버스 이중턱 리미티드 200샷 + 울트라인 300샷",
+      "product_original_price": 1210000,
+      "product_event_price": 690000,
+      "product_description": "슈링크 유니버스 이중턱 리미티드 200샷 + 울트라인 300샷",
+      "treatments": [
+        {
+          "name": "슈링크 유니버스 이중턱 리미티드",
+          "dosage": 200,
+          "unit": "샷",
+          "equipments": ["슈링크 유니버스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": ["이중턱", "풀페이스"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "울트라인",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["울트라인"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": ["풀페이스"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [추석 특가] 페이스 온다 리프팅 60KJ",
+      "product_original_price": 770000,
+      "product_event_price": 490000,
+      "product_description": "페이스 온다 리프팅 60KJ",
+      "treatments": [
+        {
+          "name": "페이스 온다 리프팅",
+          "dosage": 60,
+          "unit": "KJ",
+          "equipments": ["페이스 온다 리프팅"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "시술 후 즉각적이고, 시간이 지날수록 극대화 되는 효과",
+          "duration": null,
+          "target_area": ["얼굴"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [추석 특가] 튠페이스 40kj",
+      "product_original_price": 560000,
+      "product_event_price": 390000,
+      "product_description": "튠페이스 40kj",
+      "treatments": [
+        {
+          "name": "튠페이스",
+          "dosage": 40,
+          "unit": "kj",
+          "equipments": ["튠페이스"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "40.68MHz 멀티 고주파로 콜라겐 재생과 생성 유도",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["콜라겐 재생", "콜라겐 생성"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [여드름 Basic] 큐페이셜 풀케어 + 포텐자레이저(팁포함) + 제네시스 레이저 + 수입 독일산 얼굴전체 스킨보톡스",
+      "product_original_price": 809000,
+      "product_event_price": 590000,
+      "product_description": "큐페이셜 풀케어 + 포텐자레이저(팁포함) + 제네시스 레이저 + 수입 독일산 얼굴전체 스킨보톡스",
+      "treatments": [
+        {
+          "name": "큐페이셜 풀케어",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["큐페이셜"],
+          "medications": [],
+          "treatment_type": "skincare",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        },
+        {
+          "name": "포텐자레이저",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["포텐자레이저"],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        },
+        {
+          "name": "제네시스 레이저",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["제네시스 레이저"],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "피부 속 콜라겐 섬유 재생을 촉진하여 표피의 손상없이 피부를 재생",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 재생"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 독일산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 주름과 탄력 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["주름 개선", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [리프팅 Signature] 페이스 온다 리프팅 60KJ + 튠라이너 2부위",
+      "product_original_price": 1090000,
+      "product_event_price": 590000,
+      "product_description": "페이스 온다 리프팅 60KJ + 튠라이너 2부위",
+      "treatments": [
+        {
+          "name": "페이스 온다 리프팅",
+          "dosage": 60,
+          "unit": "KJ",
+          "equipments": ["페이스 온다 리프팅"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "시술 후 즉각적이고, 시간이 지날수록 극대화 되는 효과",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["리프팅", "타이트닝"],
+          "recovery_time": null
+        },
+        {
+          "name": "튠라이너",
+          "dosage": 2,
+          "unit": "부위",
+          "equipments": ["튠라이너"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "3D 입체초음파로 지방세포 선택적 제거 지방 감소 및 불균형 얼굴 라인 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["지방 감소", "얼굴 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [1회 한정가] 수입 독일산 주름보톡스 1부위 *입꼬리 포함",
+      "product_original_price": 57000,
+      "product_event_price": 29000,
+      "product_description": "수입 독일산 주름보톡스 1부위",
+      "treatments": [
+        {
+          "name": "수입 독일산 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "입꼬리 포함",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [1회 한정가] 쥬비덤 1cc",
+      "product_original_price": 390000,
+      "product_event_price": 270000,
+      "product_description": "쥬비덤 1cc",
+      "treatments": [
+        {
+          "name": "쥬비덤",
+          "dosage": 1,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["쥬비덤"],
+          "treatment_type": "injection",
+          "description": "수입필러로 자연스럽고 생기있는 얼굴볼륨",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["볼륨", "생기"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [퀵리프팅] 민트실 6줄 + 수입 독일산 얼굴전체 스킨보톡스",
+      "product_original_price": 730000,
+      "product_event_price": 499000,
+      "product_description": "민트실 6줄 + 수입 독일산 얼굴전체 스킨보톡스",
+      "treatments": [
+        {
+          "name": "민트실",
+          "dosage": 6,
+          "unit": "줄",
+          "equipments": ["민트실"],
+          "medications": [],
+          "treatment_type": "surgical",
+          "description": "FDA, KFDA 동시 승인을 받은 4세대 실리프팅 민트실 몰딩형 최소 침습 안면 조직 고정용 3D돌기, 녹는실, 고정력과 유지력 우수",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["리프팅", "고정력", "유지력"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 독일산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 피부 타이트닝, 주름, 모공 축소 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 타이트닝", "주름 개선", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [빠르고 쉽게] 목주름 티타늄 20kj + 목주름 벨로테로 필러 1cc + 목주름 지우개주사",
+      "product_original_price": 930000,
+      "product_event_price": 479000,
+      "product_description": "목주름 티타늄 20kj + 목주름 벨로테로 필러 1cc + 목주름 지우개주사",
+      "treatments": [
+        {
+          "name": "티타늄 리프팅",
+          "dosage": 20,
+          "unit": "kj",
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": ["목주름"],
+          "benefits": ["리프팅", "탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "벨로테로 필러",
+          "dosage": 1,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["벨로테로 필러"],
+          "treatment_type": "injection",
+          "description": "20대부터 시작되는 목주름 노화 고민, 일자로 깊게 파인 목주름 개선 안티에이징",
+          "duration": null,
+          "target_area": ["목주름"],
+          "benefits": ["목주름 개선", "안티에이징"],
+          "recovery_time": null
+        },
+        {
+          "name": "목주름 지우개주사",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": "20대부터 시작되는 목주름 노화 고민, 일자로 깊게 파인 목주름 개선 안티에이징",
+          "duration": null,
+          "target_area": ["목주름"],
+          "benefits": ["목주름 개선", "안티에이징"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [투명 톤업] 트리플토닝 1회",
+      "product_original_price": 290000,
+      "product_event_price": 149000,
+      "product_description": "트리플토닝 1회",
+      "treatments": [
+        {
+          "name": "트리플토닝",
+          "dosage": 1,
+          "unit": "회",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "단순한 한가지 토닝이 아닌 색소치료에 필요한 3가지 파장의 레이저를 이용한 프리미엄 트리플토닝",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["색소 치료", "톤업"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [화이트닝 패키지] 플라필 + 피코토닝 1회",
+      "product_original_price": 129000,
+      "product_event_price": 69000,
+      "product_description": "플라필 + 피코토닝 1회",
+      "treatments": [
+        {
+          "name": "플라필",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["플라필"],
+          "treatment_type": "skincare",
+          "description": "PHA, LHA, Pt백금 3가지 핵심성분과 특허성분이 조합된 피부솔루션 극예민 피부 진정, 악건성 피부 각질 제거 피지과다, 모공, 여드름 개선 및 노폐물 제거 피부 재생력 강화, 피부결, 보습, 컨디션, 미백개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["진정", "각질 제거", "피지 제거", "모공 개선", "여드름 개선", "피부 재생", "피부결 개선", "보습", "미백"],
+          "recovery_time": null
+        },
+        {
+          "name": "피코토닝",
+          "dosage": 1,
+          "unit": "회",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "피코초 단위로 순간 레이저파워를 이용하여 집중적으로 원하는 타겟 색소만 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["색소 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [모공쫀쫀템] 실펌레이저(팁 미포함) + 촉촉팩",
+      "product_original_price": 195000,
+      "product_event_price": 99000,
+      "product_description": "실펌레이저(팁 미포함) + 촉촉팩",
+      "treatments": [
+        {
+          "name": "실펌레이저",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["실펌X 레이저"],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "피부 속 진피층의 이상혈관을 선택적으로 정확하게 타겟하여 기미,홍조,모공 등 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["기미 개선", "홍조 개선", "모공 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "촉촉팩",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "skincare",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [저자극 보습] 워터풀케어 + 촉촉팩",
+      "product_original_price": 50000,
+      "product_event_price": 29000,
+      "product_description": "워터풀케어 + 촉촉팩",
+      "treatments": [
+        {
+          "name": "워터풀케어",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "skincare",
+          "description": "건조한 피부 속 수분 보충관리",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["수분 보충"],
+          "recovery_time": null
+        },
+        {
+          "name": "촉촉팩",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "skincare",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [타임리턴] 고농도 줄기세포 유도 인자 180cc (정맥주사+스킨부스터) + 티타늄 리프팅 40kj",
+      "product_original_price": 3700000,
+      "product_event_price": 1890000,
+      "product_description": "고농도 줄기세포 유도 인자 180cc (정맥주사+스킨부스터) + 티타늄 리프팅 40kj",
+      "treatments": [
+        {
+          "name": "고농도 줄기세포 유도 인자",
+          "dosage": 180,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["줄기세포 유도 인자"],
+          "treatment_type": "injection",
+          "description": "항노화 효과, 면역력 증가, 피부 문제 동시 개선 및 재생능력 강화",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["항노화", "면역력 증가", "피부 문제 개선", "재생 능력 강화"],
+          "recovery_time": null
+        },
+        {
+          "name": "티타늄 리프팅",
+          "dosage": 40,
+          "unit": "kj",
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과, 티타늄! 다운타임 ZERO! 처진 피부 탄력/콜라겐 생성/불필요한 지방 감소/피부톤 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 탄력", "콜라겐 생성", "지방 감소", "피부톤 개선"],
+          "recovery_time": "ZERO"
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [재생/탄력개선] 풀페이스 셀르디엠 1vial",
+      "product_original_price": 1160000,
+      "product_event_price": 590000,
+      "product_description": "풀페이스 셀르디엠 1vial",
+      "treatments": [
+        {
+          "name": "셀르디엠",
+          "dosage": 1,
+          "unit": "vial",
+          "equipments": [],
+          "medications": ["셀르디엠"],
+          "treatment_type": "injection",
+          "description": "ECM 성분으로 피부 구조를 재현한 ADM 스킨부스터 자연스러운 미세 입자 흡수로 탄력·주름·보습 개선 #20년 노하우 #검증된 안전성 #FDA인증",
+          "duration": null,
+          "target_area": ["풀페이스"],
+          "benefits": ["탄력 개선", "주름 개선", "보습 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [장벽강화] 리쥬란힐러 2cc",
+      "product_original_price": 270000,
+      "product_event_price": 179000,
+      "product_description": "리쥬란힐러 2cc",
+      "treatments": [
+        {
+          "name": "리쥬란힐러",
+          "dosage": 2,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["리쥬란힐러"],
+          "treatment_type": "injection",
+          "description": "피부의 DNA를 근본부터 재구성하여 진피 조직 재생효과와 탄력 회복을 동시에",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 장벽 강화", "진피 조직 재생", "탄력 회복"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [수분광채] 릴리이드 히알루론산 주사 5cc",
+      "product_original_price": 195000,
+      "product_event_price": 99000,
+      "product_description": "릴리이드 히알루론산 주사 5cc",
+      "treatments": [
+        {
+          "name": "릴리이드 히알루론산 주사",
+          "dosage": 5,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["히알루론산"],
+          "treatment_type": "injection",
+          "description": "고용량 프리미엄 히알루론산(HA) 하이엔드 히알루론산 스킨부스터 피부재생/수분 장벽 구축/진피층 콜라겐 증가/유수분 밸러스 유지 피부 표면과 속까지 촉촉하고 탄탄하게 잡아주어 주름/탄력/흉터 개선 효과 기대",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["수분 광채", "피부 재생", "수분 장벽 구축", "콜라겐 증가", "유수분 밸런스 유지", "주름 개선", "탄력 개선", "흉터 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [모공/피부결개선] 쥬베룩 스킨부스터 2cc (부분/눈밑제외)",
+      "product_original_price": 250000,
+      "product_event_price": 149000,
+      "product_description": "쥬베룩 스킨부스터 2cc",
+      "treatments": [
+        {
+          "name": "쥬베룩 스킨부스터",
+          "dosage": 2,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["쥬베룩"],
+          "treatment_type": "injection",
+          "description": "고분자 PLA와 인체 피부 조직에 존재하는 HA(히알루론산) 성분을 결합시킨 자가조직재생 콜라겐 부스터 자연스러운 볼륨/피부 탄력/잔주름/피부 결 개선",
+          "duration": null,
+          "target_area": ["부분/눈밑제외"],
+          "benefits": ["모공 개선", "피부결 개선", "볼륨", "피부 탄력", "잔주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [좁은부위까지 확실하게] SS주사 10cc",
+      "product_original_price": 39000,
+      "product_event_price": 25000,
+      "product_description": "SS주사 10cc",
+      "treatments": [
+        {
+          "name": "SS주사",
+          "dosage": 10,
+          "unit": "cc",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["좁은부위"],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [슬림톡스] 국산 바디보톡스 100U *부위 : 승모근/민소매/종아리/앞허벅지",
+      "product_original_price": 77000,
+      "product_event_price": 49000,
+      "product_description": "국산 바디보톡스 100U",
+      "treatments": [
+        {
+          "name": "국산 바디보톡스",
+          "dosage": 100,
+          "unit": "U",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "부위 : 승모근/민소매/종아리/앞허벅지",
+          "duration": null,
+          "target_area": ["승모근", "민소매", "종아리", "앞허벅지"],
+          "benefits": ["바디 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [피부톤 회복] 착색토닝 1회 한정가 *부위: 겨드랑이/팔꿈치/복숭아뼈/무릎 中 택 1",
+      "product_original_price": 19500,
+      "product_event_price": 9900,
+      "product_description": "착색토닝 1회",
+      "treatments": [
+        {
+          "name": "착색토닝",
+          "dosage": 1,
+          "unit": "회",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "부위: 겨드랑이/팔꿈치/복숭아뼈/무릎 中 택 1",
+          "duration": null,
+          "target_area": ["겨드랑이", "팔꿈치", "복숭아뼈", "무릎"],
+          "benefits": ["피부톤 회복", "착색 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "25년10월1차 [바이탈업] 바이탈샷 패키지",
+      "product_original_price": 90000,
+      "product_event_price": 45900,
+      "product_description": "바이탈샷 패키지",
+      "treatments": [
+        {
+          "name": "바이탈샷",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 국산 주름보톡스 1부위 *입꼬리 제외",
+      "product_original_price": 9900,
+      "product_event_price": 5000,
+      "product_description": "국산 주름보톡스 1부위",
+      "treatments": [
+        {
+          "name": "국산 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "입꼬리 제외",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 인모드 FX 얼굴전체",
+      "product_original_price": 115000,
+      "product_event_price": 59000,
+      "product_description": "인모드 FX 얼굴전체",
+      "treatments": [
+        {
+          "name": "인모드 FX",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["인모드"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": null,
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["지방 제거", "콜라겐 재생", "얼굴 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 국산 바디보톡스 100u *종아리/승모근 中 택 1",
+      "product_original_price": 57000,
+      "product_event_price": 29000,
+      "product_description": "국산 바디보톡스 100u",
+      "treatments": [
+        {
+          "name": "국산 바디보톡스",
+          "dosage": 100,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "종아리/승모근 中 택 1",
+          "duration": null,
+          "target_area": ["종아리", "승모근"],
+          "benefits": ["바디 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 바디온다 10kj",
+      "product_original_price": 150000,
+      "product_event_price": 79000,
+      "product_description": "바디온다 10kj",
+      "treatments": [
+        {
+          "name": "바디온다 리프팅",
+          "dosage": 10,
+          "unit": "kj",
+          "equipments": ["바디온다"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "새로운 기술과 시술법인 최초 극초단파(Microwave) 를 이용한 신개념 리프팅&타이트닝 레이저 시술 후 즉각적이고, 시간이 지날수록 극대화 되는 시술효과 마취 필요 없을 정도로 통증 걱정없이 편안하게 받을 수 있는 리프팅 시술",
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": ["리프팅", "타이트닝"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] SS주사 10cc",
+      "product_original_price": 19500,
+      "product_event_price": 9900,
+      "product_description": "SS주사 10cc",
+      "treatments": [
+        {
+          "name": "SS주사",
+          "dosage": 10,
+          "unit": "cc",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 피코토닝 1회 (팩 미포함)",
+      "product_original_price": 19500,
+      "product_event_price": 9900,
+      "product_description": "피코토닝 1회",
+      "treatments": [
+        {
+          "name": "피코토닝",
+          "dosage": 1,
+          "unit": "회",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "피코초 단위로 순간 레이저파워를 이용하여 집중적으로 원하는 타겟 색소만 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["색소 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 히알루론산주사 1CC",
+      "product_original_price": 19500,
+      "product_event_price": 9900,
+      "product_description": "히알루론산주사 1CC",
+      "treatments": [
+        {
+          "name": "히알루론산주사",
+          "dosage": 1,
+          "unit": "CC",
+          "equipments": [],
+          "medications": ["히알루론산"],
+          "treatment_type": "injection",
+          "description": "히알루론산 성분 주입으로 칙칙하고 푸석한 피부에 즉각적인 수분보충과 피부톤, 탄력개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["수분 보충", "피부톤 개선", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 국산 눈밑 스킨보톡스",
+      "product_original_price": 57000,
+      "product_event_price": 29000,
+      "product_description": "국산 눈밑 스킨보톡스",
+      "treatments": [
+        {
+          "name": "국산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["눈밑"],
+          "benefits": ["주름 개선", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 점제거 1개 (2mm이하)",
+      "product_original_price": 1950,
+      "product_event_price": 990,
+      "product_description": "점제거 1개 (2mm이하)",
+      "treatments": [
+        {
+          "name": "점제거",
+          "dosage": 1,
+          "unit": "개",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "surgical",
+          "description": "최대 10개까지 가능",
+          "duration": null,
+          "target_area": [],
+          "benefits": [],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "1회 체험 이벤트 [1회 체험가] 국산 입술 필러 패키지(입술+입꼬리)",
+      "product_original_price": 97000,
+      "product_event_price": 49000,
+      "product_description": "국산 입술 필러 패키지(입술+입꼬리)",
+      "treatments": [
+        {
+          "name": "국산 입술 필러",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["필러"],
+          "treatment_type": "injection",
+          "description": "자연스러운 입술라인으로 개선",
+          "duration": null,
+          "target_area": ["입술", "입꼬리"],
+          "benefits": ["입술 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "화/수/목 골든티켓",
+      "product_original_price": null,
+      "product_event_price": 50000,
+      "product_description": "5만원 골든티켓 발급! *50만원 이상 결제 시 *현장에서 즉시 사용 가능",
+      "treatments": []
+    },
+    {
+      "product_name": "New 원데이 패키지 [톤업 올인원]포텐자 기미모드(팁포함)+트리플토닝+플라필+연어주사2CC+큐페이셜 LDM모드 6분",
+      "product_original_price": 930000,
+      "product_event_price": 550000,
+      "product_description": "포텐자 기미모드(팁포함)+트리플토닝+플라필+연어주사2CC+큐페이셜 LDM모드 6분",
+      "treatments": [
+        {
+          "name": "포텐자 기미모드",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["포텐자레이저"],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": null,
+          "duration": null,
+          "target_area": [],
+          "benefits": ["기미 개선", "톤업"],
+          "recovery_time": null
+        },
+        {
+          "name": "트리플토닝",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "laser",
+          "description": "단순한 한가지 토닝이 아닌 색소치료에 필요한 3가지 파장의 레이저를 이용한 프리미엄 트리플토닝",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["색소 치료", "톤업"],
+          "recovery_time": null
+        },
+        {
+          "name": "플라필",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["플라필"],
+          "treatment_type": "skincare",
+          "description": "PHA, LHA, Pt백금 3가지 핵심성분과 특허성분이 조합된 피부솔루션 극예민 피부 진정, 악건성 피부 각질 제거 피지과다, 모공, 여드름 개선 및 노폐물 제거 피부 재생력 강화, 피부결, 보습, 컨디션, 미백개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["진정", "각질 제거", "피지 제거", "모공 개선", "여드름 개선", "피부 재생", "피부결 개선", "보습", "미백"],
+          "recovery_time": null
+        },
+        {
+          "name": "연어주사",
+          "dosage": 2,
+          "unit": "CC",
+          "equipments": [],
+          "medications": ["연어주사(PDRN)"],
+          "treatment_type": "injection",
+          "description": "연어에서 추출한 PDRN 성분을 이용한 피부재생 시술",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 재생"],
+          "recovery_time": null
+        },
+        {
+          "name": "큐페이셜 LDM모드",
+          "dosage": 6,
+          "unit": "분",
+          "equipments": ["큐페이셜"],
+          "medications": [],
+          "treatment_type": "skincare",
+          "description": "프리미엄 피부 관리 장비로 고밀도 초음파 에너지를 통해 피부 속 콜라겐 생성을 촉진 수분 밸런스를 조절하여 건강하고 탄력있는 피부로 개선",
+          "duration": 6,
+          "target_area": [],
+          "benefits": ["콜라겐 생성", "수분 밸런스 조절", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [울써마지 올인원 #1]울쎄라 프라임600샷 + 써마지600샷 + 수입 턱라인 스킨보톡스",
+      "product_original_price": 7350000,
+      "product_event_price": 3790000,
+      "product_description": "울쎄라 프라임600샷 + 써마지600샷 + 수입 턱라인 스킨보톡스",
+      "treatments": [
+        {
+          "name": "울쎄라 프라임",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["울쎄라"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "16년만의 업그레이드된 2세대 울쎄라 프라임으로 더욱 강력해진 탄력 효과와 정밀해진 DEEP SEE 기술",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["탄력 개선", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "써마지 FLX",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["써마지 FLX"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "고주파 에너지로 피부 콜라겐 활성화와 재생성을 촉진 및 무너지지 않는 피부 탄력층을 형성",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["콜라겐 활성화", "콜라겐 재생", "피부 탄력"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 턱라인 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [울써마지 올인원 #2]울쎄라 프라임600샷 + 써마지600샷 + 수입 턱라인 스킨보톡스 + 리쥬란2cc + 쥬베룩4cc(더마샤인 팁포함)",
+      "product_original_price": 6500000,
+      "product_event_price": 4490000,
+      "product_description": "울쎄라 프라임600샷 + 써마지600샷 + 수입 턱라인 스킨보톡스 + 리쥬란2cc + 쥬베룩4cc(더마샤인 팁포함)",
+      "treatments": [
+        {
+          "name": "울쎄라 프라임",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["울쎄라"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "16년만의 업그레이드된 2세대 울쎄라 프라임으로 더욱 강력해진 탄력 효과와 정밀해진 DEEP SEE 기술",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["탄력 개선", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "써마지 FLX",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["써마지 FLX"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "고주파 에너지로 피부 콜라겐 활성화와 재생성을 촉진 및 무너지지 않는 피부 탄력층을 형성",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["콜라겐 활성화", "콜라겐 재생", "피부 탄력"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 턱라인 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "리쥬란힐러",
+          "dosage": 2,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["리쥬란힐러"],
+          "treatment_type": "injection",
+          "description": "피부의 DNA를 근본부터 재구성하여 진피 조직 재생효과와 탄력 회복을 동시에",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 장벽 강화", "진피 조직 재생", "탄력 회복"],
+          "recovery_time": null
+        },
+        {
+          "name": "쥬베룩 스킨부스터",
+          "dosage": 4,
+          "unit": "cc",
+          "equipments": ["더마샤인 팁포함"],
+          "medications": ["쥬베룩"],
+          "treatment_type": "injection",
+          "description": "고분자 PLA와 인체 피부 조직에 존재하는 HA(히알루론산) 성분을 결합시킨 자가조직재생 콜라겐 부스터 자연스러운 볼륨/피부 탄력/잔주름/피부 결 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["볼륨", "피부 탄력", "잔주름 개선", "피부 결 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [티타늄 올인원] 티타늄 얼굴전체 고강도 리프팅 + 인모드 얼굴전체 1가지모드(Fx or FORMA) + 수입 턱라인 스킨보톡스",
+      "product_original_price": 1850000,
+      "product_event_price": 1190000,
+      "product_description": "티타늄 얼굴전체 고강도 리프팅 + 인모드 얼굴전체 1가지모드(Fx or FORMA) + 수입 턱라인 스킨보톡스",
+      "treatments": [
+        {
+          "name": "티타늄 리프팅",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과, 티타늄! 다운타임 ZERO! 처진 피부 탄력/콜라겐 생성/불필요한 지방 감소/피부톤 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["리프팅", "탄력", "콜라겐 생성", "지방 감소", "피부톤 개선"],
+          "recovery_time": "ZERO"
+        },
+        {
+          "name": "인모드",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["인모드"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "얼굴전체 1가지모드(Fx or FORMA)",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["지방 제거", "콜라겐 재생", "얼굴 라인 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 턱라인 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [울써티 올인원]울쎄라 프라임 300샷 + 써마지600샷 + 티타늄 얼굴전체 + 수입 턱라인 스킨보톡스 + 리쥬란2cc+쥬베룩2cc",
+      "product_original_price": 8590000,
+      "product_event_price": 4390000,
+      "product_description": "울쎄라 프라임 300샷 + 써마지600샷 + 티타늄 얼굴전체 + 수입 턱라인 스킨보톡스 + 리쥬란2cc+쥬베룩2cc",
+      "treatments": [
+        {
+          "name": "울쎄라 프라임",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["울쎄라"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "16년만의 업그레이드된 2세대 울쎄라 프라임으로 더욱 강력해진 탄력 효과와 정밀해진 DEEP SEE 기술",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["탄력 개선", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "써마지 FLX",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["써마지 FLX"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "고주파 에너지로 피부 콜라겐 활성화와 재생성을 촉진 및 무너지지 않는 피부 탄력층을 형성",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["콜라겐 활성화", "콜라겐 재생", "피부 탄력"],
+          "recovery_time": null
+        },
+        {
+          "name": "티타늄 리프팅",
+          "dosage": null,
+          "unit": null,
+          "equipments": ["티타늄"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과, 티타늄! 다운타임 ZERO! 처진 피부 탄력/콜라겐 생성/불필요한 지방 감소/피부톤 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["리프팅", "탄력", "콜라겐 생성", "지방 감소", "피부톤 개선"],
+          "recovery_time": "ZERO"
+        },
+        {
+          "name": "수입 턱라인 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "리쥬란힐러",
+          "dosage": 2,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["리쥬란힐러"],
+          "treatment_type": "injection",
+          "description": "피부의 DNA를 근본부터 재구성하여 진피 조직 재생효과와 탄력 회복을 동시에",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 장벽 강화", "진피 조직 재생", "탄력 회복"],
+          "recovery_time": null
+        },
+        {
+          "name": "쥬베룩 스킨부스터",
+          "dosage": 2,
+          "unit": "cc",
+          "equipments": [],
+          "medications": ["쥬베룩"],
+          "treatment_type": "injection",
+          "description": "고분자 PLA와 인체 피부 조직에 존재하는 HA(히알루론산) 성분을 결합시킨 자가조직재생 콜라겐 부스터 자연스러운 볼륨/피부 탄력/잔주름/피부 결 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["볼륨", "피부 탄력", "잔주름 개선", "피부 결 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [바디 올인원 베이직(1 부위)]바디 인모드 FX (10분) + 바디 울쎄라 프라임 300샷 + 수입 바디 보톡스 100U + 바디 조각주사(보톡스 성분 포함) 1부위 + SS주사 100cc (1부위)",
+      "product_original_price": 3680000,
+      "product_event_price": 2490000,
+      "product_description": "바디 인모드 FX (10분) + 바디 울쎄라 프라임 300샷 + 수입 바디 보톡스 100U + 바디 조각주사(보톡스 성분 포함) 1부위 + SS주사 100cc (1부위)",
+      "treatments": [
+        {
+          "name": "바디 인모드 FX",
+          "dosage": 10,
+          "unit": "분",
+          "equipments": ["인모드"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "원하는 부위 지방세포 사멸 & 탄력있는 바디리프팅",
+          "duration": 10,
+          "target_area": ["바디 (1부위)"],
+          "benefits": ["지방세포 사멸", "바디 리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "바디 울쎄라 프라임",
+          "dosage": 300,
+          "unit": "샷",
+          "equipments": ["울쎄라"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "바디 전용 초음파 리프팅 레이저로 팔뚝, 복부, 허벅지, 종아리 지방 분해 및 콜라겐 형성",
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": ["지방 분해", "콜라겐 형성", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 바디 보톡스",
+          "dosage": 100,
+          "unit": "U",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["바디 (1부위)"],
+          "benefits": ["바디 라인 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "바디 조각주사",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스 성분 포함"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["바디 (1부위)"],
+          "benefits": [],
+          "recovery_time": null
+        },
+        {
+          "name": "SS주사",
+          "dosage": 100,
+          "unit": "cc",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": "삼투압 원리를 이용해 지방세포수를 감소시켜 바디 사이즈 감소 개선",
+          "duration": null,
+          "target_area": ["바디 (1부위)"],
+          "benefits": ["바디 사이즈 감소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "New 원데이 패키지 [바디 올인원 프리미엄(2 부위)]바디 인모드 Fx (20분) + 바디 울쎄라 프라임 600샷 + 수입 바디 보톡스 200U + 바디 조각주사(보톡스 성분 포함) 2부위 + SS주사 200cc (2부위) + 슬림컷 300cc (2부위)",
+      "product_original_price": 7490000,
+      "product_event_price": 4890000,
+      "product_description": "바디 인모드 Fx (20분) + 바디 울쎄라 프라임 600샷 + 수입 바디 보톡스 200U + 바디 조각주사(보톡스 성분 포함) 2부위 + SS주사 200cc (2부위) + 슬림컷 300cc (2부위)",
+      "treatments": [
+        {
+          "name": "바디 인모드 Fx",
+          "dosage": 20,
+          "unit": "분",
+          "equipments": ["인모드"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "원하는 부위 지방세포 사멸 & 탄력있는 바디리프팅",
+          "duration": 20,
+          "target_area": ["바디 (2부위)"],
+          "benefits": ["지방세포 사멸", "바디 리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "바디 울쎄라 프라임",
+          "dosage": 600,
+          "unit": "샷",
+          "equipments": ["울쎄라"],
+          "medications": [],
+          "treatment_type": "device",
+          "description": "바디 전용 초음파 리프팅 레이저로 팔뚝, 복부, 허벅지, 종아리 지방 분해 및 콜라겐 형성",
+          "duration": null,
+          "target_area": ["바디"],
+          "benefits": ["지방 분해", "콜라겐 형성", "리프팅"],
+          "recovery_time": null
+        },
+        {
+          "name": "수입 바디 보톡스",
+          "dosage": 200,
+          "unit": "U",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["바디 (2부위)"],
+          "benefits": ["바디 라인 개선"],
+          "recovery_time": null
+        },
+        {
+          "name": "바디 조각주사",
+          "dosage": 2,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스 성분 포함"],
+          "treatment_type": "injection",
+          "description": null,
+          "duration": null,
+          "target_area": ["바디 (2부위)"],
+          "benefits": [],
+          "recovery_time": null
+        },
+        {
+          "name": "SS주사",
+          "dosage": 200,
+          "unit": "cc",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": "삼투압 원리를 이용해 지방세포수를 감소시켜 바디 사이즈 감소 개선",
+          "duration": null,
+          "target_area": ["바디 (2부위)"],
+          "benefits": ["바디 사이즈 감소"],
+          "recovery_time": null
+        },
+        {
+          "name": "슬림컷주사",
+          "dosage": 300,
+          "unit": "cc",
+          "equipments": [],
+          "medications": [],
+          "treatment_type": "injection",
+          "description": "스테로이드NO, 피부 속 깊은 지방층에 침투하여 지방을 제거하는 바디시술",
+          "duration": null,
+          "target_area": ["바디 (2부위)"],
+          "benefits": ["지방 제거"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 턱보톡스 50u",
+      "product_original_price": null,
+      "product_event_price": 19000,
+      "product_description": "발달된 근육 축소로 페이스 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 턱보톡스",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "발달된 근육 축소로 페이스 라인 개선",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["페이스 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 주름보톡스 1부위",
+      "product_original_price": null,
+      "product_event_price": 19000,
+      "product_description": "부위 : 미간/눈가/눈밑/콧잔등/자갈턱/콧볼/이마",
+      "treatments": [
+        {
+          "name": "국산 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "부위 : 미간/눈가/눈밑/콧잔등/자갈턱/콧볼/이마",
+          "duration": null,
+          "target_area": ["미간", "눈가", "눈밑", "콧잔등", "자갈턱", "콧볼", "이마"],
+          "benefits": ["주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 입꼬리보톡스",
+      "product_original_price": null,
+      "product_event_price": 30000,
+      "product_description": "입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 입꼬리보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 인중축소 보톡스",
+      "product_original_price": 50000,
+      "product_event_price": 30000,
+      "product_description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+      "treatments": [
+        {
+          "name": "국산 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["중안부 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 스킨보톡스 1부위 (턱라인/나비존/이마)",
+      "product_original_price": null,
+      "product_event_price": 57000,
+      "product_description": "간편하고 자연스럽게 턱라인 탄력 개선",
+      "treatments": [
+        {
+          "name": "국산 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인", "나비존", "이마"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 얼굴 전체 스킨보톡스",
+      "product_original_price": null,
+      "product_event_price": 110000,
+      "product_description": "간편하고 자연스럽게 주름과 탄력 개선",
+      "treatments": [
+        {
+          "name": "국산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 주름과 탄력 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["주름 개선", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 침샘보톡스 (턱밑샘/귀밑샘)",
+      "product_original_price": null,
+      "product_event_price": 70000,
+      "product_description": "턱밑샘/귀밑샘",
+      "treatments": [
+        {
+          "name": "국산 침샘보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "턱밑샘/귀밑샘",
+          "duration": null,
+          "target_area": ["턱밑샘", "귀밑샘"],
+          "benefits": ["침샘 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 특수부위 보톡스 턱관절/잇몸노출/측두근",
+      "product_original_price": null,
+      "product_event_price": 100000,
+      "product_description": "턱관절/잇몸노출/측두근",
+      "treatments": [
+        {
+          "name": "국산 특수부위 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "턱관절/잇몸노출/측두근",
+          "duration": null,
+          "target_area": ["턱관절", "잇몸노출", "측두근"],
+          "benefits": ["근육 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 턱보톡스 50U",
+      "product_original_price": 100000,
+      "product_event_price": 55000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 발달된 턱 근육 축소하여 턱 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 턱보톡스",
+          "dosage": 50,
+          "unit": "U",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 발달된 턱 근육 축소하여 턱 라인 개선",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["턱 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 주름보톡스 1부위",
+      "product_original_price": 45000,
+      "product_event_price": 34000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자글 자글한 얼굴 잔주름 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자글 자글한 얼굴 잔주름 개선",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["잔주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 입꼬리 보톡스",
+      "product_original_price": 80000,
+      "product_event_price": 59000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 입꼬리 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 인중축소 보톡스",
+      "product_original_price": 80000,
+      "product_event_price": 59000,
+      "product_description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["중안부 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 스킨보톡스 1부위",
+      "product_original_price": 100000,
+      "product_event_price": 89000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자연스럽게 피부 타이트닝, 주름, 모공 축소 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자연스럽게 피부 타이트닝, 주름, 모공 축소 개선",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 타이트닝", "주름 개선", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 얼굴 전체 스킨보톡스",
+      "product_original_price": 160000,
+      "product_event_price": 145000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자연스럽게 피부 타이트닝, 주름, 모공 축소 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 자연스럽게 피부 타이트닝, 주름, 모공 축소 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 타이트닝", "주름 개선", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 침샘보톡스",
+      "product_original_price": 120000,
+      "product_event_price": 89000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 과도한 침분비를 억제하여 침샘의 크기 축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 침샘보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 과도한 침분비를 억제하여 침샘의 크기 축소",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["침샘 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 특수부위보톡스",
+      "product_original_price": null,
+      "product_event_price": 150000,
+      "product_description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 과도하게 발달한 근육을 억제하여 고민부위의 근육의 크기 축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 특수부위보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 안전한 국산 프리미엄 보톡스 과도하게 발달한 근육을 억제하여 고민부위의 근육의 크기 축소",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["근육 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 턱보톡스 50u",
+      "product_original_price": 110000,
+      "product_event_price": 79000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #턱근육 축소 #턱 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 턱보톡스",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #턱근육 축소 #턱 라인 개선",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["턱근육 축소", "턱 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 주름보톡스 1부위",
+      "product_original_price": 55000,
+      "product_event_price": 45000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #잔주름 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #잔주름 개선",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["잔주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 입꼬리보톡스",
+      "product_original_price": null,
+      "product_event_price": 80000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #자연스러운 입매 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 입꼬리보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #자연스러운 입매 라인 개선",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 인중축소 보톡스",
+      "product_original_price": null,
+      "product_event_price": 80000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #길어진 인중 길이 교정",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #길어진 인중 길이 교정",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["인중 길이 교정"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스 1부위",
+      "product_original_price": null,
+      "product_event_price": 100000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 타이트닝", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 얼굴전체 스킨보톡스",
+      "product_original_price": null,
+      "product_event_price": 190000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 타이트닝", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 침샘 보톡스",
+      "product_original_price": null,
+      "product_event_price": 130000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 침샘 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["침샘 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 특수부위 보톡스",
+      "product_original_price": null,
+      "product_event_price": 160000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 특수부위 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+          "duration": null,
+          "target_area": ["턱관절", "잇몸노출", "측두근"],
+          "benefits": ["근육 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 턱보톡스 50u",
+      "product_original_price": 110000,
+      "product_event_price": 79000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #턱근육 축소 #턱 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 턱보톡스",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #턱근육 축소 #턱 라인 개선",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["턱근육 축소", "턱 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 주름보톡스 1부위",
+      "product_original_price": 55000,
+      "product_event_price": 45000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #잔주름 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #잔주름 개선",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["잔주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 입꼬리보톡스",
+      "product_original_price": null,
+      "product_event_price": 80000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #자연스러운 입매 라인 개선",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 입꼬리보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #자연스러운 입매 라인 개선",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 인중축소 보톡스",
+      "product_original_price": null,
+      "product_event_price": 80000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #길어진 인중 길이 교정",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #길어진 인중 길이 교정",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["인중 길이 교정"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스 1부위",
+      "product_original_price": null,
+      "product_event_price": 100000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["피부 타이트닝", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 얼굴전체 스킨보톡스",
+      "product_original_price": null,
+      "product_event_price": 190000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #피부타이트닝 #모공축소",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 타이트닝", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 침샘 보톡스",
+      "product_original_price": null,
+      "product_event_price": 130000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 침샘 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+          "duration": null,
+          "target_area": [],
+          "benefits": ["침샘 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 특수부위 보톡스",
+      "product_original_price": null,
+      "product_event_price": 160000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 특수부위 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신",
+          "duration": null,
+          "target_area": ["턱관절", "잇몸노출", "측두근"],
+          "benefits": ["근육 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 바디보톡스 100u",
+      "product_original_price": null,
+      "product_event_price": 180000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 부위 : 승모근/민소매/종아리/허벅지",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 바디보톡스",
+          "dosage": 100,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 부위 : 승모근/민소매/종아리/허벅지",
+          "duration": null,
+          "target_area": ["승모근", "민소매", "종아리", "허벅지"],
+          "benefits": ["바디 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "국산 프리미엄 보톡스(영국산 균주 사용) 겨드랑이 다한증 50u",
+      "product_original_price": null,
+      "product_event_price": 140000,
+      "product_description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #땀억제효과",
+      "treatments": [
+        {
+          "name": "국산 프리미엄 보톡스(영국산 균주 사용) 겨드랑이 다한증",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "유럽 공인 기관으로부터 인증된 영국 균주 내성 없는 고순도 프리미엄 톡신 #땀억제효과",
+          "duration": null,
+          "target_area": ["겨드랑이"],
+          "benefits": ["땀 억제"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 턱보톡스 50u",
+      "product_original_price": 120000,
+      "product_event_price": 99000,
+      "product_description": "내성 걱정 없는 독일산 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 독일산 턱보톡스",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 독일산 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["턱 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 주름보톡스 1부위",
+      "product_original_price": 60000,
+      "product_event_price": 49000,
+      "product_description": "부위 : 미간/눈가/눈밑/콧잔등/자갈턱/콧볼/이마 내성적은 독일산 수입 보톡스로 잔주름 개선",
+      "treatments": [
+        {
+          "name": "수입 독일산 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "부위 : 미간/눈가/눈밑/콧잔등/자갈턱/콧볼/이마 내성적은 독일산 수입 보톡스로 잔주름 개선",
+          "duration": null,
+          "target_area": ["미간", "눈가", "눈밑", "콧잔등", "자갈턱", "콧볼", "이마"],
+          "benefits": ["잔주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 입꼬리 보톡스",
+      "product_original_price": null,
+      "product_event_price": 90000,
+      "product_description": "입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선 내성적은 독일산 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 독일산 입꼬리 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "입꼬리를 올리는 근육의 힘을 증대시켜 더욱 화사하고 자연스러운 입매 라인 개선 내성적은 독일산 수입 보톡스",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 인중축소 보톡스",
+      "product_original_price": null,
+      "product_event_price": 100000,
+      "product_description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+      "treatments": [
+        {
+          "name": "수입 독일산 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["중안부 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 스킨보톡스 1부위 (턱라인/나비존/이마)",
+      "product_original_price": null,
+      "product_event_price": 120000,
+      "product_description": "간편하고 자연스럽게 턱라인 탄력 개선",
+      "treatments": [
+        {
+          "name": "수입 독일산 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 턱라인 탄력 개선",
+          "duration": null,
+          "target_area": ["턱라인", "나비존", "이마"],
+          "benefits": ["턱라인 탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 얼굴전체 스킨보톡스",
+      "product_original_price": null,
+      "product_event_price": 190000,
+      "product_description": "간편하고 자연스럽게 주름과 탄력 개선",
+      "treatments": [
+        {
+          "name": "수입 독일산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "간편하고 자연스럽게 주름과 탄력 개선",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["주름 개선", "탄력 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 침샘보톡스 (턱밑샘/귀밑샘)",
+      "product_original_price": null,
+      "product_event_price": 150000,
+      "product_description": "턱밑샘/귀밑샘",
+      "treatments": [
+        {
+          "name": "수입 독일산 침샘보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "턱밑샘/귀밑샘",
+          "duration": null,
+          "target_area": ["턱밑샘", "귀밑샘"],
+          "benefits": ["침샘 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 독일산 특수부위 보톡스 턱관절/잇몸노출/측두근",
+      "product_original_price": null,
+      "product_event_price": 180000,
+      "product_description": "턱관절/잇몸노출/측두근",
+      "treatments": [
+        {
+          "name": "수입 독일산 특수부위 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "턱관절/잇몸노출/측두근",
+          "duration": null,
+          "target_area": ["턱관절", "잇몸노출", "측두근"],
+          "benefits": ["근육 크기 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 턱보톡스 50u",
+      "product_original_price": null,
+      "product_event_price": 150000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 미국산 턱보톡스",
+          "dosage": 50,
+          "unit": "u",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["턱"],
+          "benefits": ["턱 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 주름보톡스 1부위",
+      "product_original_price": null,
+      "product_event_price": 80000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 미국산 주름보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["주름"],
+          "benefits": ["주름 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 입꼬리 보톡스",
+      "product_original_price": null,
+      "product_event_price": 110000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 미국산 입꼬리 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["입꼬리"],
+          "benefits": ["입매 라인 개선"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 인중축소 보톡스",
+      "product_original_price": null,
+      "product_event_price": 290000,
+      "product_description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+      "treatments": [
+        {
+          "name": "수입 미국산 인중축소 보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "길어진 인중 길이 교정으로 중안부 축소 효과",
+          "duration": null,
+          "target_area": ["인중"],
+          "benefits": ["중안부 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 스킨보톡스 1부위 (턱라인/나비존/이마)",
+      "product_original_price": null,
+      "product_event_price": 190000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 미국산 스킨보톡스",
+          "dosage": 1,
+          "unit": "부위",
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["턱라인", "나비존", "이마"],
+          "benefits": ["피부 타이트닝"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 얼굴전체 스킨보톡스",
+      "product_original_price": null,
+      "product_event_price": 290000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+      "treatments": [
+        {
+          "name": "수입 미국산 스킨보톡스",
+          "dosage": null,
+          "unit": null,
+          "equipments": [],
+          "medications": ["보톡스"],
+          "treatment_type": "injection",
+          "description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+          "duration": null,
+          "target_area": ["얼굴 전체"],
+          "benefits": ["피부 타이트닝", "주름 개선", "모공 축소"],
+          "recovery_time": null
+        }
+      ]
+    },
+    {
+      "product_name": "수입 미국산 침샘보톡스 (턱밑샘/귀밑샘)",
+      "product_original_price": null,
+      "product_event_price": 250000,
+      "product_description": "내성 걱정 없는 오리지널 프리미엄 수입 보톡스",
+----------------------------------------
