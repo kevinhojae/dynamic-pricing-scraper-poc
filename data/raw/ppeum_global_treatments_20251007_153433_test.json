@@ -1,0 +1,476 @@
+[
+  {
+    "id": null,
+    "source_url": "https://global.ppeum.com/front/reservation?branchMap=global_kr",
+    "source_channel": "쁨글로벌의원",
+    "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)",
+    "product_name": "슈링크 유니버스 이중턱 리미티드 100샷",
+    "product_original_price": 80000.0,
+    "product_event_price": 45000.0,
+    "product_description": "신규 런칭 이중턱 전용 슈링크 시술",
+    "treatments": [
+      {
+        "name": "슈링크 유니버스 이중턱 리미티드",
+        "dosage": 100.0,
+        "unit": "샷",
+        "equipments": [
+          "슈링크 유니버스"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+        "duration": null,
+        "target_area": [
+          "이중턱"
+        ],
+        "benefits": [
+          "리프팅",
+          "탄력 개선"
+        ],
+        "recovery_time": null
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "고주파, 초음파, RF 등 다양한 장비를 이용한 피부 탄력 개선 및 리프팅 시술",
+    "scraped_at": "2025-10-07 15:34:20.503295",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://global.ppeum.com/front/reservation?branchMap=global_kr",
+    "source_channel": "쁨글로벌의원",
+    "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)",
+    "product_name": "슈링크 유니버스 울트라 1000샷",
+    "product_original_price": 390000.0,
+    "product_event_price": 199000.0,
+    "product_description": "1회 한정가, 분할사용가능",
+    "treatments": [
+      {
+        "name": "슈링크 유니버스 울트라",
+        "dosage": 1000.0,
+        "unit": "샷",
+        "equipments": [
+          "슈링크 유니버스"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+        "duration": null,
+        "target_area": [
+          "얼굴전체"
+        ],
+        "benefits": [
+          "리프팅",
+          "탄력 개선"
+        ],
+        "recovery_time": null
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "고주파, 초음파, RF 등 다양한 장비를 이용한 피부 탄력 개선 및 리프팅 시술",
+    "scraped_at": "2025-10-07 15:34:20.503324",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://global.ppeum.com/front/reservation?branchMap=global_kr",
+    "source_channel": "쁨글로벌의원",
+    "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)",
+    "product_name": "볼뉴머 100샷 + 슈링크 유니버스 울트라 100샷 + 슈링크 쫀쫀밴드 1매",
+    "product_original_price": 195000.0,
+    "product_event_price": 99000.0,
+    "product_description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+    "treatments": [
+      {
+        "name": "볼뉴머",
+        "dosage": 100.0,
+        "unit": "샷",
+        "equipments": [
+          "볼뉴머"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+        "duration": null,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "리프팅",
+          "탄력개선"
+        ],
+        "recovery_time": null
+      },
+      {
+        "name": "슈링크 유니버스 울트라",
+        "dosage": 100.0,
+        "unit": "샷",
+        "equipments": [
+          "슈링크 유니버스"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+        "duration": null,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "리프팅",
+          "탄력 개선"
+        ],
+        "recovery_time": null
+      },
+      {
+        "name": "슈링크 쫀쫀밴드",
+        "dosage": 1.0,
+        "unit": "매",
+        "equipments": [
+          "슈링크"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": null,
+        "duration": null,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "탄력강화"
+        ],
+        "recovery_time": null
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "고주파, 초음파, RF 등 다양한 장비를 이용한 피부 탄력 개선 및 리프팅 시술",
+    "scraped_at": "2025-10-07 15:34:20.503340",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://global.ppeum.com/front/reservation?branchMap=global_kr",
+    "source_channel": "쁨글로벌의원",
+    "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)",
+    "product_name": "볼뉴머 100샷",
+    "product_original_price": 150000.0,
+    "product_event_price": 99000.0,
+    "product_description": "고주파로 탄력up",
+    "treatments": [
+      {
+        "name": "볼뉴머",
+        "dosage": 100.0,
+        "unit": "샷",
+        "equipments": [
+          "볼뉴머"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+        "duration": null,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "탄력개선"
+        ],
+        "recovery_time": null
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "고주파, 초음파, RF 등 다양한 장비를 이용한 피부 탄력 개선 및 리프팅 시술",
+    "scraped_at": "2025-10-07 15:34:20.503348",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://global.ppeum.com/front/reservation?branchMap=global_kr",
+    "source_channel": "쁨글로벌의원",
+    "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)",
+    "product_name": "아이 볼뉴머 100샷",
+    "product_original_price": 170000.0,
+    "product_event_price": 99000.0,
+    "product_description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+    "treatments": [
+      {
+        "name": "아이 볼뉴머",
+        "dosage": 100.0,
+        "unit": "샷",
+        "equipments": [
+          "볼뉴머"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+        "duration": null,
+        "target_area": [
+          "눈가"
+        ],
+        "benefits": [
+          "탄력개선",
+          "리프팅"
+        ],
+        "recovery_time": null
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "고주파, 초음파, RF 등 다양한 장비를 이용한 피부 탄력 개선 및 리프팅 시술",
+    "scraped_at": "2025-10-07 15:34:20.503355",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://global.ppeum.com/front/reservation?branchMap=global_kr",
+    "source_channel": "쁨글로벌의원",
+    "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)",
+    "product_name": "슈링크 유니버스 울트라 300샷 + 슈링크 유니버스 부스터 300샷 + 오로라앰플 3cc",
+    "product_original_price": 324000.0,
+    "product_event_price": 169000.0,
+    "product_description": "V라인 탄력 동안 패키지",
+    "treatments": [
+      {
+        "name": "슈링크 유니버스 울트라",
+        "dosage": 300.0,
+        "unit": "샷",
+        "equipments": [
+          "슈링크 유니버스"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+        "duration": null,
+        "target_area": [
+          "V라인"
+        ],
+        "benefits": [
+          "리프팅",
+          "탄력 개선"
+        ],
+        "recovery_time": null
+      },
+      {
+        "name": "슈링크 유니버스 부스터",
+        "dosage": 300.0,
+        "unit": "샷",
+        "equipments": [
+          "슈링크 유니버스"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "원타입 카트리지로 기존 슈링크로 닿기 힘든 부위까지 리프팅",
+        "duration": null,
+        "target_area": [
+          "V라인"
+        ],
+        "benefits": [
+          "리프팅",
+          "탄력 개선"
+        ],
+        "recovery_time": null
+      },
+      {
+        "name": "오로라앰플",
+        "dosage": 3.0,
+        "unit": "cc",
+        "equipments": [],
+        "medications": [
+          "GT38",
+          "글루타치온"
+        ],
+        "treatment_type": "injection",
+        "description": "GLUTATHION + 38가지 활성 성분 : 피부톤 / 안티에이징 / 미백 / 주름 /수분 / 탄력 / 영양 개선",
+        "duration": null,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "피부톤개선",
+          "안티에이징",
+          "미백",
+          "주름개선",
+          "수분보충",
+          "탄력개선"
+        ],
+        "recovery_time": null
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "고주파, 초음파, RF 등 다양한 장비를 이용한 피부 탄력 개선 및 리프팅 시술",
+    "scraped_at": "2025-10-07 15:34:20.503367",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://global.ppeum.com/front/reservation?branchMap=global_kr",
+    "source_channel": "쁨글로벌의원",
+    "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)",
+    "product_name": "슈링크 유니버스 아이리프팅 200샷 + 아이 볼뉴머 100샷 + 필로드 아이 1cc + 국산 눈가 주름보톡스",
+    "product_original_price": 529000.0,
+    "product_event_price": 299000.0,
+    "product_description": "눈가 탄력 동안 패키지",
+    "treatments": [
+      {
+        "name": "슈링크 유니버스 아이리프팅",
+        "dosage": 200.0,
+        "unit": "샷",
+        "equipments": [
+          "슈링크 유니버스"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "강한 출력의 초음파(HIFU)로 근막(SMAS)층에 열응고점을 만들어 늘어진 조직을 수축하여 리프팅, 탄력 개선",
+        "duration": null,
+        "target_area": [
+          "눈가"
+        ],
+        "benefits": [
+          "리프팅",
+          "탄력 개선"
+        ],
+        "recovery_time": null
+      },
+      {
+        "name": "아이 볼뉴머",
+        "dosage": 100.0,
+        "unit": "샷",
+        "equipments": [
+          "볼뉴머"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "피부 속 깊은 조직까지 도달하는 강하고 안전한 3세대 모노폴라 RF 고주파 리프팅",
+        "duration": null,
+        "target_area": [
+          "눈가"
+        ],
+        "benefits": [
+          "탄력개선"
+        ],
+        "recovery_time": null
+      },
+      {
+        "name": "필로드 아이",
+        "dosage": 1.0,
+        "unit": "cc",
+        "equipments": [],
+        "medications": [
+          "PN"
+        ],
+        "treatment_type": "injection",
+        "description": "친환경 연어과 어류에서 추출한 PN성분으로 피부 복원과 재생을 동시에",
+        "duration": null,
+        "target_area": [
+          "눈가"
+        ],
+        "benefits": [
+          "주름개선",
+          "피부재생",
+          "탄력증진"
+        ],
+        "recovery_time": null
+      },
+      {
+        "name": "국산 눈가 주름보톡스",
+        "dosage": null,
+        "unit": "부위",
+        "equipments": [],
+        "medications": [
+          "보톡스"
+        ],
+        "treatment_type": "injection",
+        "description": "주름 개선 보톡스",
+        "duration": null,
+        "target_area": [
+          "눈가"
+        ],
+        "benefits": [
+          "주름개선"
+        ],
+        "recovery_time": null
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "고주파, 초음파, RF 등 다양한 장비를 이용한 피부 탄력 개선 및 리프팅 시술",
+    "scraped_at": "2025-10-07 15:34:20.503383",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://global.ppeum.com/front/reservation?branchMap=global_kr",
+    "source_channel": "쁨글로벌의원",
+    "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)",
+    "product_name": "티타늄 40KJ + 볼뉴머 300샷 + 얼굴 전체 필로드 4cc",
+    "product_original_price": 1910000.0,
+    "product_event_price": 990000.0,
+    "product_description": "프리미엄 탄력/콜라겐/피부재생 프리미엄 3종 패키지",
+    "treatments": [
+      {
+        "name": "티타늄",
+        "dosage": 40.0,
+        "unit": "KJ",
+        "equipments": [
+          "티타늄"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "세계 최초 3가지 파장으로 완성되는 즉각적인 효과",
+        "duration": null,
+        "target_area": [
+          "얼굴전체"
+        ],
+        "benefits": [
+          "탄력개선",
+          "콜라겐생성",
+          "지방감소",
+          "피부톤개선"
+        ],
+        "recovery_time": "다운타임 ZERO"
+      },
+      {
+        "name": "볼뉴머",
+        "dosage": 300.0,
+        "unit": "샷",
+        "equipments": [
+          "볼뉴머"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "적은 통증과 타운타임 없는 티타늄 리프팅과 촉촘하고 섬세한 시술이 가능한 볼뉴머 패키지",
+        "duration": null,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "탄력개선",
+          "리프팅"
+        ],
+        "recovery_time": null
+      },
+      {
+        "name": "얼굴 전체 필로드",
+        "dosage": 4.0,
+        "unit": "cc",
+        "equipments": [],
+        "medications": [
+          "PN"
+        ],
+        "treatment_type": "injection",
+        "description": "친환경 연어과 어류에서 추출한 PN성분으로 피부 복원과 재생을 동시에",
+        "duration": null,
+        "target_area": [
+          "얼굴전체"
+        ],
+        "benefits": [
+          "피부재생",
+          "탄력증진",
+          "주름개선",
+          "피부결개선"
+        ],
+        "recovery_time": null
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "고주파, 초음파, RF 등 다양한 장비를 이용한 피부 탄력 개선 및 리프팅 시술",
+    "scraped_at": "2025-10-07 15:34:20.503395",
+    "additional_info": {}
+  }
+]

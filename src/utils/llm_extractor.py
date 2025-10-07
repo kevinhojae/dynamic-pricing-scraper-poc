@@ -108,6 +108,35 @@ class LLMTreatmentExtractor:
 
         return self._make_api_request_with_retry(prompt, source_url, text_content)
 
+    async def extract_treatments_from_html_async(
+        self, html_content: str, source_url: str
+    ) -> List[ProductItem]:
+        """HTML 기반 비동기 추출 메소드 (SPA 스크래퍼용)"""
+        if not self.api_key:
+            return []
+
+        # HTML을 텍스트로 변환
+        soup = BeautifulSoup(html_content, "html.parser")
+
+        # 불필요한 태그 제거
+        for tag in soup(["script", "style", "nav", "footer", "header"]):
+            tag.decompose()
+
+        text_content = soup.get_text(separator=" ", strip=True)
+
+        # 텍스트가 너무 길면 자르기
+        if len(text_content) > 30000:
+            text_content = text_content[:30000] + "..."
+
+        # 텍스트가 너무 짧으면 추출할 의미가 없음
+        if len(text_content.strip()) < 100:
+            tqdm.write(f"⚠️  텍스트가 너무 짧습니다 ({len(text_content.strip())} chars): {source_url}")
+            return []
+
+        prompt = self._create_extraction_prompt(text_content, source_url)
+
+        return await self._make_api_request_with_retry_async(prompt, source_url, text_content)
+
     async def _fetch_rendered_html(self, url: str) -> Optional[str]:
         """Playwright를 사용하여 JavaScript 렌더링 후 HTML을 가져옵니다."""
         try:
@@ -384,6 +413,8 @@ JSON만 응답해주세요:
             return "GU 클리닉"
         elif "beautyleader.co.kr" in source_url:
             return "뷰티리더"
+        elif "global.ppeum.com" in source_url:
+            return "쁨글로벌의원"
         else:
             # 도메인에서 채널명 추출
             try:
@@ -526,6 +557,8 @@ JSON만 응답해주세요:
             return "GU 클리닉"
         elif "beautyleader.co.kr" in source_url:
             return "뷰티리더"
+        elif "global.ppeum.com" in source_url:
+            return "쁨글로벌의원"
         else:
             # 도메인에서 클리닉명 추출 시도
             try:

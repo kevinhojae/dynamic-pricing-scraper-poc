@@ -97,10 +97,38 @@ class PriceRecommendation(BaseModel):
     cluster_id: Optional[int] = None
 
 
+class ScrapingSourceType(str, Enum):
+    SITEMAP = "sitemap"
+    BASE_URL = "base_url"
+    STATIC_URLS = "static_urls"
+    SPA_DYNAMIC = "spa_dynamic"
+
+
+class SPAConfig(BaseModel):
+    """SPA 사이트 동적 콘텐츠 스크래핑 설정"""
+    wait_for_element: Optional[str] = None  # 기다릴 요소 선택자
+    click_elements: List[str] = []  # 클릭할 버튼/요소들
+    scroll_behavior: bool = False  # 스크롤하여 더 많은 콘텐츠 로드
+    wait_time: int = 3  # 페이지 로딩 대기 시간(초)
+    max_interactions: int = 10  # 최대 상호작용 횟수
+
+
 class ScrapingConfig(BaseModel):
     site_name: str
     base_url: str
-    selectors: Dict[str, str]
+
+    # 소스 유형과 관련 설정
+    source_type: ScrapingSourceType = ScrapingSourceType.SITEMAP
+    static_urls: List[str] = []  # source_type이 STATIC_URLS일 때 사용
+
+    # SPA 설정 (source_type이 SPA_DYNAMIC일 때 사용)
+    spa_config: Optional[SPAConfig] = None
+
+    # 기존 설정들
+    selectors: Dict[str, str] = {}
     rate_limit: float = 1.0
     use_selenium: bool = False
     headers: Dict[str, str] = {}
+
+    # 사이트별 커스텀 설정
+    custom_settings: Dict[str, Any] = {}
