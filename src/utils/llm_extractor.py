@@ -2,44 +2,87 @@ import os
 import json
 import re
 import time
+import asyncio
 from typing import List, Optional, Dict, Any
 from bs4 import BeautifulSoup
 from tqdm import tqdm
+from playwright.async_api import async_playwright
 
-from src.models.schemas import TreatmentItem, TreatmentType, EquipmentType
+from src.models.schemas import (
+    ProductItem,
+    IndividualTreatment,
+    TreatmentType,
+    EquipmentType,
+)
 
-# Gemini API를 선택적으로 import
+# OpenAI API를 선택적으로 import
 try:
-    import google.generativeai as genai
+    import openai
 
-    GEMINI_AVAILABLE = True
+    OPENAI_AVAILABLE = True
 except ImportError:
-    GEMINI_AVAILABLE = False
-    genai = None
+    OPENAI_AVAILABLE = False
+    openai = None
 
 
-class GeminiTreatmentExtractor:
+class LLMTreatmentExtractor:
     def __init__(self, api_key: Optional[str] = None, requests_per_minute: int = 10):
         # API 키 설정 (환경변수에서 가져오거나 직접 입력)
-        self.api_key = api_key or os.getenv("GEMINI_API_KEY")
+        self.api_key = api_key or os.getenv("ANTHROPIC_AUTH_TOKEN")
+        self.api_base_url = os.getenv("ANTHROPIC_BASE_URL")
         if not self.api_key:
-            print("⚠️  GEMINI_API_KEY가 설정되지 않았습니다.")
+            print("⚠️  ANTHROPIC_AUTH_TOKEN이 설정되지 않았습니다.")
             print("환경변수로 설정하거나 직접 전달해주세요:")
-            print("export GEMINI_API_KEY='your-api-key-here'")
+            print("export ANTHROPIC_AUTH_TOKEN='your-api-key-here'")
             return
 
-        genai.configure(api_key=self.api_key)
-        self.model = genai.GenerativeModel("gemini-2.5-flash-lite")
+        # OpenAI 클라이언트 초기화 (LiteLLM Proxy 사용)
+        self.client = openai.OpenAI(api_key=self.api_key, base_url=self.api_base_url)
+        self.model = "bedrock-claude-sonnet-4"
 
         # Rate limiting 설정
         self.requests_per_minute = requests_per_minute
         self.min_delay_between_requests = 60.0 / requests_per_minute  # 초 단위
         self.last_request_time = 0.0
 
+    async def extract_treatments_from_url(
+        self, source_url: str
+    ) -> List[ProductItem]:
+        """URL에서 JavaScript 렌더링 후 시술 정보를 추출합니다."""
+        if not self.api_key:
+            return []
+
+        # Playwright로 JavaScript 렌더링 후 HTML 추출
+        html_content = await self._fetch_rendered_html(source_url)
+        if not html_content:
+            return []
+
+        # HTML을 텍스트로 변환
+        soup = BeautifulSoup(html_content, "html.parser")
+
+        # 불필요한 태그 제거
+        for tag in soup(["script", "style", "nav", "footer", "header"]):
+            tag.decompose()
+
+        text_content = soup.get_text(separator=" ", strip=True)
+
+        # 텍스트가 너무 길면 자르기
+        if len(text_content) > 30000:
+            text_content = text_content[:30000] + "..."
+
+        # 텍스트가 너무 짧으면 추출할 의미가 없음
+        if len(text_content.strip()) < 100:
+            tqdm.write(f"⚠️  텍스트가 너무 짧습니다 ({len(text_content.strip())} chars): {source_url}")
+            return []
+
+        prompt = self._create_extraction_prompt(text_content, source_url)
+
+        return await self._make_api_request_with_retry_async(prompt, source_url, text_content)
+
     def extract_treatments_from_html(
         self, html_content: str, source_url: str
-    ) -> List[TreatmentItem]:
-        """HTML 컨텐츠에서 시술 정보를 추출합니다."""
+    ) -> List[ProductItem]:
+        """기존 HTML 기반 추출 메소드 (하위 호환성 유지)"""
         if not self.api_key:
             return []
 
@@ -52,77 +95,143 @@ class GeminiTreatmentExtractor:
 
         text_content = soup.get_text(separator=" ", strip=True)
 
-        # 텍스트가 너무 길면 자르기 (Gemini API 제한)
+        # 텍스트가 너무 길면 자르기
         if len(text_content) > 30000:
             text_content = text_content[:30000] + "..."
+
+        # 텍스트가 너무 짧으면 추출할 의미가 없음
+        if len(text_content.strip()) < 100:
+            tqdm.write(f"⚠️  텍스트가 너무 짧습니다 ({len(text_content.strip())} chars): {source_url}")
+            return []
 
         prompt = self._create_extraction_prompt(text_content, source_url)
 
         return self._make_api_request_with_retry(prompt, source_url, text_content)
 
+    async def _fetch_rendered_html(self, url: str) -> Optional[str]:
+        """Playwright를 사용하여 JavaScript 렌더링 후 HTML을 가져옵니다."""
+        try:
+            async with async_playwright() as p:
+                browser = await p.chromium.launch(headless=True)
+                context = await browser.new_context(
+                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+                    viewport={'width': 1920, 'height': 1080}
+                )
+                page = await context.new_page()
+
+                try:
+                    # 페이지 로드
+                    await page.goto(url, wait_until='domcontentloaded', timeout=30000)
+
+                    # JavaScript 실행 완료 대기
+                    await page.wait_for_timeout(3000)
+
+                    # 콘텐츠 요소가 로드될 때까지 대기
+                    try:
+                        await page.wait_for_selector('main, .content, .product, h1, h2, p', timeout=10000)
+                    except:
+                        pass  # 특정 요소를 찾지 못해도 계속 진행
+
+                    # 추가 대기 (동적 콘텐츠)
+                    await page.wait_for_timeout(2000)
+
+                    # 네트워크 완료 대기 (선택적)
+                    try:
+                        await page.wait_for_load_state('networkidle', timeout=5000)
+                    except:
+                        pass  # 네트워크가 계속 활성화되어도 진행
+
+                    # HTML 콘텐츠 가져오기
+                    content = await page.content()
+
+                    tqdm.write(f"🌐 Playwright HTML 가져옴: {len(content)} chars from {url}")
+                    return content
+
+                except Exception as e:
+                    tqdm.write(f"❌ Playwright 페이지 로드 실패: {str(e)}")
+                    return None
+                finally:
+                    await browser.close()
+
+        except Exception as e:
+            tqdm.write(f"❌ Playwright 초기화 실패: {str(e)}")
+            return None
+
     def _create_extraction_prompt(self, text_content: str, source_url: str) -> str:
         return f"""
-다음 피부과/미용 클리닉 웹페이지 텍스트에서 시술 정보를 정확하게 추출해주세요.
+다음 피부과/미용 클리닉 웹페이지 텍스트에서 개별 상품 옵션 정보를 정확하게 추출해주세요.
 
 웹페이지 내용:
 {text_content}
 
 출처 URL: {source_url}
 
-다음 JSON 형식으로 시술 정보를 추출해주세요. 각 key factor를 정확히 추출하는 것이 매우 중요합니다:
+각 개별 상품 옵션을 별도의 product로 추출하여 다음 JSON 형식으로 응답해주세요:
 
 {{
   "clinic_name": "병원명 (URL이나 페이지에서 추출)",
-  "treatments": [
+  "category": "시술 카테고리 (예: 탄력/리프팅)",
+  "description": "카테고리 전체 설명",
+  "products": [
     {{
-      "treatment_name": "시술명 (예: 써마지FLX, 울쎄라)",
-      "option_name": "옵션명 (예: 300샷, 600샷, 아이써마지 225샷)",
-      "equipment_name": "기기명 (예: 써마지FLX, 울쎄라피 프라임)",
-      "medication": "약물명 (있다면)",
-      "dosage": "용량 (예: 300샷, 1cc)",
-      "unit": "단위 (예: 샷, cc, 회)",
-      "price": 현재_판매가격_숫자만,
-      "original_price": 정상가_숫자만,
-      "discount_rate": 할인율_퍼센트_숫자만,
-      "treatment_type": "laser|injection|skincare|surgical|device 중 하나",
-      "equipment_used": ["co2_laser", "picosure", "ulthera", "botox", "filler", "thread_lift", "hifu", "rf", "ipl"],
-      "description": "시술 설명",
-      "duration": 시술시간_분단위_숫자만,
-      "target_area": ["타겟 부위"],
-      "benefits": ["효과1", "효과2"],
-      "recovery_time": "회복기간"
+      "product_name": "개별 상품 옵션명 (예: 더마 슈링크 100샷 (이마, 목주름), 슈링크 유니버스 울트라 MP모드 300샷 + 얼굴지방분해주사 3cc)",
+      "product_original_price": 정상가_숫자만,
+      "product_event_price": 이벤트가_숫자만,
+      "product_description": "상품 설명",
+      "treatments": [
+        {{
+          "name": "시술 구성 요소명 (예: 슈링크 유니버스 울트라 MP모드, 얼굴지방분해주사)",
+          "dosage": 용량_숫자만,
+          "unit": "단위 (예: 샷, cc, 회)",
+          "equipments": ["장비명1", "장비명2"],
+          "medications": ["약물명1", "약물명2"],
+          "treatment_type": "laser|injection|skincare|surgical|device 중 하나",
+          "description": "시술 설명",
+          "duration": 시술시간_분단위_숫자만,
+          "target_area": ["타겟 부위"],
+          "benefits": ["효과1", "효과2"],
+          "recovery_time": "회복기간"
+        }}
+      ]
     }}
   ]
 }}
 
 핵심 추출 규칙:
-1. **가격 정보**: 정상가와 할인가를 정확히 구분하여 추출
-   - 정상가: 원래 가격 (취소선이 있거나 "원가" 표시)
-   - 현재가: 실제 판매 가격 (강조 표시된 가격)
-   - 할인율: (정상가-현재가)/정상가 * 100
 
-2. **상품명/옵션명**:
-   - 상품명: 기본 시술명 (예: "써마지FLX")
-   - 옵션명: 세부 옵션 (예: "300샷", "아이써마지 225샷")
+1. **개별 상품 옵션 처리**: 각 가격이 표시된 개별 옵션을 별도의 product로 추출
+   - 예: "더마 슈링크 100샷" → 하나의 product
+   - 예: "슈링크 300샷 + 지방분해주사 3cc" → 하나의 product (하지만 treatments에 2개 요소)
 
-3. **기기/약물/용량**:
-   - 기기명: 사용되는 장비명 정확히 추출
-   - 약물: 보톡스, 필러 등 주입되는 약물
-   - 용량: 샷 수, cc 수 등 구체적 용량
+2. **복합 상품 처리**: "A + B" 형태의 상품은 treatments 배열에 각 구성 요소를 분리
+   - 상품명: "슈링크 유니버스 울트라 MP모드 300샷 + 얼굴지방분해주사 (비스테로이드) 3cc"
+   - treatments: [
+       {{"name": "슈링크 유니버스 울트라 MP모드", "dosage": 300, "unit": "샷"}},
+       {{"name": "얼굴지방분해주사 (비스테로이드)", "dosage": 3, "unit": "cc"}}
+     ]
 
-4. **병원명**: URL 도메인이나 페이지 제목에서 추출
+3. **가격 정보**: product 레벨에서 추출
+   - product_original_price: 취소선이 있는 높은 가격
+   - product_event_price: 강조 표시된 낮은 가격
 
-5. 가격이 없으면 null, 정보가 없으면 null로 설정
-6. 시술과 무관한 내용은 제외
-7. 중복 시술은 하나만 추출
+4. **용량/단위**: 숫자는 dosage, 문자는 unit으로 분리
+   - "300샷" → dosage: 300, unit: "샷"
+   - "3cc" → dosage: 3, unit: "cc"
+
+5. **장비/약물**: 각각 배열로 추출
+   - equipments: ["슈링크", "울쎄라"]
+   - medications: ["GT38", "보톡스"]
+
+6. 정보가 없으면 null 또는 빈 배열로 설정
+7. 시술과 무관한 내용은 제외
 
 JSON만 응답해주세요:
 """
 
-    def _parse_gemini_response(
+    def _parse_llm_response(
         self, response_text: str, source_url: str
-    ) -> List[TreatmentItem]:
-        """Gemini 응답을 파싱하여 TreatmentItem 리스트로 변환"""
+    ) -> List[ProductItem]:
+        """LLM 응답을 파싱하여 ProductItem 리스트로 변환"""
         try:
             # JSON 부분만 추출
             json_match = re.search(r"\{.*\}", response_text, re.DOTALL)
@@ -133,20 +242,26 @@ JSON만 응답해주세요:
             json_str = json_match.group()
             data = json.loads(json_str)
 
-            # 병원명 추출
-            clinic_name = data.get("clinic_name") or self._extract_clinic_name(source_url)
+            # 공통 정보 추출
+            clinic_name = data.get("clinic_name") or self._extract_clinic_name(
+                source_url
+            )
+            category = data.get("category")
+            description = data.get("description")
 
-            treatments = []
-            for item in data.get("treatments", []):
+            products = []
+            for product_data in data.get("products", []):
                 try:
-                    treatment = self._create_treatment_item(item, source_url, clinic_name)
-                    if treatment:
-                        treatments.append(treatment)
+                    product = self._create_product_item(
+                        product_data, source_url, clinic_name, category, description
+                    )
+                    if product:
+                        products.append(product)
                 except Exception as e:
-                    tqdm.write(f"⚠️  시술 파싱 오류: {str(e)}")
+                    tqdm.write(f"⚠️  상품 파싱 오류: {str(e)}")
                     continue
 
-            return treatments
+            return products
 
         except json.JSONDecodeError as e:
             tqdm.write(f"❌ JSON 파싱 오류: {str(e)}")
@@ -156,25 +271,60 @@ JSON만 응답해주세요:
             tqdm.write(f"❌ 응답 파싱 오류: {str(e)}")
             return []
 
-    def _create_treatment_item(
-        self, item: Dict[str, Any], source_url: str, clinic_name: str
-    ) -> Optional[TreatmentItem]:
-        """딕셔너리에서 TreatmentItem 생성"""
+    def _create_product_item(
+        self,
+        product_data: Dict[str, Any],
+        source_url: str,
+        clinic_name: str,
+        category: str,
+        description: str,
+    ) -> Optional[ProductItem]:
+        """딕셔너리에서 ProductItem 생성"""
         try:
-            treatment_name = item.get("treatment_name", "").strip()
-            if not treatment_name:
+            product_name = product_data.get("product_name", "").strip()
+            if not product_name:
                 return None
 
-            # 가격 처리 (할인율 계산 포함)
-            price = self._parse_price(item.get("price"))
-            original_price = self._parse_price(item.get("original_price"))
+            # 개별 시술들 파싱
+            treatments = []
+            for treatment_data in product_data.get("treatments", []):
+                treatment = self._create_individual_treatment(treatment_data)
+                if treatment:
+                    treatments.append(treatment)
 
-            # 할인율 계산
-            discount_rate = None
-            if original_price and original_price > 0 and price < original_price:
-                discount_rate = round(((original_price - price) / original_price) * 100, 1)
-            elif item.get("discount_rate"):
-                discount_rate = float(item.get("discount_rate"))
+            if not treatments:
+                return None
+
+            return ProductItem(
+                # Key Factors
+                source_url=source_url,
+                source_channel=self._extract_source_channel(source_url),
+                clinic_name=clinic_name,
+                product_name=product_name,
+                product_original_price=self._parse_price_value(
+                    product_data.get("product_original_price")
+                ),
+                product_event_price=self._parse_price_value(
+                    product_data.get("product_event_price")
+                ),
+                product_description=product_data.get("product_description"),
+                treatments=treatments,
+                category=category,
+                description=description,
+            )
+
+        except Exception as e:
+            tqdm.write(f"⚠️  ProductItem 생성 오류: {str(e)}")
+            return None
+
+    def _create_individual_treatment(
+        self, treatment_data: Dict[str, Any]
+    ) -> Optional[IndividualTreatment]:
+        """딕셔너리에서 IndividualTreatment 생성"""
+        try:
+            name = treatment_data.get("name", "").strip()
+            if not name:
+                return None
 
             # 시술 유형 매핑
             type_mapping = {
@@ -184,54 +334,24 @@ JSON만 응답해주세요:
                 "surgical": TreatmentType.SURGICAL,
                 "device": TreatmentType.DEVICE,
             }
-            treatment_type = type_mapping.get(
-                item.get("treatment_type", "device"), TreatmentType.DEVICE
-            )
+            treatment_type = type_mapping.get(treatment_data.get("treatment_type"))
 
-            # 장비 매핑
-            equipment_mapping = {
-                "co2_laser": EquipmentType.LASER_CO2,
-                "picosure": EquipmentType.LASER_PICOSURE,
-                "ulthera": EquipmentType.LASER_ULTHERA,
-                "botox": EquipmentType.BOTOX,
-                "filler": EquipmentType.FILLER,
-                "thread_lift": EquipmentType.THREAD_LIFT,
-                "hifu": EquipmentType.HIFU,
-                "rf": EquipmentType.RF,
-                "ipl": EquipmentType.IPL,
-            }
-
-            equipment_used = []
-            for eq in item.get("equipment_used", []):
-                if eq in equipment_mapping:
-                    equipment_used.append(equipment_mapping[eq])
-
-            return TreatmentItem(
-                # Key Factors
-                source_url=source_url,
-                source_channel=self._extract_source_channel(source_url),
-                clinic_name=clinic_name,
-                treatment_name=treatment_name,
-                option_name=item.get("option_name"),
-                equipment_name=item.get("equipment_name"),
-                medication=item.get("medication"),
-                dosage=item.get("dosage"),
-                unit=item.get("unit"),
-                price=price,
-                original_price=original_price,
-                discount_rate=discount_rate,
-                # 기존 필드들
+            return IndividualTreatment(
+                name=name,
+                dosage=treatment_data.get("dosage"),
+                unit=treatment_data.get("unit"),
+                equipments=treatment_data.get("equipments", []),
+                medications=treatment_data.get("medications", []),
                 treatment_type=treatment_type,
-                equipment_used=equipment_used,
-                description=item.get("description", ""),
-                duration=item.get("duration"),
-                target_area=item.get("target_area", []),
-                benefits=item.get("benefits", []),
-                recovery_time=item.get("recovery_time"),
+                description=treatment_data.get("description"),
+                duration=treatment_data.get("duration"),
+                target_area=treatment_data.get("target_area", []),
+                benefits=treatment_data.get("benefits", []),
+                recovery_time=treatment_data.get("recovery_time"),
             )
 
         except Exception as e:
-            tqdm.write(f"⚠️  TreatmentItem 생성 오류: {str(e)}")
+            tqdm.write(f"⚠️  IndividualTreatment 생성 오류: {str(e)}")
             return None
 
     def _parse_price(self, price_value: Any) -> float:
@@ -243,6 +363,16 @@ JSON만 응답해주세요:
             price_str = re.sub(r"[^\d]", "", price_value)
             return float(price_str) if price_str else 0.0
         return float(price_value) if price_value else 0.0
+
+    def _parse_price_value(self, price_value: Any) -> Optional[float]:
+        """가격 값을 파싱하되 None일 경우 None 반환"""
+        if price_value is None:
+            return None
+        if isinstance(price_value, str):
+            # 숫자가 아닌 문자 제거
+            price_str = re.sub(r"[^\d]", "", price_value)
+            return float(price_str) if price_str else None
+        return float(price_value) if price_value else None
 
     def _extract_source_channel(self, source_url: str) -> str:
         """URL에서 정보 수집 채널명 추출"""
@@ -258,26 +388,33 @@ JSON만 응답해주세요:
             # 도메인에서 채널명 추출
             try:
                 from urllib.parse import urlparse
+
                 domain = urlparse(source_url).netloc
                 return domain.replace("www.", "")
             except:
                 return "알 수 없음"
 
-    def _make_api_request_with_retry(
+    async def _make_api_request_with_retry_async(
         self, prompt: str, source_url: str, text_content: str, max_retries: int = 3
-    ) -> List[TreatmentItem]:
-        """Retry 로직과 rate limiting이 적용된 API 요청"""
+    ) -> List[ProductItem]:
+        """Async Retry 로직과 rate limiting이 적용된 API 요청"""
         for attempt in range(max_retries):
             try:
                 tqdm.write(
-                    f"🤖 Gemini로 데이터 추출 중... ({len(text_content)} chars) - 시도 {attempt + 1}/{max_retries}"
+                    f"🤖 Claude로 데이터 추출 중... ({len(text_content)} chars) - 시도 {attempt + 1}/{max_retries}"
                 )
 
                 # Rate limiting 적용
                 self._wait_for_rate_limit()
 
-                response = self.model.generate_content(prompt)
-                result = self._parse_gemini_response(response.text, source_url)
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=4000  # thinking 기능을 위한 충분한 토큰 설정
+                )
+
+                response_text = response.choices[0].message.content
+                result = self._parse_llm_response(response_text, source_url)
 
                 tqdm.write(f"✅ {len(result)}개 시술 정보 추출 완료")
                 return result
@@ -285,7 +422,62 @@ JSON만 응답해주세요:
             except Exception as e:
                 error_msg = str(e)
                 tqdm.write(
-                    f"❌ Gemini API 오류 (시도 {attempt + 1}/{max_retries}): {error_msg}"
+                    f"❌ Claude API 오류 (시도 {attempt + 1}/{max_retries}): {error_msg}"
+                )
+
+                # 429 에러 (rate limit) 감지
+                if (
+                    "429" in error_msg
+                    or "quota" in error_msg.lower()
+                    or "exceeded" in error_msg.lower()
+                ):
+                    if attempt < max_retries - 1:
+                        # Exponential backoff: 2^attempt * 30초
+                        wait_time = (2**attempt) * 30
+                        tqdm.write(
+                            f"⏳ Rate limit 초과. {wait_time}초 대기 후 재시도..."
+                        )
+                        await asyncio.sleep(wait_time)
+                        continue
+                    else:
+                        tqdm.write("❌ 최대 재시도 횟수 도달. 요청을 건너뜁니다.")
+                        return []
+                else:
+                    # 다른 에러의 경우 즉시 중단
+                    tqdm.write(f"❌ API 요청 실패: {error_msg}")
+                    return []
+
+        return []
+
+    def _make_api_request_with_retry(
+        self, prompt: str, source_url: str, text_content: str, max_retries: int = 3
+    ) -> List[ProductItem]:
+        """기존 동기 버전 유지 (하위 호환성)"""
+        for attempt in range(max_retries):
+            try:
+                tqdm.write(
+                    f"🤖 Claude로 데이터 추출 중... ({len(text_content)} chars) - 시도 {attempt + 1}/{max_retries}"
+                )
+
+                # Rate limiting 적용
+                self._wait_for_rate_limit()
+
+                response = self.client.chat.completions.create(
+                    model=self.model,
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=4000  # thinking 기능을 위한 충분한 토큰 설정
+                )
+
+                response_text = response.choices[0].message.content
+                result = self._parse_llm_response(response_text, source_url)
+
+                tqdm.write(f"✅ {len(result)}개 시술 정보 추출 완료")
+                return result
+
+            except Exception as e:
+                error_msg = str(e)
+                tqdm.write(
+                    f"❌ Claude API 오류 (시도 {attempt + 1}/{max_retries}): {error_msg}"
                 )
 
                 # 429 에러 (rate limit) 감지
@@ -338,10 +530,14 @@ JSON만 응답해주세요:
             # 도메인에서 클리닉명 추출 시도
             try:
                 from urllib.parse import urlparse
+
                 domain = urlparse(source_url).netloc.replace("www.", "")
                 # 도메인을 기반으로 클리닉명 생성
                 if "clinic" in domain:
-                    return domain.replace(".com", "").replace(".co.kr", "").title() + " 클리닉"
+                    return (
+                        domain.replace(".com", "").replace(".co.kr", "").title()
+                        + " 클리닉"
+                    )
                 else:
                     return domain.replace(".com", "").replace(".co.kr", "").title()
             except:

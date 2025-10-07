@@ -18,8 +18,8 @@ try:
 except ImportError:
     from tqdm import tqdm
 
-from src.models.schemas import TreatmentItem, ScrapingConfig
-from src.utils.llm_extractor import GeminiTreatmentExtractor
+from src.models.schemas import ProductItem, ScrapingConfig
+from src.utils.llm_extractor import LLMTreatmentExtractor
 
 
 @dataclass
@@ -27,7 +27,7 @@ class LLMCrawlResult:
     url: str
     content: Optional[str]
     status_code: int
-    treatments: List[TreatmentItem]
+    products: List[ProductItem]
     error: Optional[str] = None
     processing_time: float = 0.0
     llm_processing_time: float = 0.0
@@ -37,7 +37,7 @@ class AsyncLLMWebCrawler:
     def __init__(
         self,
         config: ScrapingConfig,
-        llm_extractor: GeminiTreatmentExtractor,
+        llm_extractor: LLMTreatmentExtractor,
         max_pages: int = 50,
         max_concurrent: int = 3,
     ):
@@ -282,6 +282,11 @@ class AsyncLLMWebCrawler:
         """sitemap URL이 시술 관련 페이지인지 판단"""
         url_lower = url.lower()
 
+        # 세니아 클리닉의 개별 상품 페이지 패턴 우선 체크
+        import re
+        if re.match(r'.*xenia\.clinic/ko/products/[a-f0-9-]{36}.*', url_lower):
+            return True
+
         # 제외할 URL 패턴들
         excluded_patterns = [
             "/blog/",
@@ -320,6 +325,7 @@ class AsyncLLMWebCrawler:
             "reservation",
             "booking",
             "consultation",
+            "products",
             "시술",
             "치료",
             "서비스",
@@ -352,12 +358,17 @@ class AsyncLLMWebCrawler:
             if pattern in url_lower:
                 return True
 
-        return True  # 기본적으로 포함 (너무 엄격하지 않게)
+        return False  # 기본적으로 제외 (개별 상품 페이지 우선)
 
     def _get_sitemap_url_priority(self, url: str) -> int:
         """sitemap URL의 우선순위 계산"""
         url_lower = url.lower()
         priority = 0
+
+        # 세니아 클리닉의 개별 상품 페이지는 최고 우선순위
+        import re
+        if re.match(r'.*xenia\.clinic/ko/products/[a-f0-9-]{36}.*', url_lower):
+            priority += 100
 
         # 높은 우선순위 키워드
         high_priority = [
@@ -366,6 +377,7 @@ class AsyncLLMWebCrawler:
             "procedure",
             "menu",
             "price",
+            "products",
             "시술",
             "치료",
             "서비스",
@@ -560,35 +572,21 @@ class AsyncLLMWebCrawler:
             try:
                 await asyncio.sleep(self.config.rate_limit)  # Rate limiting
 
-                async with self.session.get(url) as response:
-                    content = await response.text()
+                # Playwright로 JavaScript 렌더링 후 LLM 추출 (더 이상 aiohttp 사용 안함)
+                llm_start_time = time.time()
+                products = await self.llm_extractor.extract_treatments_from_url(url)
+                llm_time = time.time() - llm_start_time
 
-                    if response.status == 200 and content:  # 콘텐츠 길이 필터링 제거
-                        # LLM으로 시술 정보 추출
-                        llm_start_time = time.time()
-                        treatments = self.llm_extractor.extract_treatments_from_html(
-                            content, url
-                        )
-                        llm_time = time.time() - llm_start_time
+                total_time = time.time() - start_time
 
-                        total_time = time.time() - start_time
-
-                        return LLMCrawlResult(
-                            url=url,
-                            content=content,
-                            status_code=response.status,
-                            treatments=treatments,
-                            processing_time=total_time,
-                            llm_processing_time=llm_time,
-                        )
-                    else:
-                        return LLMCrawlResult(
-                            url=url,
-                            content=content,
-                            status_code=response.status,
-                            treatments=[],
-                            processing_time=time.time() - start_time,
-                        )
+                return LLMCrawlResult(
+                    url=url,
+                    content=None,  # Playwright에서는 HTML content를 직접 저장하지 않음
+                    status_code=200,  # Playwright로 성공적으로 렌더링됨
+                    products=products,
+                    processing_time=total_time,
+                    llm_processing_time=llm_time,
+                )
 
             except asyncio.TimeoutError:
                 processing_time = time.time() - start_time
@@ -596,7 +594,7 @@ class AsyncLLMWebCrawler:
                     url=url,
                     content=None,
                     status_code=0,
-                    treatments=[],
+                    products=[],
                     error="Timeout",
                     processing_time=processing_time,
                 )
@@ -606,7 +604,7 @@ class AsyncLLMWebCrawler:
                     url=url,
                     content=None,
                     status_code=0,
-                    treatments=[],
+                    products=[],
                     error=str(e),
                     processing_time=processing_time,
                 )
@@ -631,8 +629,8 @@ class AsyncLLMWebCrawler:
                     if self._get_sitemap_url_priority(url) > 15
                 ]
                 urls_to_visit.update(
-                    high_priority_sitemap_urls[:20]
-                )  # 상위 20개만 추가
+                    high_priority_sitemap_urls[:50]
+                )  # 더 많은 개별 상품 페이지 추가
                 tqdm.write(
                     f"📄 Sitemap에서 {len(high_priority_sitemap_urls)}개 고우선순위 URL 추가"
                 )
@@ -677,9 +675,9 @@ class AsyncLLMWebCrawler:
                     results.append(result)
                     pbar.update(1)
 
-                    if result.treatments:
+                    if result.products:
                         successful_extractions += 1
-                        total_treatments_in_batch += len(result.treatments)
+                        total_treatments_in_batch += sum(len(product.treatments) for product in result.products)
 
                     # 성공적으로 가져온 페이지에서 새로운 URL들 추출
                     if result.content and result.status_code == 200:
@@ -713,7 +711,8 @@ class AsyncLLMWebCrawler:
                                 [
                                     treatment
                                     for r in results
-                                    for treatment in r.treatments
+                                    for product in r.products
+                                    for treatment in product.treatments
                                 ]
                             ),
                             "LLM_Avg": (
@@ -744,17 +743,17 @@ class AsyncLLMTreatmentScraper:
         self,
         site_name: str,
         base_url: str,
-        gemini_api_key: str,
+        api_key: str,
         max_pages: int = 15,
         max_concurrent: int = 2,
     ):  # 더 보수적인 기본값
         self.site_name = site_name
         self.base_url = base_url
-        self.gemini_api_key = gemini_api_key
+        self.api_key = api_key
         self.max_pages = max_pages
         self.max_concurrent = max_concurrent
 
-    async def scrape_all_treatments(self) -> List[TreatmentItem]:
+    async def scrape_all_treatments(self) -> List[ProductItem]:
         """웹사이트의 모든 페이지에서 LLM으로 시술 정보를 비동기 추출"""
 
         config = ScrapingConfig(
@@ -765,7 +764,7 @@ class AsyncLLMTreatmentScraper:
             rate_limit=0.8,  # LLM 속도 개선으로 더 빠르게
         )
 
-        llm_extractor = GeminiTreatmentExtractor(self.gemini_api_key)
+        llm_extractor = LLMTreatmentExtractor(self.api_key)
 
         try:
             async with AsyncLLMWebCrawler(
@@ -779,33 +778,36 @@ class AsyncLLMTreatmentScraper:
                 crawl_results = await crawler.crawl_and_extract()
 
                 successful_pages = [
-                    r for r in crawl_results if r.status_code == 200 and r.treatments
+                    r for r in crawl_results if r.status_code == 200 and r.products
                 ]
                 print(
-                    f"✅ Successfully processed {len(successful_pages)} pages with treatments"
+                    f"✅ Successfully processed {len(successful_pages)} pages with products"
                 )
 
-                # 모든 시술 정보 수집
-                all_treatments = []
+                # 모든 상품 정보 수집
+                all_products = []
                 for result in crawl_results:
-                    all_treatments.extend(result.treatments)
+                    all_products.extend(result.products)
 
-                print(f"💉 Total extracted: {len(all_treatments)} treatments")
+                print(f"📦 Total extracted: {len(all_products)} products")
 
-                # 중복 제거 (같은 시술명과 클리닉명과 가격)
-                unique_treatments = []
+                # 중복 제거 (같은 상품명과 클리닉명)
+                unique_products = []
                 seen = set()
-                for treatment in all_treatments:
+                for product in all_products:
                     key = (
-                        treatment.clinic_name,
-                        treatment.treatment_name,
-                        treatment.price,
+                        product.clinic_name,
+                        product.product_name,
                     )
                     if key not in seen:
                         seen.add(key)
-                        unique_treatments.append(treatment)
+                        unique_products.append(product)
 
-                print(f"🎯 Final count: {len(unique_treatments)} unique treatments")
+                print(f"🎯 Final count: {len(unique_products)} unique products")
+
+                # 총 시술 개수 계산
+                total_treatments = sum(len(product.treatments) for product in unique_products)
+                print(f"💉 Total treatments: {total_treatments} treatments across all products")
 
                 # 통계 출력
                 total_llm_time = sum(
@@ -821,7 +823,7 @@ class AsyncLLMTreatmentScraper:
                 )
                 print(f"📊 Average LLM processing time: {avg_llm_time:.2f}s per page")
 
-                return unique_treatments
+                return unique_products
 
         except Exception as e:
             print(f"❌ Error in async LLM scraping: {str(e)}")
@@ -829,7 +831,7 @@ class AsyncLLMTreatmentScraper:
 
 
 # 사용 예시 함수
-async def run_async_llm_scraping_demo(gemini_api_key: str):
+async def run_async_llm_scraping_demo(api_key: str):
     """비동기 LLM 스크래핑 데모 실행"""
 
     scrapers_config = [
@@ -885,7 +887,7 @@ async def run_async_llm_scraping_demo(gemini_api_key: str):
                 async_llm_scraper = AsyncLLMTreatmentScraper(
                     name,
                     base_url,
-                    gemini_api_key,
+                    api_key,
                     max_pages=max_pages,
                     max_concurrent=concurrent,
                 )
@@ -928,6 +930,6 @@ async def run_async_llm_scraping_demo(gemini_api_key: str):
     return all_treatments, scraping_results
 
 
-def run_async_llm_scraping(gemini_api_key: str):
+def run_async_llm_scraping(api_key: str):
     """동기 함수에서 비동기 LLM 스크래핑 실행"""
-    return asyncio.run(run_async_llm_scraping_demo(gemini_api_key))
+    return asyncio.run(run_async_llm_scraping_demo(api_key))

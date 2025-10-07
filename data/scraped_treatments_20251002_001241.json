@@ -1,0 +1,148 @@
+[
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/c7ebbd6c-c701-46aa-b800-83a67c36055f",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아의원",
+    "name": "아이써마지 225샷",
+    "price": 1100000.0,
+    "original_price": 0.0,
+    "event_price": 0.0,
+    "treatment_type": "laser",
+    "dosage": "225",
+    "unit": "샷",
+    "medication": null,
+    "equipments": [
+      "써마지FLX"
+    ],
+    "duration": null,
+    "target_area": [
+      "눈가"
+    ],
+    "description": "아이 써마지는 눈가 주변 시술 전용으로, 눈가 처짐, 눈가 주름 개선에 효과적입니다.",
+    "benefits": [
+      "눈가 처짐 개선",
+      "눈가 주름 개선"
+    ],
+    "contraindications": [],
+    "recovery_time": null,
+    "sessions_required": null,
+    "location": null,
+    "clinic_rating": null,
+    "review_count": null,
+    "scraped_at": "2025-10-02 00:12:41.573886",
+    "additional_info": {},
+    "discount_rate": null
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/c7ebbd6c-c701-46aa-b800-83a67c36055f",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아의원",
+    "name": "써마지 300샷",
+    "price": 1300000.0,
+    "original_price": 0.0,
+    "event_price": 0.0,
+    "treatment_type": "laser",
+    "dosage": "300",
+    "unit": "샷",
+    "medication": null,
+    "equipments": [
+      "써마지FLX"
+    ],
+    "duration": null,
+    "target_area": [
+      "얼굴 전체",
+      "눈가"
+    ],
+    "description": "써마지 300샷은 눈가 외 얼굴 전체의 탄력 증진 및 잔주름 개선에 효과적인 시술입니다.",
+    "benefits": [
+      "얼굴 탄력 증진",
+      "잔주름 개선"
+    ],
+    "contraindications": [],
+    "recovery_time": null,
+    "sessions_required": null,
+    "location": null,
+    "clinic_rating": null,
+    "review_count": null,
+    "scraped_at": "2025-10-02 00:12:41.573937",
+    "additional_info": {},
+    "discount_rate": null
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/c7ebbd6c-c701-46aa-b800-83a67c36055f",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아의원",
+    "name": "써마지 600샷",
+    "price": 2200000.0,
+    "original_price": 0.0,
+    "event_price": 0.0,
+    "treatment_type": "laser",
+    "dosage": "600",
+    "unit": "샷",
+    "medication": null,
+    "equipments": [
+      "써마지FLX"
+    ],
+    "duration": null,
+    "target_area": [
+      "얼굴 전체"
+    ],
+    "description": "써마지 600샷은 얼굴 전체의 깊은 탄력 개선, 리프팅 효과를 제공하며, 처진 피부와 깊은 주름 개선에 도움을 줍니다.",
+    "benefits": [
+      "깊은 탄력 개선",
+      "리프팅 효과",
+      "처진 피부 개선",
+      "깊은 주름 개선"
+    ],
+    "contraindications": [],
+    "recovery_time": null,
+    "sessions_required": null,
+    "location": null,
+    "clinic_rating": null,
+    "review_count": null,
+    "scraped_at": "2025-10-02 00:12:41.573956",
+    "additional_info": {},
+    "discount_rate": null
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/c7ebbd6c-c701-46aa-b800-83a67c36055f",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아의원",
+    "name": "써마지 600샷 + 울쎄라피 프라임 300샷",
+    "price": 3200000.0,
+    "original_price": 0.0,
+    "event_price": 0.0,
+    "treatment_type": "laser",
+    "dosage": "600",
+    "unit": "샷",
+    "medication": null,
+    "equipments": [
+      "써마지FLX",
+      "울쎄라피 프라임"
+    ],
+    "duration": null,
+    "target_area": [
+      "얼굴 전체"
+    ],
+    "description": "써마지 600샷과 울쎄라피 프라임 300샷을 병행하여 얼굴 전체의 탄력 증진, 리프팅, 주름 개선 효과를 극대화하는 시술입니다.",
+    "benefits": [
+      "탄력 증진",
+      "리프팅",
+      "주름 개선",
+      "효과 극대화"
+    ],
+    "contraindications": [],
+    "recovery_time": null,
+    "sessions_required": null,
+    "location": null,
+    "clinic_rating": null,
+    "review_count": null,
+    "scraped_at": "2025-10-02 00:12:41.573971",
+    "additional_info": {},
+    "discount_rate": null
+  }
+]

@@ -24,50 +24,54 @@ class EquipmentType(str, Enum):
     IPL = "ipl"
 
 
-class TreatmentItem(BaseModel):
+class IndividualTreatment(BaseModel):
+    """개별 시술 정보"""
+    name: str = Field(description="시술명 (예: 슈링크 유니버스 울트라 MP모드, 얼굴지방분해주사)")
+    dosage: Optional[float] = Field(None, description="용량 (예: 300, 100, 3, 0.5)")
+    unit: Optional[str] = Field(None, description="단위 (예: 샷, cc, 회)")
+    equipments: List[str] = Field(default=[], description="사용 장비명 리스트 (예: ['슈링크', '울쎄라'])")
+    medications: List[str] = Field(default=[], description="사용 약물명 리스트 (예: ['GT38', '보톡스'])")
+    treatment_type: Optional[TreatmentType] = Field(None, description="시술 유형")
+    description: Optional[str] = Field(None, description="시술 설명")
+    duration: Optional[int] = Field(None, description="시술 시간 (분)")
+    target_area: List[str] = Field(default=[], description="시술 대상 부위")
+    benefits: List[str] = Field(default=[], description="효과")
+    recovery_time: Optional[str] = Field(None, description="회복 기간")
+
+
+class ProductItem(BaseModel):
+    """개별 상품 옵션 정보"""
     id: Optional[str] = None
+
     # Key Factor: 정보 수집 채널
-    source_url: str
+    source_url: str = Field(description="상품 페이지 전체 URL")
     source_channel: Optional[str] = Field(None, description="정보 수집 채널 (웹사이트명)")
 
     # Key Factor: 병원명
-    clinic_name: str
+    clinic_name: str = Field(description="병원명")
 
-    # Key Factor: 상품명・옵션명
-    treatment_name: str
-    option_name: Optional[str] = Field(None, description="시술 옵션명 (예: 300샷, 600샷)")
+    # Key Factor: 상품명 (개별 옵션)
+    product_name: str = Field(description="개별 상품 옵션명 (예: 더마 슈링크 100샷, 슈링크 300샷 + 지방분해주사 3cc)")
 
-    # Key Factor: 기기
-    equipment_used: List[EquipmentType] = []
-    equipment_name: Optional[str] = Field(None, description="기기명 (예: 써마지FLX, 울쎄라)")
+    # Key Factor: 가격 정보
+    product_original_price: Optional[float] = Field(None, description="상품 정상가")
+    product_event_price: Optional[float] = Field(None, description="상품 이벤트가/할인가")
+    product_description: Optional[str] = Field(None, description="상품 설명")
 
-    # Key Factor: 약물
-    medication: Optional[str] = Field(None, description="사용되는 약물명")
+    # Key Factor: 시술 구성 요소 리스트
+    treatments: List[IndividualTreatment] = Field(description="상품을 구성하는 개별 시술들")
 
-    # Key Factor: 용량・단위
-    dosage: Optional[str] = Field(None, description="용량 (예: 300샷, 1cc)")
-    unit: Optional[str] = Field(None, description="단위 (예: 샷, cc, 회)")
+    # 상품 전체 정보
+    category: Optional[str] = Field(None, description="시술 카테고리 (예: 탄력/리프팅)")
+    description: Optional[str] = Field(None, description="카테고리 전체 설명")
 
-    # Key Factor: 가격 (정상가・이벤트가・할인율)
-    price: float = Field(description="현재 판매가격 (이벤트가 또는 할인가)")
-    original_price: Optional[float] = Field(None, description="정상가")
-    discount_rate: Optional[float] = Field(None, description="할인율 (%)")
-    event_price: Optional[float] = Field(None, description="이벤트 가격")
-
-    # 기존 필드들
-    treatment_type: TreatmentType
-    duration: Optional[int] = Field(None, description="Duration in minutes")
-    target_area: List[str] = []
-    description: Optional[str] = None
-    benefits: List[str] = []
-    contraindications: List[str] = []
-    recovery_time: Optional[str] = None
-    sessions_required: Optional[int] = None
-    location: Optional[str] = None
-    clinic_rating: Optional[float] = None
-    review_count: Optional[int] = None
+    # 메타 정보
     scraped_at: datetime = Field(default_factory=datetime.now)
-    additional_info: Dict[str, Any] = {}
+    additional_info: Dict[str, Any] = Field(default={})
+
+
+# 하위 호환성을 위해 기존 TreatmentItem을 ProductItem의 alias로 유지
+TreatmentItem = ProductItem
 
 
 class TreatmentCluster(BaseModel):

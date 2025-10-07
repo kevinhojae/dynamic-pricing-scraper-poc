@@ -1,0 +1,745 @@
+[
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "써마지FLX",
+    "treatments": [
+      {
+        "name": "아이써마지 225샷",
+        "price": 1500000.0,
+        "original_price": 2000000.0,
+        "event_price": null,
+        "discount_rate": 25.0,
+        "treatment_type": "device",
+        "dosage": "225",
+        "unit": "샷",
+        "medication": null,
+        "equipments": [
+          "radiofrequency"
+        ],
+        "equipment_name": "써마지 FLX",
+        "description": "눈가 주변의 얇고 예민한 피부를 위한 써마지FLX 시술입니다. 눈가 주름, 처짐, 탄력 감소 개선에 효과적입니다.",
+        "duration": 30,
+        "target_area": [
+          "눈가"
+        ],
+        "benefits": [
+          "눈가 주름 개선",
+          "눈가 탄력 증진",
+          "처진 눈꺼풀 개선"
+        ],
+        "recovery_time": "즉시 일상생활 가능"
+      },
+      {
+        "name": "써마지 300샷",
+        "price": 1900000.0,
+        "original_price": 2500000.0,
+        "event_price": null,
+        "discount_rate": 24.0,
+        "treatment_type": "device",
+        "dosage": "300",
+        "unit": "샷",
+        "medication": null,
+        "equipments": [
+          "radiofrequency"
+        ],
+        "equipment_name": "써마지 FLX",
+        "description": "얼굴 전체의 탄력 개선 및 주름 완화를 위한 표준 써마지FLX 시술입니다.",
+        "duration": 40,
+        "target_area": [
+          "얼굴 전체"
+        ],
+        "benefits": [
+          "전반적인 피부 탄력 증진",
+          "잔주름 개선",
+          "피부톤 개선"
+        ],
+        "recovery_time": "즉시 일상생활 가능"
+      },
+      {
+        "name": "써마지 600샷",
+        "price": 2500000.0,
+        "original_price": 3300000.0,
+        "event_price": null,
+        "discount_rate": 24.2,
+        "treatment_type": "device",
+        "dosage": "600",
+        "unit": "샷",
+        "medication": null,
+        "equipments": [
+          "radiofrequency"
+        ],
+        "equipment_name": "써마지 FLX",
+        "description": "얼굴 전체와 함께 목 라인까지 포함하여 보다 넓은 부위의 탄력 및 주름 개선 효과를 극대화하는 시술입니다.",
+        "duration": 60,
+        "target_area": [
+          "얼굴 전체",
+          "목"
+        ],
+        "benefits": [
+          "얼굴 및 목 탄력 개선",
+          "깊은 주름 완화",
+          "V라인 리프팅 효과"
+        ],
+        "recovery_time": "즉시 일상생활 가능"
+      }
+    ],
+    "category": "리프팅/탄력",
+    "description": "써마지FLX는 비침습적인 고주파(RF) 에너지로 피부 속 깊숙이 열을 전달하여 콜라겐 생성을 촉진하고 피부 탄력을 개선하는 시술입니다. 주름 개선, 처진 피부 리프팅, 피부톤 개선에 도움을 줍니다. 시술 후 즉각적인 효과와 함께 시간이 지날수록 더욱 탄력 있고 젊어진 피부를 경험할 수 있습니다.",
+    "scraped_at": "2025-10-02 00:24:24.139009",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "울쎄라",
+    "treatments": [
+      {
+        "name": "울쎄라 100샷",
+        "price": 600000.0,
+        "original_price": 800000.0,
+        "event_price": null,
+        "discount_rate": 25.0,
+        "treatment_type": "device",
+        "dosage": "100",
+        "unit": "샷",
+        "medication": null,
+        "equipments": [
+          "hifu"
+        ],
+        "equipment_name": "울쎄라",
+        "description": "국소적인 부위의 처짐 개선 및 탄력 증진을 위한 울쎄라 시술입니다. 주로 눈가, 입가 주변에 사용됩니다.",
+        "duration": 20,
+        "target_area": [
+          "눈가",
+          "입가"
+        ],
+        "benefits": [
+          "잔주름 개선",
+          "피부 탄력 증진"
+        ],
+        "recovery_time": "일시적인 붓기, 멍 가능"
+      },
+      {
+        "name": "울쎄라 200샷",
+        "price": 1000000.0,
+        "original_price": 1400000.0,
+        "event_price": null,
+        "discount_rate": 28.6,
+        "treatment_type": "device",
+        "dosage": "200",
+        "unit": "샷",
+        "medication": null,
+        "equipments": [
+          "hifu"
+        ],
+        "equipment_name": "울쎄라",
+        "description": "얼굴의 중간 부분 처짐 개선 및 윤곽 라인 정리를 위한 울쎄라 시술입니다. 볼, 광대 부위에 집중됩니다.",
+        "duration": 30,
+        "target_area": [
+          "볼",
+          "광대"
+        ],
+        "benefits": [
+          "처진 볼살 리프팅",
+          "팔자주름 완화",
+          "얼굴 윤곽 개선"
+        ],
+        "recovery_time": "일시적인 붓기, 멍 가능"
+      },
+      {
+        "name": "울쎄라 300샷",
+        "price": 1400000.0,
+        "original_price": 2000000.0,
+        "event_price": null,
+        "discount_rate": 30.0,
+        "treatment_type": "device",
+        "dosage": "300",
+        "unit": "샷",
+        "medication": null,
+        "equipments": [
+          "hifu"
+        ],
+        "equipment_name": "울쎄라",
+        "description": "얼굴 전체의 리프팅 효과를 극대화하고 V라인을 살려주는 울쎄라 시술입니다. 턱선, 이중턱 개선에 효과적입니다.",
+        "duration": 40,
+        "target_area": [
+          "얼굴 전체",
+          "턱선",
+          "이중턱"
+        ],
+        "benefits": [
+          "강력한 리프팅 효과",
+          "V라인 개선",
+          "이중턱 감소"
+        ],
+        "recovery_time": "일시적인 붓기, 멍 가능"
+      }
+    ],
+    "category": "리프팅/탄력",
+    "description": "울쎄라는 초음파 에너지를 피부 깊숙한 근막층(SMAS)까지 조사하여 콜라겐 생성을 촉진하고 늘어진 조직을 수축시켜 강력한 리프팅 효과를 제공하는 시술입니다. 처진 볼살, 턱선, 눈썹 리프팅 등 얼굴 전반의 노화 개선에 효과적입니다.",
+    "scraped_at": "2025-10-02 00:24:24.139051",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "슈링크유니버스",
+    "treatments": [
+      {
+        "name": "슈링크유니버스 300샷",
+        "price": 350000.0,
+        "original_price": 500000.0,
+        "event_price": null,
+        "discount_rate": 30.0,
+        "treatment_type": "device",
+        "dosage": "300",
+        "unit": "샷",
+        "medication": null,
+        "equipments": [
+          "hifu"
+        ],
+        "equipment_name": "슈링크유니버스",
+        "description": "얼굴의 전반적인 탄력 개선과 V라인 리프팅 효과를 위한 시술입니다.",
+        "duration": 30,
+        "target_area": [
+          "얼굴 전체"
+        ],
+        "benefits": [
+          "피부 탄력 증진",
+          "V라인 리프팅",
+          "피부결 개선"
+        ],
+        "recovery_time": "일시적인 붉음증, 붓기 가능"
+      },
+      {
+        "name": "슈링크유니버스 600샷",
+        "price": 600000.0,
+        "original_price": 900000.0,
+        "event_price": null,
+        "discount_rate": 33.3,
+        "treatment_type": "device",
+        "dosage": "600",
+        "unit": "샷",
+        "medication": null,
+        "equipments": [
+          "hifu"
+        ],
+        "equipment_name": "슈링크유니버스",
+        "description": "얼굴 전체와 함께 처짐이 심한 부위까지 집중적으로 개선하여 더욱 확실한 리프팅 효과를 기대할 수 있는 시술입니다.",
+        "duration": 50,
+        "target_area": [
+          "얼굴 전체",
+          "턱선",
+          "이중턱"
+        ],
+        "benefits": [
+          "강력한 리프팅 효과",
+          "처진 부위 개선",
+          "탄력 증진"
+        ],
+        "recovery_time": "일시적인 붉음증, 붓기 가능"
+      }
+    ],
+    "category": "리프팅/탄력",
+    "description": "슈링크유니버스는 집속초음파(HIFU) 기술을 이용하여 피부 표면에 손상을 주지 않고, 피부 깊숙한 근막층(SMAS)까지 에너지를 전달하여 콜라겐 재생을 유도하는 시술입니다. 늘어진 피부를 당겨 올려주고 탄력을 개선하여 자연스럽고 즉각적인 리프팅 효과를 선사합니다. 통증이 적고 빠른 회복이 장점입니다.",
+    "scraped_at": "2025-10-02 00:24:24.139070",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "인모드",
+    "treatments": [
+      {
+        "name": "인모드 리프팅",
+        "price": 250000.0,
+        "original_price": 350000.0,
+        "event_price": null,
+        "discount_rate": 28.6,
+        "treatment_type": "device",
+        "dosage": null,
+        "unit": "회",
+        "medication": null,
+        "equipments": [
+          "radiofrequency"
+        ],
+        "equipment_name": "인모드",
+        "description": "FORMA 모드를 이용하여 피부 진피층을 자극하고 콜라겐 생성을 촉진하여 피부 탄력을 개선하는 시술입니다.",
+        "duration": 20,
+        "target_area": [
+          "얼굴 전체"
+        ],
+        "benefits": [
+          "피부 탄력 증진",
+          "잔주름 개선",
+          "피부결 개선"
+        ],
+        "recovery_time": "일시적인 붉음증 가능"
+      },
+      {
+        "name": "인모드 타이트닝",
+        "price": 250000.0,
+        "original_price": 350000.0,
+        "event_price": null,
+        "discount_rate": 28.6,
+        "treatment_type": "device",
+        "dosage": null,
+        "unit": "회",
+        "medication": null,
+        "equipments": [
+          "radiofrequency"
+        ],
+        "equipment_name": "인모드",
+        "description": "MINI FX 모드를 이용하여 지방 세포를 사멸시켜 이중턱, 심부볼 등 국소 부위의 지방을 감소시키는 시술입니다.",
+        "duration": 20,
+        "target_area": [
+          "이중턱",
+          "심부볼"
+        ],
+        "benefits": [
+          "지방 감소",
+          "윤곽 개선",
+          "갸름한 얼굴 라인"
+        ],
+        "recovery_time": "일시적인 붉음증, 뻐근함 가능"
+      },
+      {
+        "name": "인모드 2가지 시술",
+        "price": 400000.0,
+        "original_price": 600000.0,
+        "event_price": null,
+        "discount_rate": 33.3,
+        "treatment_type": "device",
+        "dosage": null,
+        "unit": "회",
+        "medication": null,
+        "equipments": [
+          "radiofrequency"
+        ],
+        "equipment_name": "인모드",
+        "description": "인모드의 리프팅(FORMA)과 타이트닝(MINI FX) 두 가지 시술을 동시에 받아 효과를 극대화하는 프로그램입니다.",
+        "duration": 40,
+        "target_area": [
+          "얼굴 전체",
+          "이중턱",
+          "심부볼"
+        ],
+        "benefits": [
+          "리프팅 및 타이트닝 동시 효과",
+          "볼륨 감소 및 탄력 증진",
+          "갸름하고 입체적인 얼굴 라인"
+        ],
+        "recovery_time": "일시적인 붉음증, 붓기, 뻐근함 가능"
+      }
+    ],
+    "category": "리프팅/탄력",
+    "description": "인모드는 두 가지 모드(FORMA, MINI FX)를 사용하여 지방 세포를 파괴하고 콜라겐 생성을 촉진하여 리프팅과 타이트닝 효과를 동시에 제공하는 시술입니다. 이중턱, 심부볼 등 얼굴의 불필요한 지방과 늘어진 피부를 개선하는 데 효과적입니다.",
+    "scraped_at": "2025-10-02 00:24:24.139091",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "레가토",
+    "treatments": [
+      {
+        "name": "레가토 1회",
+        "price": 200000.0,
+        "original_price": 300000.0,
+        "event_price": null,
+        "discount_rate": 33.3,
+        "treatment_type": "device",
+        "dosage": null,
+        "unit": "회",
+        "medication": null,
+        "equipments": [
+          "radiofrequency"
+        ],
+        "equipment_name": "레가토",
+        "description": "피부결, 모공, 흉터 개선 및 전반적인 피부톤 개선을 위한 레가토 시술입니다.",
+        "duration": 30,
+        "target_area": [
+          "얼굴 전체"
+        ],
+        "benefits": [
+          "피부결 개선",
+          "모공 축소",
+          "흉터 완화",
+          "피부톤 개선"
+        ],
+        "recovery_time": "일시적인 붉음증, 건조함 가능"
+      }
+    ],
+    "category": "피부결/모공",
+    "description": "레가토는 비침습적인 방식으로 피부 표면에 미세한 에너지를 전달하여 콜라겐 재생을 촉진하고 피부결, 모공, 흉터 개선에 도움을 주는 시술입니다. 피부 표면에 열감을 전달하여 잔주름 완화 및 피부톤 개선 효과도 기대할 수 있습니다.",
+    "scraped_at": "2025-10-02 00:24:24.139101",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "아쿠아필",
+    "treatments": [
+      {
+        "name": "아쿠아필",
+        "price": 90000.0,
+        "original_price": 120000.0,
+        "event_price": null,
+        "discount_rate": 25.0,
+        "treatment_type": "skincare",
+        "dosage": null,
+        "unit": "회",
+        "medication": null,
+        "equipments": [],
+        "equipment_name": null,
+        "description": "모공 속 노폐물 제거, 각질 관리, 피지 조절, 수분 공급을 통해 깨끗하고 건강한 피부를 만드는 시술입니다.",
+        "duration": 30,
+        "target_area": [
+          "얼굴 전체"
+        ],
+        "benefits": [
+          "피지 및 노폐물 제거",
+          "블랙헤드/화이트헤드 개선",
+          "각질 제거",
+          "피부 수분 공급",
+          "피부톤 개선"
+        ],
+        "recovery_time": "즉시 일상생활 가능"
+      }
+    ],
+    "category": "피부결/모공",
+    "description": "아쿠아필은 특수 제작된 솔루션을 이용하여 모공 속 노폐물, 각질, 피지 등을 부드럽게 제거하고 동시에 수분과 영양을 공급하여 깨끗하고 촉촉한 피부로 가꾸어주는 시술입니다. 블랙헤드, 화이트헤드, 각질 고민을 해결하고 피부톤을 맑게 합니다.",
+    "scraped_at": "2025-10-02 00:24:24.139111",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "LDM 물방울 리프팅",
+    "treatments": [
+      {
+        "name": "LDM 물방울 리프팅",
+        "price": 120000.0,
+        "original_price": 180000.0,
+        "event_price": null,
+        "discount_rate": 33.3,
+        "treatment_type": "device",
+        "dosage": null,
+        "unit": "회",
+        "medication": null,
+        "equipments": [],
+        "equipment_name": "LDM",
+        "description": "피부 장벽 강화, 염증 완화, 보습 개선, 피부 재생 촉진을 위한 시술입니다. 여드름, 홍조, 건조함 등 다양한 피부 고민에 적용됩니다.",
+        "duration": 30,
+        "target_area": [
+          "얼굴 전체"
+        ],
+        "benefits": [
+          "피부 보습 개선",
+          "피부 장벽 강화",
+          "염증 완화",
+          "피부 재생 촉진",
+          "민감성 피부 진정"
+        ],
+        "recovery_time": "즉시 일상생활 가능"
+      }
+    ],
+    "category": "피부결/모공",
+    "description": "LDM 물방울 리프팅은 고밀도 초음파 에너지를 이용하여 피부 속 수분 균형을 맞춰주고 세포 활성화를 촉진하는 시술입니다. 염증성 피부 질환 개선, 피부 재생, 보습, 탄력 증진에 효과적이며, 민감성 피부에도 안전하게 적용 가능합니다.",
+    "scraped_at": "2025-10-02 00:24:24.139120",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "클라리티II",
+    "treatments": [
+      {
+        "name": "클라리티II 색소 레이저",
+        "price": 150000.0,
+        "original_price": 220000.0,
+        "event_price": null,
+        "discount_rate": 31.8,
+        "treatment_type": "laser",
+        "dosage": null,
+        "unit": "회",
+        "medication": null,
+        "equipments": [],
+        "equipment_name": "클라리티II",
+        "description": "기미, 잡티, 주근깨, 오타모반 등 다양한 색소 침착을 개선하는 레이저 시술입니다.",
+        "duration": 30,
+        "target_area": [
+          "얼굴 전체"
+        ],
+        "benefits": [
+          "색소 침착 개선",
+          "맑고 깨끗한 피부톤",
+          "균일한 피부결"
+        ],
+        "recovery_time": "일시적인 붉음증, 딱지 가능"
+      },
+      {
+        "name": "클라리티II 혈관 레이저",
+        "price": 150000.0,
+        "original_price": 220000.0,
+        "event_price": null,
+        "discount_rate": 31.8,
+        "treatment_type": "laser",
+        "dosage": null,
+        "unit": "회",
+        "medication": null,
+        "equipments": [],
+        "equipment_name": "클라리티II",
+        "description": "안면 홍조, 실핏줄, 딸기코 등 안면부의 붉은 혈관 병변을 치료하는 레이저 시술입니다.",
+        "duration": 30,
+        "target_area": [
+          "얼굴 전체"
+        ],
+        "benefits": [
+          "붉은기 완화",
+          "혈관 병변 제거",
+          "안정된 피부톤"
+        ],
+        "recovery_time": "일시적인 붉음증, 멍 가능"
+      }
+    ],
+    "category": "색소/혈관",
+    "description": "클라리티II는 두 가지 파장(755nm, 1064nm)을 선택적으로 사용할 수 있는 최신 레이저 장비입니다. 색소 질환, 혈관 병변, 제모, 피부 탄력 개선 등 다양한 피부 고민을 효과적으로 치료할 수 있으며, 피부 타입과 병변에 맞춰 정밀한 치료가 가능합니다.",
+    "scraped_at": "2025-10-02 00:24:24.139134",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "젠틀맥스프로",
+    "treatments": [
+      {
+        "name": "젠틀맥스프로 색소/혈관",
+        "price": 150000.0,
+        "original_price": 220000.0,
+        "event_price": null,
+        "discount_rate": 31.8,
+        "treatment_type": "laser",
+        "dosage": null,
+        "unit": "회",
+        "medication": null,
+        "equipments": [],
+        "equipment_name": "젠틀맥스프로",
+        "description": "기미, 잡티, 주근깨 등 색소 질환과 안면 홍조, 실핏줄 등 혈관 병변을 동시에 개선하는 시술입니다.",
+        "duration": 30,
+        "target_area": [
+          "얼굴 전체"
+        ],
+        "benefits": [
+          "색소 침착 개선",
+          "붉은기 완화",
+          "맑고 균일한 피부톤"
+        ],
+        "recovery_time": "일시적인 붉음증, 딱지 가능"
+      }
+    ],
+    "category": "색소/혈관",
+    "description": "젠틀맥스프로는 755nm 파장(알렉산드라이트)과 1064nm 파장(엔디야그)을 하나의 장비에서 사용할 수 있는 레이저로, 색소, 혈관 병변 치료뿐만 아니라 제모에도 탁월한 효과를 보입니다. 쿨링 시스템으로 통증을 최소화하여 편안한 시술이 가능합니다.",
+    "scraped_at": "2025-10-02 00:24:24.139143",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "보톡스",
+    "treatments": [
+      {
+        "name": "국산 A 타입 보톡스",
+        "price": 40000.0,
+        "original_price": 60000.0,
+        "event_price": null,
+        "discount_rate": 33.3,
+        "treatment_type": "injection",
+        "dosage": null,
+        "unit": "unit",
+        "medication": "국산 A 타입 보톡스",
+        "equipments": [
+          "botox"
+        ],
+        "equipment_name": null,
+        "description": "주로 미간, 이마, 눈가 등 잔주름 개선에 효과적인 국산 보톡스 시술입니다.",
+        "duration": 10,
+        "target_area": [
+          "미간",
+          "이마",
+          "눈가"
+        ],
+        "benefits": [
+          "표정 주름 개선",
+          "자연스러운 표정 유지"
+        ],
+        "recovery_time": "즉시 일상생활 가능"
+      },
+      {
+        "name": "수입 A 타입 보톡스",
+        "price": 80000.0,
+        "original_price": 120000.0,
+        "event_price": null,
+        "discount_rate": 33.3,
+        "treatment_type": "injection",
+        "dosage": null,
+        "unit": "unit",
+        "medication": "수입 A 타입 보톡스",
+        "equipments": [
+          "botox"
+        ],
+        "equipment_name": null,
+        "description": "표정 주름 개선 및 근육량 감소에 효과적인 수입 보톡스 시술입니다. 턱 근육, 종아리 근육 등에도 적용 가능합니다.",
+        "duration": 10,
+        "target_area": [
+          "이마",
+          "미간",
+          "눈가",
+          "턱",
+          "종아리"
+        ],
+        "benefits": [
+          "주름 개선",
+          "근육량 감소",
+          "갸름한 얼굴 라인",
+          "매끈한 다리 라인"
+        ],
+        "recovery_time": "즉시 일상생활 가능"
+      },
+      {
+        "name": "사각턱 보톡스",
+        "price": 70000.0,
+        "original_price": 100000.0,
+        "event_price": null,
+        "discount_rate": 30.0,
+        "treatment_type": "injection",
+        "dosage": null,
+        "unit": "unit",
+        "medication": "국산 A 타입 보톡스",
+        "equipments": [
+          "botox"
+        ],
+        "equipment_name": null,
+        "description": "저작근 발달로 인한 사각턱 고민을 개선하여 갸름한 얼굴 라인을 만드는 시술입니다.",
+        "duration": 10,
+        "target_area": [
+          "턱"
+        ],
+        "benefits": [
+          "사각턱 개선",
+          "갸름한 얼굴 라인",
+          "V라인 효과"
+        ],
+        "recovery_time": "즉시 일상생활 가능"
+      }
+    ],
+    "category": "주름/윤곽",
+    "description": "보톡스는 근육의 움직임을 일시적으로 마비시켜 주름을 개선하거나 근육의 크기를 줄이는 시술입니다. 표정 주름, 턱 근육 발달, 종아리 근육 발달 등 다양한 부위에 적용 가능하며, 자연스러운 결과를 추구합니다.",
+    "scraped_at": "2025-10-02 00:24:24.139163",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "필러",
+    "treatments": [
+      {
+        "name": "히알루론산 필러 (1cc)",
+        "price": 150000.0,
+        "original_price": 200000.0,
+        "event_price": null,
+        "discount_rate": 25.0,
+        "treatment_type": "injection",
+        "dosage": "1",
+        "unit": "cc",
+        "medication": "히알루론산 필러",
+        "equipments": [
+          "filler"
+        ],
+        "equipment_name": null,
+        "description": "팔자, 볼, 애교, 입술 등 다양한 부위에 볼륨을 채워주어 입체감과 동안 효과를 주는 필러 시술입니다.",
+        "duration": 20,
+        "target_area": [
+          "팔자",
+          "볼",
+          "애교",
+          "입술"
+        ],
+        "benefits": [
+          "볼륨 개선",
+          "입체감 증진",
+          "동안 효과",
+          "주름 완화"
+        ],
+        "recovery_time": "일시적인 붓기, 멍 가능"
+      }
+    ],
+    "category": "볼륨/윤곽",
+    "description": "필러는 피부에 볼륨을 채워주거나 꺼진 부위를 개선하여 입체감 있는 얼굴 윤곽을 만들어주는 시술입니다. 히알루론산 필러를 주로 사용하며, 즉각적인 효과와 함께 자연스러운 볼륨감을 선사합니다.",
+    "scraped_at": "2025-10-02 00:24:24.139175",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "실리프팅",
+    "treatments": [
+      {
+        "name": "PDO 회오리 실리프팅",
+        "price": 300000.0,
+        "original_price": 450000.0,
+        "event_price": null,
+        "discount_rate": 33.3,
+        "treatment_type": "device",
+        "dosage": null,
+        "unit": "줄",
+        "medication": null,
+        "equipments": [
+          "thread_lift"
+        ],
+        "equipment_name": null,
+        "description": "PDO 소재의 회오리 모양 실을 사용하여 처진 볼, 턱 라인 등을 개선하고 탄력을 증진시키는 시술입니다.",
+        "duration": 40,
+        "target_area": [
+          "볼",
+          "턱선"
+        ],
+        "benefits": [
+          "리프팅 효과",
+          "탄력 증진",
+          "콜라겐 생성 유도"
+        ],
+        "recovery_time": "일시적인 붓기, 멍, 통증 가능"
+      }
+    ],
+    "category": "리프팅/탄력",
+    "description": "실리프팅은 특수 제작된 의료용 실을 피부 아래에 삽입하여 처진 피부를 당겨 올리고 콜라겐 생성을 유도하는 시술입니다. 처진 볼, 턱선, 눈썹 등을 개선하여 즉각적인 리프팅 효과와 함께 피부 탄력을 증진시킵니다.",
+    "scraped_at": "2025-10-02 00:24:24.139188",
+    "additional_info": {}
+  }
+]

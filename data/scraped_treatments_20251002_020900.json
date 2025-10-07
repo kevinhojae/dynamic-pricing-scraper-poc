@@ -1,0 +1,1200 @@
+[
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/cb7f5e77-4322-476c-9f1a-c85792e80ebf",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "피코슈어 문신 제거 500원 사이즈",
+    "product_original_price": 88200.0,
+    "product_event_price": 49000.0,
+    "product_description": "주변 조직 손상을 최소화한 문신 제거",
+    "treatments": [
+      {
+        "name": "피코슈어 문신 제거",
+        "dosage": 1.0,
+        "unit": "회",
+        "equipments": [
+          "피코슈어"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "매우 짧은 순간에 높은 레이저 에너지를 조사하여 주변의 조직의 손상이 적게 빠르고 강하게 문신 색소를 잘게 쪼개는 시술",
+        "duration": null,
+        "target_area": [
+          "500원 사이즈 문신"
+        ],
+        "benefits": [
+          "문신 색소 제거",
+          "주변 조직 손상 최소화"
+        ],
+        "recovery_time": "3-7일"
+      }
+    ],
+    "category": "미백/색소/홍조",
+    "description": "피코슈어 문신 제거 - 주변 조직 손상을 최소화한 문신 제거",
+    "scraped_at": "2025-10-02 02:05:56.949051",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/cb7f5e77-4322-476c-9f1a-c85792e80ebf",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "피코슈어 문신 제거 명함 사이즈",
+    "product_original_price": 232200.0,
+    "product_event_price": 129000.0,
+    "product_description": "주변 조직 손상을 최소화한 문신 제거",
+    "treatments": [
+      {
+        "name": "피코슈어 문신 제거",
+        "dosage": 1.0,
+        "unit": "회",
+        "equipments": [
+          "피코슈어"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "매우 짧은 순간에 높은 레이저 에너지를 조사하여 주변의 조직의 손상이 적게 빠르고 강하게 문신 색소를 잘게 쪼개는 시술",
+        "duration": null,
+        "target_area": [
+          "명함 사이즈 문신"
+        ],
+        "benefits": [
+          "문신 색소 제거",
+          "주변 조직 손상 최소화"
+        ],
+        "recovery_time": "3-7일"
+      }
+    ],
+    "category": "미백/색소/홍조",
+    "description": "피코슈어 문신 제거 - 주변 조직 손상을 최소화한 문신 제거",
+    "scraped_at": "2025-10-02 02:05:56.949091",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/cb7f5e77-4322-476c-9f1a-c85792e80ebf",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "피코슈어 문신 제거 500원 사이즈 5회",
+    "product_original_price": 358200.0,
+    "product_event_price": 199000.0,
+    "product_description": "주변 조직 손상을 최소화한 문신 제거",
+    "treatments": [
+      {
+        "name": "피코슈어 문신 제거",
+        "dosage": 5.0,
+        "unit": "회",
+        "equipments": [
+          "피코슈어"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "매우 짧은 순간에 높은 레이저 에너지를 조사하여 주변의 조직의 손상이 적게 빠르고 강하게 문신 색소를 잘게 쪼개는 시술",
+        "duration": null,
+        "target_area": [
+          "500원 사이즈 문신"
+        ],
+        "benefits": [
+          "문신 색소 제거",
+          "주변 조직 손상 최소화"
+        ],
+        "recovery_time": "3-7일"
+      }
+    ],
+    "category": "미백/색소/홍조",
+    "description": "피코슈어 문신 제거 - 주변 조직 손상을 최소화한 문신 제거",
+    "scraped_at": "2025-10-02 02:05:56.949101",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/cb7f5e77-4322-476c-9f1a-c85792e80ebf",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "피코슈어 문신 제거 500원 사이즈 10회",
+    "product_original_price": 628200.0,
+    "product_event_price": 349000.0,
+    "product_description": "주변 조직 손상을 최소화한 문신 제거",
+    "treatments": [
+      {
+        "name": "피코슈어 문신 제거",
+        "dosage": 10.0,
+        "unit": "회",
+        "equipments": [
+          "피코슈어"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "매우 짧은 순간에 높은 레이저 에너지를 조사하여 주변의 조직의 손상이 적게 빠르고 강하게 문신 색소를 잘게 쪼개는 시술",
+        "duration": null,
+        "target_area": [
+          "500원 사이즈 문신"
+        ],
+        "benefits": [
+          "문신 색소 제거",
+          "주변 조직 손상 최소화"
+        ],
+        "recovery_time": "3-7일"
+      }
+    ],
+    "category": "미백/색소/홍조",
+    "description": "피코슈어 문신 제거 - 주변 조직 손상을 최소화한 문신 제거",
+    "scraped_at": "2025-10-02 02:05:56.949110",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/cb7f5e77-4322-476c-9f1a-c85792e80ebf",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "피코슈어 문신 제거 명함 사이즈 5회",
+    "product_original_price": 882000.0,
+    "product_event_price": 490000.0,
+    "product_description": "주변 조직 손상을 최소화한 문신 제거",
+    "treatments": [
+      {
+        "name": "피코슈어 문신 제거",
+        "dosage": 5.0,
+        "unit": "회",
+        "equipments": [
+          "피코슈어"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "매우 짧은 순간에 높은 레이저 에너지를 조사하여 주변의 조직의 손상이 적게 빠르고 강하게 문신 색소를 잘게 쪼개는 시술",
+        "duration": null,
+        "target_area": [
+          "명함 사이즈 문신"
+        ],
+        "benefits": [
+          "문신 색소 제거",
+          "주변 조직 손상 최소화"
+        ],
+        "recovery_time": "3-7일"
+      }
+    ],
+    "category": "미백/색소/홍조",
+    "description": "피코슈어 문신 제거 - 주변 조직 손상을 최소화한 문신 제거",
+    "scraped_at": "2025-10-02 02:05:56.949121",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/cb7f5e77-4322-476c-9f1a-c85792e80ebf",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "피코슈어 문신 제거 명함 사이즈 10회",
+    "product_original_price": 1422000.0,
+    "product_event_price": 790000.0,
+    "product_description": "주변 조직 손상을 최소화한 문신 제거",
+    "treatments": [
+      {
+        "name": "피코슈어 문신 제거",
+        "dosage": 10.0,
+        "unit": "회",
+        "equipments": [
+          "피코슈어"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "매우 짧은 순간에 높은 레이저 에너지를 조사하여 주변의 조직의 손상이 적게 빠르고 강하게 문신 색소를 잘게 쪼개는 시술",
+        "duration": null,
+        "target_area": [
+          "명함 사이즈 문신"
+        ],
+        "benefits": [
+          "문신 색소 제거",
+          "주변 조직 손상 최소화"
+        ],
+        "recovery_time": "3-7일"
+      }
+    ],
+    "category": "미백/색소/홍조",
+    "description": "피코슈어 문신 제거 - 주변 조직 손상을 최소화한 문신 제거",
+    "scraped_at": "2025-10-02 02:05:56.949137",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/ad7054ee-3ac0-4dce-bfb8-d5cc152766e2",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "바디토닝 2회치",
+    "product_original_price": 90000.0,
+    "product_event_price": 59000.0,
+    "product_description": "신체 전 부위 가능, 1부위 = 한 손바닥크기 (크기에 따라 비용이 추가될 수 있습니다.)",
+    "treatments": [
+      {
+        "name": "바디토닝",
+        "dosage": 2.0,
+        "unit": "회",
+        "equipments": [
+          "한국, 레이저옵텍"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "침착된 색소 개선을 위한 시술, 원하는 부위에 선택적 시술 가능",
+        "duration": null,
+        "target_area": [
+          "겨드랑이",
+          "무릎",
+          "팔꿈치",
+          "발뒤꿈치",
+          "유륜",
+          "복숭아뼈"
+        ],
+        "benefits": [
+          "색소침착 개선",
+          "균일한 피부 톤"
+        ],
+        "recovery_time": "3-7일"
+      }
+    ],
+    "category": "미백/색소/홍조",
+    "description": "표피/진피층의 색소 병변을 주변 조직에 손상 없이 선택적으로 조사하여 색소침착에 개선 효과를 주는 시술",
+    "scraped_at": "2025-10-02 02:07:29.235040",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/ad7054ee-3ac0-4dce-bfb8-d5cc152766e2",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "바디 피코토닝 2회치",
+    "product_original_price": 110000.0,
+    "product_event_price": 79000.0,
+    "product_description": "신체 전 부위 가능, 1부위 = 한 손바닥크기 (크기에 따라 비용이 추가될 수 있습니다.)",
+    "treatments": [
+      {
+        "name": "바디 피코토닝",
+        "dosage": 2.0,
+        "unit": "회",
+        "equipments": [
+          "한국, 레이저옵텍"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "다양한 깊이에 선택적으로 적용 가능하여 깊게 분포한 색소침착을 개선, 주름개선 및 화이트닝 효과",
+        "duration": null,
+        "target_area": [
+          "겨드랑이",
+          "무릎",
+          "팔꿈치",
+          "발뒤꿈치",
+          "유륜",
+          "복숭아뼈"
+        ],
+        "benefits": [
+          "색소침착 개선",
+          "주름개선",
+          "화이트닝 효과"
+        ],
+        "recovery_time": "3-7일"
+      }
+    ],
+    "category": "미백/색소/홍조",
+    "description": "표피/진피층의 색소 병변을 주변 조직에 손상 없이 선택적으로 조사하여 색소침착에 개선 효과를 주는 시술",
+    "scraped_at": "2025-10-02 02:07:29.235132",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/ad7054ee-3ac0-4dce-bfb8-d5cc152766e2",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "바디토닝 5회",
+    "product_original_price": 350000.0,
+    "product_event_price": 249000.0,
+    "product_description": "신체 전 부위 가능, 1부위 = 한 손바닥크기 (크기에 따라 비용이 추가될 수 있습니다.)",
+    "treatments": [
+      {
+        "name": "바디토닝",
+        "dosage": 5.0,
+        "unit": "회",
+        "equipments": [
+          "한국, 레이저옵텍"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "침착된 색소 개선을 위한 시술, 원하는 부위에 선택적 시술 가능",
+        "duration": null,
+        "target_area": [
+          "겨드랑이",
+          "무릎",
+          "팔꿈치",
+          "발뒤꿈치",
+          "유륜",
+          "복숭아뼈"
+        ],
+        "benefits": [
+          "색소침착 개선",
+          "균일한 피부 톤"
+        ],
+        "recovery_time": "3-7일"
+      }
+    ],
+    "category": "미백/색소/홍조",
+    "description": "표피/진피층의 색소 병변을 주변 조직에 손상 없이 선택적으로 조사하여 색소침착에 개선 효과를 주는 시술",
+    "scraped_at": "2025-10-02 02:07:29.235186",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/ad7054ee-3ac0-4dce-bfb8-d5cc152766e2",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "바디 피코토닝 5회",
+    "product_original_price": 450000.0,
+    "product_event_price": 349000.0,
+    "product_description": "신체 전 부위 가능, 1부위 = 한 손바닥크기 (크기에 따라 비용이 추가될 수 있습니다.)",
+    "treatments": [
+      {
+        "name": "바디 피코토닝",
+        "dosage": 5.0,
+        "unit": "회",
+        "equipments": [
+          "한국, 레이저옵텍"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "다양한 깊이에 선택적으로 적용 가능하여 깊게 분포한 색소침착을 개선, 주름개선 및 화이트닝 효과",
+        "duration": null,
+        "target_area": [
+          "겨드랑이",
+          "무릎",
+          "팔꿈치",
+          "발뒤꿈치",
+          "유륜",
+          "복숭아뼈"
+        ],
+        "benefits": [
+          "색소침착 개선",
+          "주름개선",
+          "화이트닝 효과"
+        ],
+        "recovery_time": "3-7일"
+      }
+    ],
+    "category": "미백/색소/홍조",
+    "description": "표피/진피층의 색소 병변을 주변 조직에 손상 없이 선택적으로 조사하여 색소침착에 개선 효과를 주는 시술",
+    "scraped_at": "2025-10-02 02:07:29.235207",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/5506d61a-4ad8-422b-8f4f-80ec364c05bd",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "민트실 4줄",
+    "product_original_price": 538200.0,
+    "product_event_price": 299000.0,
+    "product_description": "FDA 승인받은 360도 장미 가시돌기의 실리프팅",
+    "treatments": [
+      {
+        "name": "민트실 리프팅",
+        "dosage": 4.0,
+        "unit": "줄",
+        "equipments": [
+          "민트실"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "360도 3D 입체 돌기로 우수한 고정력을 가진 실리프팅 시술",
+        "duration": null,
+        "target_area": [
+          "안면"
+        ],
+        "benefits": [
+          "리프팅 효과",
+          "콜라겐 생성",
+          "피부 탄력 개선",
+          "피부 처짐 개선"
+        ],
+        "recovery_time": "1-2주"
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "FDA 승인받은 360도 장미 가시돌기의 실리프팅으로 비수술적 안면리프팅 방법. 특허받은 몰딩 공법으로 제조되어 돌기 부분이 쉽게 마모되지 않고 고정력과 지속력, 결합력이 뛰어난 실입니다.",
+    "scraped_at": "2025-10-02 02:07:54.567105",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/5506d61a-4ad8-422b-8f4f-80ec364c05bd",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "민트실 1줄",
+    "product_original_price": null,
+    "product_event_price": 100000.0,
+    "product_description": "FDA 승인받은 360도 장미 가시돌기의 실리프팅",
+    "treatments": [
+      {
+        "name": "민트실 리프팅",
+        "dosage": 1.0,
+        "unit": "줄",
+        "equipments": [
+          "민트실"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "360도 3D 입체 돌기로 우수한 고정력을 가진 실리프팅 시술",
+        "duration": null,
+        "target_area": [
+          "안면"
+        ],
+        "benefits": [
+          "리프팅 효과",
+          "콜라겐 생성",
+          "피부 탄력 개선",
+          "피부 처짐 개선"
+        ],
+        "recovery_time": "1-2주"
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "FDA 승인받은 360도 장미 가시돌기의 실리프팅으로 비수술적 안면리프팅 방법. 특허받은 몰딩 공법으로 제조되어 돌기 부분이 쉽게 마모되지 않고 고정력과 지속력, 결합력이 뛰어난 실입니다.",
+    "scraped_at": "2025-10-02 02:07:54.567126",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/5506d61a-4ad8-422b-8f4f-80ec364c05bd",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "민트실 2줄",
+    "product_original_price": null,
+    "product_event_price": 160000.0,
+    "product_description": "FDA 승인받은 360도 장미 가시돌기의 실리프팅",
+    "treatments": [
+      {
+        "name": "민트실 리프팅",
+        "dosage": 2.0,
+        "unit": "줄",
+        "equipments": [
+          "민트실"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "360도 3D 입체 돌기로 우수한 고정력을 가진 실리프팅 시술",
+        "duration": null,
+        "target_area": [
+          "안면"
+        ],
+        "benefits": [
+          "리프팅 효과",
+          "콜라겐 생성",
+          "피부 탄력 개선",
+          "피부 처짐 개선"
+        ],
+        "recovery_time": "1-2주"
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "FDA 승인받은 360도 장미 가시돌기의 실리프팅으로 비수술적 안면리프팅 방법. 특허받은 몰딩 공법으로 제조되어 돌기 부분이 쉽게 마모되지 않고 고정력과 지속력, 결합력이 뛰어난 실입니다.",
+    "scraped_at": "2025-10-02 02:07:54.567136",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/362d9069-d143-40f0-ad6b-bad8bdc54976",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "염증주사 5개 미만",
+    "product_original_price": null,
+    "product_event_price": 10000.0,
+    "product_description": "초기에 염증을 잡아주어 증상 악화, 흉터 및 자국을 예방할 수 있는 주사",
+    "treatments": [
+      {
+        "name": "염증주사",
+        "dosage": 5.0,
+        "unit": "개",
+        "equipments": [],
+        "medications": [],
+        "treatment_type": "injection",
+        "description": "여드름의 염증을 완화하여 흉터, 자국을 예방할 수 있는 치료",
+        "duration": null,
+        "target_area": [
+          "여드름 부위"
+        ],
+        "benefits": [
+          "여드름 염증 완화",
+          "흉터 예방",
+          "자국 예방"
+        ],
+        "recovery_time": null
+      }
+    ],
+    "category": "여드름 치료",
+    "description": "여드름 염증을 조기 완화하여 증상 악화를 억제하고 여드름 자국과 흉터를 예방할 수 있는 주사",
+    "scraped_at": "2025-10-02 02:07:44.610072",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/362d9069-d143-40f0-ad6b-bad8bdc54976",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "염증주사 얼굴 전체",
+    "product_original_price": null,
+    "product_event_price": 20000.0,
+    "product_description": "초기에 염증을 잡아주어 증상 악화, 흉터 및 자국을 예방할 수 있는 주사",
+    "treatments": [
+      {
+        "name": "염증주사",
+        "dosage": null,
+        "unit": "회",
+        "equipments": [],
+        "medications": [],
+        "treatment_type": "injection",
+        "description": "여드름의 염증을 완화하여 흉터, 자국을 예방할 수 있는 치료",
+        "duration": null,
+        "target_area": [
+          "얼굴 전체"
+        ],
+        "benefits": [
+          "여드름 염증 완화",
+          "흉터 예방",
+          "자국 예방"
+        ],
+        "recovery_time": null
+      }
+    ],
+    "category": "여드름 치료",
+    "description": "여드름 염증을 조기 완화하여 증상 악화를 억제하고 여드름 자국과 흉터를 예방할 수 있는 주사",
+    "scraped_at": "2025-10-02 02:07:44.610131",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "슈링크 유니버스",
+    "product_original_price": null,
+    "product_event_price": null,
+    "product_description": null,
+    "treatments": [
+      {
+        "name": "슈링크 유니버스",
+        "dosage": null,
+        "unit": null,
+        "equipments": [
+          "슈링크 유니버스"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": null,
+        "duration": null,
+        "target_area": [],
+        "benefits": [],
+        "recovery_time": null
+      }
+    ],
+    "category": null,
+    "description": null,
+    "scraped_at": "2025-10-02 02:08:10.071731",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "인모드",
+    "product_original_price": null,
+    "product_event_price": null,
+    "product_description": null,
+    "treatments": [
+      {
+        "name": "인모드",
+        "dosage": null,
+        "unit": null,
+        "equipments": [
+          "인모드"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": null,
+        "duration": null,
+        "target_area": [],
+        "benefits": [],
+        "recovery_time": null
+      }
+    ],
+    "category": null,
+    "description": null,
+    "scraped_at": "2025-10-02 02:08:10.071753",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "피코토닝",
+    "product_original_price": null,
+    "product_event_price": null,
+    "product_description": null,
+    "treatments": [
+      {
+        "name": "피코토닝",
+        "dosage": null,
+        "unit": null,
+        "equipments": [
+          "피코레이저"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": null,
+        "duration": null,
+        "target_area": [],
+        "benefits": [],
+        "recovery_time": null
+      }
+    ],
+    "category": null,
+    "description": null,
+    "scraped_at": "2025-10-02 02:08:10.071761",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "Xenia clinic | 세니아의원",
+    "product_name": "울쎄라피",
+    "product_original_price": null,
+    "product_event_price": null,
+    "product_description": null,
+    "treatments": [
+      {
+        "name": "울쎄라피",
+        "dosage": null,
+        "unit": null,
+        "equipments": [
+          "울쎄라"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": null,
+        "duration": null,
+        "target_area": [],
+        "benefits": [],
+        "recovery_time": null
+      }
+    ],
+    "category": null,
+    "description": null,
+    "scraped_at": "2025-10-02 02:08:10.071768",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/f7c8d581-50af-40f3-9db9-3a0b28470b37",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "[1회체험가] 피코 프락셀",
+    "product_original_price": 106200.0,
+    "product_event_price": 59000.0,
+    "product_description": "주변 조직에 열 손상을 주지 않아 회복이 빠르고 부작용이 적은 레이저",
+    "treatments": [
+      {
+        "name": "피코 프락셀",
+        "dosage": 1.0,
+        "unit": "회",
+        "equipments": [
+          "피코 프락셀",
+          "사이노슈어"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "1조 분의 1초 피코세컨드 프랙셔널 모드로 표피 상처 없이 레이저 에너지를 피부 속으로 재분배하는 시술",
+        "duration": null,
+        "target_area": [
+          "여드름 흉터",
+          "모공",
+          "피부 결"
+        ],
+        "benefits": [
+          "흉터 개선",
+          "모공 축소",
+          "피부 결 개선",
+          "탄력 재생",
+          "미백 효과"
+        ],
+        "recovery_time": "별도의 회복 기간 불필요"
+      }
+    ],
+    "category": "흉터/모공",
+    "description": "피부 안쪽에 레이저 에너지를 조사하여 재생 포인트를 만들고 새살이 차오르게 하는 레이저 시술",
+    "scraped_at": "2025-10-02 02:08:21.306580",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/f7c8d581-50af-40f3-9db9-3a0b28470b37",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "피코 프락셀",
+    "product_original_price": 120000.0,
+    "product_event_price": 79000.0,
+    "product_description": "주변 조직에 열 손상을 주지 않아 회복이 빠르고 부작용이 적은 레이저",
+    "treatments": [
+      {
+        "name": "피코 프락셀",
+        "dosage": 1.0,
+        "unit": "회",
+        "equipments": [
+          "피코 프락셀",
+          "사이노슈어"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "1조 분의 1초 피코세컨드 프랙셔널 모드로 표피 상처 없이 레이저 에너지를 피부 속으로 재분배하는 시술",
+        "duration": null,
+        "target_area": [
+          "여드름 흉터",
+          "모공",
+          "피부 결"
+        ],
+        "benefits": [
+          "흉터 개선",
+          "모공 축소",
+          "피부 결 개선",
+          "탄력 재생",
+          "미백 효과"
+        ],
+        "recovery_time": "별도의 회복 기간 불필요"
+      }
+    ],
+    "category": "흉터/모공",
+    "description": "피부 안쪽에 레이저 에너지를 조사하여 재생 포인트를 만들고 새살이 차오르게 하는 레이저 시술",
+    "scraped_at": "2025-10-02 02:08:21.306620",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/f7c8d581-50af-40f3-9db9-3a0b28470b37",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "피코 프락셀 3회",
+    "product_original_price": 330000.0,
+    "product_event_price": 199000.0,
+    "product_description": "주변 조직에 열 손상을 주지 않아 회복이 빠르고 부작용이 적은 레이저",
+    "treatments": [
+      {
+        "name": "피코 프락셀",
+        "dosage": 3.0,
+        "unit": "회",
+        "equipments": [
+          "피코 프락셀",
+          "사이노슈어"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "1조 분의 1초 피코세컨드 프랙셔널 모드로 표피 상처 없이 레이저 에너지를 피부 속으로 재분배하는 시술",
+        "duration": null,
+        "target_area": [
+          "여드름 흉터",
+          "모공",
+          "피부 결"
+        ],
+        "benefits": [
+          "흉터 개선",
+          "모공 축소",
+          "피부 결 개선",
+          "탄력 재생",
+          "미백 효과"
+        ],
+        "recovery_time": "별도의 회복 기간 불필요"
+      }
+    ],
+    "category": "흉터/모공",
+    "description": "피부 안쪽에 레이저 에너지를 조사하여 재생 포인트를 만들고 새살이 차오르게 하는 레이저 시술",
+    "scraped_at": "2025-10-02 02:08:21.306634",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/ffaca0f7-5087-4f9a-823a-b545e204cbcf",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "[1회체험가] 아쿠아필",
+    "product_original_price": 45000.0,
+    "product_event_price": 29000.0,
+    "product_description": "모공 속 노폐물을 제거하여 피부 속의 피지를 정리해 주는 필링",
+    "treatments": [
+      {
+        "name": "아쿠아필",
+        "dosage": 1.0,
+        "unit": "회",
+        "equipments": [
+          "아쿠아필"
+        ],
+        "medications": [
+          "AHA",
+          "BHA",
+          "하이드로 솔루션"
+        ],
+        "treatment_type": "skincare",
+        "description": "3단계의 저자극 수분 필링으로 모공 속의 피지, 모낭충 및 트러블 관리",
+        "duration": null,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "모공 속의 피지 제거",
+          "모낭충 제거",
+          "트러블 관리",
+          "보습"
+        ],
+        "recovery_time": "당일부터 세안과 화장 가능"
+      }
+    ],
+    "category": "필링",
+    "description": "AHA, BHA 등의 성분을 이용하여 모공 속 노폐물을 제거하고 피부 속의 피지를 정리해 주는 모공 청소기. 3단계 솔루션을 이용하여 각질들과 함께 모공 속의 노폐물, 피지까지 깨끗하게 제거해 주어 맑고 깨끗한 피부를 만들어줍니다.",
+    "scraped_at": "2025-10-02 02:09:00.580317",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/ffaca0f7-5087-4f9a-823a-b545e204cbcf",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "아쿠아필 코 압출 미포함",
+    "product_original_price": 45000.0,
+    "product_event_price": 39000.0,
+    "product_description": "모공 속 노폐물을 제거하여 피부 속의 피지를 정리해 주는 필링",
+    "treatments": [
+      {
+        "name": "아쿠아필",
+        "dosage": 1.0,
+        "unit": "회",
+        "equipments": [
+          "아쿠아필"
+        ],
+        "medications": [
+          "AHA",
+          "BHA",
+          "하이드로 솔루션"
+        ],
+        "treatment_type": "skincare",
+        "description": "3단계의 저자극 수분 필링으로 모공 속의 피지, 모낭충 및 트러블 관리 (코 압출 미포함)",
+        "duration": null,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "모공 속의 피지 제거",
+          "모낭충 제거",
+          "트러블 관리",
+          "보습"
+        ],
+        "recovery_time": "당일부터 세안과 화장 가능"
+      }
+    ],
+    "category": "필링",
+    "description": "AHA, BHA 등의 성분을 이용하여 모공 속 노폐물을 제거하고 피부 속의 피지를 정리해 주는 모공 청소기. 3단계 솔루션을 이용하여 각질들과 함께 모공 속의 노폐물, 피지까지 깨끗하게 제거해 주어 맑고 깨끗한 피부를 만들어줍니다.",
+    "scraped_at": "2025-10-02 02:09:00.580354",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/ffaca0f7-5087-4f9a-823a-b545e204cbcf",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "아쿠아필 코 압출 포함",
+    "product_original_price": 75000.0,
+    "product_event_price": 54000.0,
+    "product_description": "모공 속 노폐물을 제거하여 피부 속의 피지를 정리해 주는 필링",
+    "treatments": [
+      {
+        "name": "아쿠아필",
+        "dosage": 1.0,
+        "unit": "회",
+        "equipments": [
+          "아쿠아필"
+        ],
+        "medications": [
+          "AHA",
+          "BHA",
+          "하이드로 솔루션"
+        ],
+        "treatment_type": "skincare",
+        "description": "3단계의 저자극 수분 필링으로 모공 속의 피지, 모낭충 및 트러블 관리 (코 압출 포함)",
+        "duration": null,
+        "target_area": [
+          "얼굴",
+          "코"
+        ],
+        "benefits": [
+          "모공 속의 피지 제거",
+          "모낭충 제거",
+          "트러블 관리",
+          "보습",
+          "코 압출"
+        ],
+        "recovery_time": "당일부터 세안과 화장 가능"
+      }
+    ],
+    "category": "필링",
+    "description": "AHA, BHA 등의 성분을 이용하여 모공 속 노폐물을 제거하고 피부 속의 피지를 정리해 주는 모공 청소기. 3단계 솔루션을 이용하여 각질들과 함께 모공 속의 노폐물, 피지까지 깨끗하게 제거해 주어 맑고 깨끗한 피부를 만들어줍니다.",
+    "scraped_at": "2025-10-02 02:09:00.580369",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/c7ebbd6c-c701-46aa-b800-83a67c36055f",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "아이써마지 225샷",
+    "product_original_price": 1782000.0,
+    "product_event_price": 990000.0,
+    "product_description": "눈가 전용 팁을 사용하여 세밀한 부위까지 꼼꼼하게 리프팅 효과",
+    "treatments": [
+      {
+        "name": "아이써마지",
+        "dosage": 225.0,
+        "unit": "샷",
+        "equipments": [
+          "써마지FLX"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "눈가 전용 팁을 사용하여 세밀한 부위까지 꼼꼼하게 리프팅 효과",
+        "duration": null,
+        "target_area": [
+          "눈가"
+        ],
+        "benefits": [
+          "리프팅 효과"
+        ],
+        "recovery_time": "2-3일"
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "진피층에 집중하여 부작용은 줄이고, 리프팅 효과를 극대화한 고주파 리프팅 시술",
+    "scraped_at": "2025-10-02 02:08:48.913568",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/c7ebbd6c-c701-46aa-b800-83a67c36055f",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "써마지 300샷",
+    "product_original_price": 1782000.0,
+    "product_event_price": 990000.0,
+    "product_description": "4세대 FLX! 원조 프리미엄 리프팅 레이저, 더욱 더 안전하고 섬세한, 효과적인 고주파 리프팅 레이저!",
+    "treatments": [
+      {
+        "name": "써마지",
+        "dosage": 300.0,
+        "unit": "샷",
+        "equipments": [
+          "써마지FLX"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "4세대 FLX! 원조 프리미엄 리프팅 레이저, 더욱 더 안전하고 섬세한, 효과적인 고주파 리프팅 레이저",
+        "duration": 50,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "리프팅 효과",
+          "탄력 개선"
+        ],
+        "recovery_time": "2-3일"
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "진피층에 집중하여 부작용은 줄이고, 리프팅 효과를 극대화한 고주파 리프팅 시술",
+    "scraped_at": "2025-10-02 02:08:48.913595",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/c7ebbd6c-c701-46aa-b800-83a67c36055f",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "써마지 600샷",
+    "product_original_price": 3222000.0,
+    "product_event_price": 1790000.0,
+    "product_description": "4세대 FLX! 원조 프리미엄 리프팅 레이저, 더욱 더 안전하고 섬세한, 효과적인 고주파 리프팅 레이저!",
+    "treatments": [
+      {
+        "name": "써마지",
+        "dosage": 600.0,
+        "unit": "샷",
+        "equipments": [
+          "써마지FLX"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "4세대 FLX! 원조 프리미엄 리프팅 레이저, 더욱 더 안전하고 섬세한, 효과적인 고주파 리프팅 레이저",
+        "duration": 50,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "리프팅 효과",
+          "탄력 개선"
+        ],
+        "recovery_time": "2-3일"
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "진피층에 집중하여 부작용은 줄이고, 리프팅 효과를 극대화한 고주파 리프팅 시술",
+    "scraped_at": "2025-10-02 02:08:48.913605",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/c7ebbd6c-c701-46aa-b800-83a67c36055f",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "아이써마지 450샷",
+    "product_original_price": 3222000.0,
+    "product_event_price": 1790000.0,
+    "product_description": "눈가 전용 팁을 사용하여 세밀한 부위까지 꼼꼼하게 리프팅 효과",
+    "treatments": [
+      {
+        "name": "아이써마지",
+        "dosage": 450.0,
+        "unit": "샷",
+        "equipments": [
+          "써마지FLX"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "눈가 전용 팁을 사용하여 세밀한 부위까지 꼼꼼하게 리프팅 효과",
+        "duration": null,
+        "target_area": [
+          "눈가"
+        ],
+        "benefits": [
+          "리프팅 효과"
+        ],
+        "recovery_time": "2-3일"
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "진피층에 집중하여 부작용은 줄이고, 리프팅 효과를 극대화한 고주파 리프팅 시술",
+    "scraped_at": "2025-10-02 02:08:48.913615",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/c7ebbd6c-c701-46aa-b800-83a67c36055f",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "써마지 600샷 + 울쎄라피 프라임 300샷",
+    "product_original_price": 4842000.0,
+    "product_event_price": 2690000.0,
+    "product_description": "보다 깊은 피부층을 타겟하며, 개선된 해상도의 울쎄라®만의 DeepSEE™ 기술로 실시간 피부 속을 들여다보며 정교하게 시술, 그리고 4세대 FLX! 원조 프리미엄 리프팅 레이저 써마지",
+    "treatments": [
+      {
+        "name": "써마지",
+        "dosage": 600.0,
+        "unit": "샷",
+        "equipments": [
+          "써마지FLX"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "4세대 FLX! 원조 프리미엄 리프팅 레이저",
+        "duration": 50,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "리프팅 효과",
+          "탄력 개선"
+        ],
+        "recovery_time": "2-3일"
+      },
+      {
+        "name": "울쎄라피 프라임",
+        "dosage": 300.0,
+        "unit": "샷",
+        "equipments": [
+          "울쎄라"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "보다 깊은 피부층을 타겟하며, 개선된 해상도의 울쎄라®만의 DeepSEE™ 기술로 실시간 피부 속을 들여다보며 정교하게 시술",
+        "duration": null,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "깊은 층 리프팅",
+          "정교한 시술"
+        ],
+        "recovery_time": "2-3일"
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "진피층에 집중하여 부작용은 줄이고, 리프팅 효과를 극대화한 고주파 리프팅 시술",
+    "scraped_at": "2025-10-02 02:08:48.913627",
+    "additional_info": {}
+  },
+  {
+    "id": null,
+    "source_url": "https://xenia.clinic/ko/products/c7ebbd6c-c701-46aa-b800-83a67c36055f",
+    "source_channel": "세니아 클리닉",
+    "clinic_name": "세니아클리닉",
+    "product_name": "써마지 600샷 + 울쎄라피 프라임 600샷",
+    "product_original_price": 6282000.0,
+    "product_event_price": 3490000.0,
+    "product_description": "보다 깊은 피부층을 타겟하며, 개선된 해상도의 울쎄라®만의 DeepSEE™ 기술로 실시간 피부 속을 들여다보며 정교하게 시술, 그리고 4세대 FLX! 원조 프리미엄 리프팅 레이저 써마지",
+    "treatments": [
+      {
+        "name": "써마지",
+        "dosage": 600.0,
+        "unit": "샷",
+        "equipments": [
+          "써마지FLX"
+        ],
+        "medications": [],
+        "treatment_type": "laser",
+        "description": "4세대 FLX! 원조 프리미엄 리프팅 레이저",
+        "duration": 50,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "리프팅 효과",
+          "탄력 개선"
+        ],
+        "recovery_time": "2-3일"
+      },
+      {
+        "name": "울쎄라피 프라임",
+        "dosage": 600.0,
+        "unit": "샷",
+        "equipments": [
+          "울쎄라"
+        ],
+        "medications": [],
+        "treatment_type": "device",
+        "description": "보다 깊은 피부층을 타겟하며, 개선된 해상도의 울쎄라®만의 DeepSEE™ 기술로 실시간 피부 속을 들여다보며 정교하게 시술",
+        "duration": null,
+        "target_area": [
+          "얼굴"
+        ],
+        "benefits": [
+          "깊은 층 리프팅",
+          "정교한 시술"
+        ],
+        "recovery_time": "2-3일"
+      }
+    ],
+    "category": "탄력/리프팅",
+    "description": "진피층에 집중하여 부작용은 줄이고, 리프팅 효과를 극대화한 고주파 리프팅 시술",
+    "scraped_at": "2025-10-02 02:08:48.913638",
+    "additional_info": {}
+  }
+]
