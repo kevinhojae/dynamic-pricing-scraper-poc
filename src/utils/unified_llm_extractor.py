@@ -385,12 +385,12 @@ class UnifiedLLMTreatmentExtractor:
             import os
             from datetime import datetime
 
-            # data/errors 디렉토리 생성
-            os.makedirs("data/errors", exist_ok=True)
+            # log/errors 디렉토리 생성
+            os.makedirs("log/errors", exist_ok=True)
 
             # 타임스탬프와 모델 타입으로 파일명 생성
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]  # 밀리초까지
-            filename = f"data/errors/json_error_{self.provider_type}_{timestamp}.txt"
+            filename = f"log/errors/json_error_{self.provider_type}_{timestamp}.txt"
 
             with open(filename, "w", encoding="utf-8") as f:
                 f.write("=" * 80 + "\n")

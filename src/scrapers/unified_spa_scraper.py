@@ -61,7 +61,12 @@ class UnifiedSPAContentScraper:
                 all_products = []
                 interactions_performed = 0
 
-                # 페이지 상호작용 수행
+                # HTML 수집과 LLM 처리를 분리하여 병렬 처리
+                collected_htmls = []  # (interaction_num, html_content) 저장
+
+                # 1단계: 브라우저 상호작용으로 HTML들 수집
+                print("📥 1단계: 브라우저 상호작용으로 HTML 수집...")
+
                 for interaction_num in range(self.spa_config.max_interactions):
                     print(f"🔄 상호작용 {interaction_num + 1}/{self.spa_config.max_interactions}")
 
@@ -76,43 +81,13 @@ class UnifiedSPAContentScraper:
 
                     content_states.append(content_hash)
 
-                    # 각 interaction의 HTML을 독립적으로 처리 - 디버깅 추가
-                    try:
-                        print(f"🤖 상호작용 {interaction_num + 1}의 HTML 독립 처리 중...")
-                        print(f"📏 HTML 크기: {len(current_content)} 문자")
-
-                        # HTML 샘플을 로그로 저장해서 실제 내용 확인
-                        from datetime import datetime
-                        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]
-                        debug_filename = f"data/errors/html_debug_interaction_{interaction_num + 1}_{timestamp}.txt"
-
-                        import os
-                        os.makedirs("data/errors", exist_ok=True)
-                        with open(debug_filename, "w", encoding="utf-8") as f:
-                            f.write(f"=== Interaction {interaction_num + 1} Debug ===\n")
-                            f.write(f"HTML 크기: {len(current_content)} 문자\n")
-                            f.write(f"시간: {datetime.now().isoformat()}\n")
-                            f.write("=" * 50 + "\n\n")
-                            # 처음 5000자만 저장
-                            f.write("HTML 샘플 (처음 5000자):\n")
-                            f.write(current_content[:5000])
-
-                        products = await self.llm_extractor.extract_treatments_from_html_async(
-                            current_content, url
-                        )
-                        if products:
-                            # 중복 제거하면서 추가
-                            new_products = self._deduplicate_products(all_products, products)
-                            all_products.extend(new_products)
-                            print(f"✅ 상호작용 {interaction_num + 1}: {len(products)}개 추출 → {len(new_products)}개 신규 (총 {len(all_products)}개)")
-                        else:
-                            print(f"📭 상호작용 {interaction_num + 1}: 새로운 제품 없음")
-                    except Exception as e:
-                        print(f"⚠️  상호작용 {interaction_num + 1} 제품 추출 오류: {str(e)}")
+                    # HTML을 수집 목록에 저장 (LLM 처리는 나중에)
+                    collected_htmls.append((interaction_num + 1, current_content))
+                    print(f"📏 상호작용 {interaction_num + 1} HTML 수집: {len(current_content)} 문자")
 
                     # 다음 상호작용 수행
                     if interaction_num < self.spa_config.max_interactions - 1:
-                        success = await self._perform_interaction(page)
+                        success = await self._perform_interaction(page, interaction_num + 2)
                         if success:
                             interactions_performed += 1
                             # 상호작용 후 콘텐츠 로딩 대기
@@ -120,6 +95,57 @@ class UnifiedSPAContentScraper:
                         else:
                             print("🔚 더 이상 상호작용할 요소가 없음")
                             break
+
+                # 2단계: 수집된 모든 HTML을 병렬로 LLM 처리
+                if collected_htmls:
+                    print(f"🚀 2단계: {len(collected_htmls)}개 HTML을 병렬 LLM 처리...")
+
+                    async def process_single_html(interaction_num: int, html_content: str) -> List[ProductItem]:
+                        """단일 HTML을 LLM으로 처리"""
+                        try:
+                            # HTML 디버그 로그 저장
+                            from datetime import datetime
+                            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]
+                            debug_filename = f"log/errors/html_debug_interaction_{interaction_num}_{timestamp}.txt"
+
+                            import os
+                            os.makedirs("log/errors", exist_ok=True)
+                            with open(debug_filename, "w", encoding="utf-8") as f:
+                                f.write(f"=== Interaction {interaction_num} Debug ===\n")
+                                f.write(f"HTML 크기: {len(html_content)} 문자\n")
+                                f.write(f"시간: {datetime.now().isoformat()}\n")
+                                f.write("=" * 50 + "\n\n")
+                                f.write("HTML 샘플 (처음 5000자):\n")
+                                f.write(html_content[:5000])
+
+                            print(f"🤖 상호작용 {interaction_num} LLM 처리 중...")
+                            products = await self.llm_extractor.extract_treatments_from_html_async(
+                                html_content, url
+                            )
+                            print(f"✅ 상호작용 {interaction_num}: {len(products)}개 상품 추출 완료")
+                            return products
+
+                        except Exception as e:
+                            print(f"⚠️ 상호작용 {interaction_num} LLM 처리 오류: {str(e)}")
+                            return []
+
+                    # 모든 HTML을 병렬로 LLM 처리 (Promise.all 방식)
+                    tasks = [process_single_html(num, html) for num, html in collected_htmls]
+                    results = await asyncio.gather(*tasks, return_exceptions=True)
+
+                    # 결과 수집 및 중복 제거
+                    for i, result in enumerate(results):
+                        interaction_num = collected_htmls[i][0]
+                        if isinstance(result, Exception):
+                            print(f"❌ 상호작용 {interaction_num} 처리 중 예외: {str(result)}")
+                        elif result:
+                            new_products = self._deduplicate_products(all_products, result)
+                            all_products.extend(new_products)
+                            print(f"🔗 상호작용 {interaction_num}: {len(result)}개 추출 → {len(new_products)}개 신규 (총 {len(all_products)}개)")
+                        else:
+                            print(f"📭 상호작용 {interaction_num}: 추출된 상품 없음")
+
+                    print(f"🎉 병렬 LLM 처리 완료: 총 {len(all_products)}개 상품 수집")
 
                 processing_time = time.time() - start_time
 
@@ -145,10 +171,37 @@ class UnifiedSPAContentScraper:
             finally:
                 await browser.close()
 
-    async def _perform_interaction(self, page: Page) -> bool:
-        """페이지에서 상호작용 수행"""
-        # 클릭 가능한 요소들을 우선순위 순으로 정의
-        interaction_selectors = [
+    async def _perform_interaction(self, page: Page, interaction_num: int = 0) -> bool:
+        """페이지에서 상호작용 수행 (메뉴/네비게이션 요소 우선)"""
+
+        # 메뉴/네비게이션 요소 우선 탐지 (일반적인 패턴들)
+        menu_selectors = [
+            # 최고 우선순위: 데이터 속성 기반 메뉴
+            '[data-target]',  # 데이터 타겟 속성 (일반적인 메뉴 패턴)
+            '[data-toggle]',  # 데이터 토글 속성
+            '[data-category]',  # 데이터 카테고리 속성
+
+            # 높은 우선순위: 메뉴/카테고리 클래스 (사용자 요청 반영)
+            '.mainCateBox a',  # 메인 카테고리 (사용자 예시 기반)
+            '.subCateBox a',   # 서브 카테고리 (사용자 예시 기반)
+            '.category a',     # 일반 카테고리
+            '.menu-item a',    # 메뉴 아이템
+            '.nav-item a',     # 네비게이션 아이템
+
+            # 중간 우선순위: 슬라이더/탭 네비게이션
+            '.swiper-slide a',  # 스와이퍼 슬라이드 내 링크
+            '.tabs li a',       # 탭 메뉴
+            '.tab-list a',      # 탭 리스트
+            '[role="tab"]',     # ARIA 탭
+            '[role="menuitem"]', # ARIA 메뉴 아이템
+
+            # 낮은 우선순위: 카테고리/메뉴 버튼
+            '.btn-category',    # 카테고리 버튼
+            '.btn-menu',        # 메뉴 버튼
+            'button[class*="category"]', # 카테고리가 포함된 버튼
+            'button[class*="menu"]',     # 메뉴가 포함된 버튼
+
+            # 기존 더보기/페이지네이션 (낮은 우선순위)
             'button:contains("더보기")',
             'button:contains("더 보기")',
             'a:contains("더보기")',
@@ -157,37 +210,164 @@ class UnifiedSPAContentScraper:
             '.btn-more',
             '.more-button',
             '[data-action="load-more"]',
+
             # 페이지네이션
             '.pagination .next',
             '.pagination a:last-child',
             '.page-next',
             'a:contains("다음")',
-            # 일반적인 버튼들
-            'button[type="button"]:visible',
-            'a[href="#"]:visible',
+
+            # 최저 우선순위: 일반 링크/버튼
+            'a[href]:not([href="#"]):not([href="javascript:void(0)"])', # 유효한 링크
+            'button:not([disabled])', # 활성화된 버튼
         ]
 
-        for selector in interaction_selectors:
+        clicked_element = None
+
+        # 메뉴 셀렉터들을 우선순위대로 시도
+        for selector in menu_selectors:
             try:
                 elements = await page.query_selector_all(selector)
+                # 보이는 요소만 필터링
+                visible_elements = []
                 for element in elements:
-                    # 요소가 보이고 클릭 가능한지 확인
-                    if await element.is_visible() and await element.is_enabled():
-                        print(f"🖱️  클릭: {selector}")
-                        await element.click()
+                    try:
+                        is_visible = await element.is_visible()
+                        is_enabled = await element.is_enabled()
+                        if is_visible and is_enabled:
+                            visible_elements.append(element)
+                    except:
+                        continue
+
+                if visible_elements:
+                    # 랜덤하게 요소 선택 (다양한 메뉴 탐색을 위해)
+                    import random
+                    clicked_element = random.choice(visible_elements)
+
+                    try:
+                        # 요소 정보 수집
+                        element_text = await clicked_element.text_content()
+                        element_tag = await clicked_element.evaluate('el => el.tagName.toLowerCase()')
+                        element_class = await clicked_element.get_attribute('class') or ''
+                        element_id = await clicked_element.get_attribute('id') or ''
+                        element_href = await clicked_element.get_attribute('href') or ''
+                        element_data_attrs = await clicked_element.evaluate('''el => {
+                            const attrs = {};
+                            for (let attr of el.attributes) {
+                                if (attr.name.startsWith('data-')) {
+                                    attrs[attr.name] = attr.value;
+                                }
+                            }
+                            return attrs;
+                        }''')
+
+                        # 요소 위치 정보
+                        bounding_box = await clicked_element.bounding_box()
+
+                        # 상세 로깅
+                        print(f"🎯 상호작용 {interaction_num}: 메뉴 요소 클릭")
+                        print(f"   🔍 셀렉터: {selector}")
+                        print(f"   📝 텍스트: '{element_text[:50]}...'")
+                        print(f"   🏷️  태그: {element_tag}")
+                        print(f"   🎨 클래스: '{element_class[:50]}...'")
+                        if element_id:
+                            print(f"   🆔 ID: '{element_id}'")
+                        if element_href:
+                            print(f"   🔗 링크: '{element_href[:50]}...'")
+                        if element_data_attrs:
+                            print(f"   📊 데이터 속성: {element_data_attrs}")
+                        if bounding_box:
+                            print(f"   📍 위치: ({bounding_box['x']:.1f}, {bounding_box['y']:.1f}) 크기: {bounding_box['width']:.1f}x{bounding_box['height']:.1f}")
+
+                        # 상호작용 로그를 파일에도 저장
+                        await self._log_interaction_details(interaction_num, {
+                            'selector': selector,
+                            'element_text': element_text,
+                            'element_tag': element_tag,
+                            'element_class': element_class,
+                            'element_id': element_id,
+                            'element_href': element_href,
+                            'element_data_attrs': element_data_attrs,
+                            'bounding_box': bounding_box,
+                            'timestamp': time.time()
+                        })
+
+                        # 부드러운 스크롤 후 클릭
+                        await clicked_element.scroll_into_view_if_needed()
+                        await page.wait_for_timeout(500)  # 스크롤 완료 대기
+
+                        # 클릭 전 페이지 URL 기록
+                        before_url = page.url
+                        await clicked_element.click()
+
+                        # 클릭 후 페이지 변화 대기 및 확인
+                        await page.wait_for_timeout(1500)
+                        after_url = page.url
+
+                        # URL 변화 체크
+                        if before_url != after_url:
+                            print(f"   🔀 URL 변화: {before_url} → {after_url}")
+
+                        print(f"   ✅ 클릭 성공")
                         return True
+
+                    except Exception as e:
+                        print(f"⚠️ 클릭 실행 오류: {str(e)}")
+                        # 실패한 상호작용도 로깅
+                        await self._log_interaction_details(interaction_num, {
+                            'selector': selector,
+                            'error': str(e),
+                            'timestamp': time.time(),
+                            'status': 'failed'
+                        })
+                        continue
+
             except Exception as e:
                 continue
 
-        # 스크롤 시도
-        try:
-            await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-            await page.wait_for_timeout(1000)
-            return True
-        except:
-            pass
+        # 메뉴 요소를 찾지 못한 경우 스크롤 시도
+        if not clicked_element:
+            try:
+                print(f"📜 상호작용 {interaction_num}: 메뉴 요소 없음, 스크롤 시도...")
+                await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
+                await page.wait_for_timeout(1000)
+                return True
+            except:
+                pass
 
+        print(f"⚠️ 상호작용 {interaction_num}: 상호작용 가능한 요소를 찾을 수 없습니다.")
         return False
+
+    async def _log_interaction_details(self, interaction_num: int, interaction_data: Dict[str, Any]) -> None:
+        """상호작용 상세 정보를 파일에 로깅"""
+        try:
+            from datetime import datetime
+            import json
+            import os
+
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]
+            log_filename = f"log/interactions/interaction_{interaction_num}_{timestamp}.json"
+
+            os.makedirs("log/interactions", exist_ok=True)
+
+            # 타임스탬프를 ISO 형식으로 변환
+            if 'timestamp' in interaction_data:
+                interaction_data['timestamp'] = datetime.fromtimestamp(interaction_data['timestamp']).isoformat()
+
+            log_data = {
+                'interaction_number': interaction_num,
+                'status': interaction_data.get('status', 'success'),
+                'details': interaction_data,
+                'logged_at': datetime.now().isoformat()
+            }
+
+            with open(log_filename, 'w', encoding='utf-8') as f:
+                json.dump(log_data, f, ensure_ascii=False, indent=2)
+
+            print(f"   📄 상호작용 로그 저장: {log_filename}")
+
+        except Exception as e:
+            print(f"   ⚠️ 상호작용 로그 저장 실패: {str(e)}")
 
     def _deduplicate_products(self, existing_products: List[ProductItem], new_products: List[ProductItem]) -> List[ProductItem]:
         """중복 제품 제거"""

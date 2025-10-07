@@ -60,3 +60,6 @@ secrets.json
 # Temporary files
 *.tmp
 *.temp
+
+# log
+log/
