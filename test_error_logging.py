@@ -1,6 +1,7 @@
 """
 에러 로깅 테스트 스크립트
 """
+
 import asyncio
 from src.utils.unified_llm_extractor import UnifiedLLMTreatmentExtractor
 

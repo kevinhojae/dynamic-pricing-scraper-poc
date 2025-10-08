@@ -11,11 +11,13 @@ from dotenv import load_dotenv
 
 try:
     import openai
+
     OPENAI_AVAILABLE = True
 except ImportError:
     OPENAI_AVAILABLE = False
     print("❌ OpenAI 라이브러리가 설치되지 않았습니다: pip install openai")
     exit(1)
+
 
 def test_extraction_prompt():
     """실제 extraction 프롬프트로 테스트"""
@@ -30,10 +32,7 @@ def test_extraction_prompt():
         return
 
     # OpenAI 클라이언트 초기화
-    client = openai.OpenAI(
-        api_key=api_key,
-        base_url=base_url
-    )
+    client = openai.OpenAI(api_key=api_key, base_url=base_url)
 
     model = "bedrock-claude-sonnet-4"
 
@@ -97,17 +96,13 @@ JSON만 응답해주세요:
         print("🚀 Extraction 프롬프트 테스트 시작...")
 
         response = client.chat.completions.create(
-            model=model,
-            messages=[{
-                "role": "user",
-                "content": extraction_prompt
-            }]
+            model=model, messages=[{"role": "user", "content": extraction_prompt}]
         )
 
         response_text = response.choices[0].message.content
         print("✅ API 호출 성공!")
 
-        print(f"\n📝 원본 응답 (처음 1000자):")
+        print("\n📝 원본 응답 (처음 1000자):")
         print("-" * 50)
         print(response_text[:1000])
         if len(response_text) > 1000:
@@ -117,7 +112,7 @@ JSON만 응답해주세요:
         # JSON 파싱 테스트 (실제 코드와 동일한 방식)
         print("\n🔧 JSON 파싱 테스트:")
         try:
-            json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
+            json_match = re.search(r"\{.*\}", response_text, re.DOTALL)
             if json_match:
                 json_str = json_match.group()
                 parsed_data = json.loads(json_str)
@@ -128,12 +123,18 @@ JSON만 응답해주세요:
                 print(f"📦 추출된 products 개수: {len(products)}")
 
                 if products:
-                    print(f"📊 첫 번째 product:")
+                    print("📊 첫 번째 product:")
                     first_product = products[0]
                     print(f"  - product_name: {first_product.get('product_name')}")
-                    print(f"  - treatments 개수: {len(first_product.get('treatments', []))}")
-                    print(f"  - original_price: {first_product.get('product_original_price')}")
-                    print(f"  - event_price: {first_product.get('product_event_price')}")
+                    print(
+                        f"  - treatments 개수: {len(first_product.get('treatments', []))}"
+                    )
+                    print(
+                        f"  - original_price: {first_product.get('product_original_price')}"
+                    )
+                    print(
+                        f"  - event_price: {first_product.get('product_event_price')}"
+                    )
                 else:
                     print("❌ products 배열이 비어있습니다!")
 
@@ -144,11 +145,12 @@ JSON만 응답해주세요:
         except json.JSONDecodeError as e:
             print(f"❌ JSON 파싱 실패: {str(e)}")
             print("파싱 시도한 JSON:")
-            if 'json_match' in locals():
+            if "json_match" in locals():
                 print(json_match.group()[:500])
 
     except Exception as e:
         print(f"❌ API 호출 실패: {str(e)}")
+
 
 if __name__ == "__main__":
     test_extraction_prompt()

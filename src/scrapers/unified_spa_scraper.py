@@ -2,17 +2,14 @@
 SPA (Single Page Application) 사이트를 위한 통합 동적 콘텐츠 스크래퍼
 Claude/Gemini 지원
 """
+
 import asyncio
 import time
-import aiohttp
 from typing import List, Dict, Set, Optional, Any
-from playwright.async_api import async_playwright, Page, Browser, TimeoutError as PlaywrightTimeoutError
+from playwright.async_api import async_playwright, Page
 from dataclasses import dataclass
-from urllib.parse import urljoin
-from bs4 import BeautifulSoup
-from tqdm import tqdm
 
-from src.models.schemas import ProductItem, ScrapingConfig, ScrapingSourceType, SPAConfig
+from src.models.schemas import ProductItem, ScrapingConfig, ScrapingSourceType
 from src.utils.unified_llm_extractor import UnifiedLLMTreatmentExtractor
 
 
@@ -29,11 +26,15 @@ class SPAScrapingResult:
 class UnifiedSPAContentScraper:
     """SPA 사이트의 동적 콘텐츠 스크래핑을 담당하는 클래스 (Claude/Gemini 지원)"""
 
-    def __init__(self, config: ScrapingConfig, llm_extractor: UnifiedLLMTreatmentExtractor):
+    def __init__(
+        self, config: ScrapingConfig, llm_extractor: UnifiedLLMTreatmentExtractor
+    ):
         self.config = config
         self.llm_extractor = llm_extractor
         self.spa_config = config.spa_config
-        self.interacted_elements: Set[str] = set()  # 이미 상호작용한 요소들의 fingerprint 저장
+        self.interacted_elements: Set[str] = (
+            set()
+        )  # 이미 상호작용한 요소들의 fingerprint 저장
         if not self.spa_config:
             raise ValueError("SPA config is required for SPA scraping")
 
@@ -44,8 +45,7 @@ class UnifiedSPAContentScraper:
         async with async_playwright() as p:
             # 브라우저 실행
             browser = await p.chromium.launch(
-                headless=True,
-                args=['--no-sandbox', '--disable-dev-shm-usage']
+                headless=True, args=["--no-sandbox", "--disable-dev-shm-usage"]
             )
 
             try:
@@ -53,13 +53,13 @@ class UnifiedSPAContentScraper:
 
                 # User-Agent 설정
                 if self.config.headers.get("User-Agent"):
-                    await page.set_extra_http_headers({
-                        "User-Agent": self.config.headers["User-Agent"]
-                    })
+                    await page.set_extra_http_headers(
+                        {"User-Agent": self.config.headers["User-Agent"]}
+                    )
 
                 # 초기 페이지 로드
                 print(f"🌐 페이지 로딩: {url}")
-                await page.goto(url, wait_until='domcontentloaded', timeout=30000)
+                await page.goto(url, wait_until="domcontentloaded", timeout=30000)
                 await page.wait_for_timeout(3000)  # 초기 로딩 대기
 
                 content_states = []
@@ -73,7 +73,9 @@ class UnifiedSPAContentScraper:
                 print("📥 1단계: 브라우저 상호작용으로 HTML 수집...")
 
                 for interaction_num in range(self.spa_config.max_interactions):
-                    print(f"🔄 상호작용 {interaction_num + 1}/{self.spa_config.max_interactions}")
+                    print(
+                        f"🔄 상호작용 {interaction_num + 1}/{self.spa_config.max_interactions}"
+                    )
 
                     # 현재 콘텐츠 상태 캡처
                     current_content = await page.content()
@@ -81,18 +83,22 @@ class UnifiedSPAContentScraper:
 
                     # 중복 콘텐츠 체크
                     if content_hash in content_states:
-                        print(f"⚠️  중복 콘텐츠 감지, 상호작용 중단")
+                        print("⚠️  중복 콘텐츠 감지, 상호작용 중단")
                         break
 
                     content_states.append(content_hash)
 
                     # HTML을 수집 목록에 저장 (LLM 처리는 나중에)
                     collected_htmls.append((interaction_num + 1, current_content))
-                    print(f"📏 상호작용 {interaction_num + 1} HTML 수집: {len(current_content)} 문자")
+                    print(
+                        f"📏 상호작용 {interaction_num + 1} HTML 수집: {len(current_content)} 문자"
+                    )
 
                     # 다음 상호작용 수행
                     if interaction_num < self.spa_config.max_interactions - 1:
-                        success = await self._perform_interaction(page, interaction_num + 2)
+                        success = await self._perform_interaction(
+                            page, interaction_num + 2
+                        )
                         if success:
                             interactions_performed += 1
                             # 상호작용 후 콘텐츠 로딩 대기
@@ -105,18 +111,24 @@ class UnifiedSPAContentScraper:
                 if collected_htmls:
                     print(f"🚀 2단계: {len(collected_htmls)}개 HTML을 병렬 LLM 처리...")
 
-                    async def process_single_html(interaction_num: int, html_content: str) -> List[ProductItem]:
+                    async def process_single_html(
+                        interaction_num: int, html_content: str
+                    ) -> List[ProductItem]:
                         """단일 HTML을 LLM으로 처리"""
                         try:
                             # HTML 디버그 로그 저장
                             from datetime import datetime
+
                             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]
                             debug_filename = f"log/errors/html_debug_interaction_{interaction_num}_{timestamp}.txt"
 
                             import os
+
                             os.makedirs("log/errors", exist_ok=True)
                             with open(debug_filename, "w", encoding="utf-8") as f:
-                                f.write(f"=== Interaction {interaction_num} Debug ===\n")
+                                f.write(
+                                    f"=== Interaction {interaction_num} Debug ===\n"
+                                )
                                 f.write(f"HTML 크기: {len(html_content)} 문자\n")
                                 f.write(f"시간: {datetime.now().isoformat()}\n")
                                 f.write("=" * 50 + "\n\n")
@@ -127,26 +139,38 @@ class UnifiedSPAContentScraper:
                             products = await self.llm_extractor.extract_treatments_from_html_async(
                                 html_content, url
                             )
-                            print(f"✅ 상호작용 {interaction_num}: {len(products)}개 상품 추출 완료")
+                            print(
+                                f"✅ 상호작용 {interaction_num}: {len(products)}개 상품 추출 완료"
+                            )
                             return products
 
                         except Exception as e:
-                            print(f"⚠️ 상호작용 {interaction_num} LLM 처리 오류: {str(e)}")
+                            print(
+                                f"⚠️ 상호작용 {interaction_num} LLM 처리 오류: {str(e)}"
+                            )
                             return []
 
                     # 모든 HTML을 병렬로 LLM 처리 (Promise.all 방식)
-                    tasks = [process_single_html(num, html) for num, html in collected_htmls]
+                    tasks = [
+                        process_single_html(num, html) for num, html in collected_htmls
+                    ]
                     results = await asyncio.gather(*tasks, return_exceptions=True)
 
                     # 결과 수집 및 중복 제거
                     for i, result in enumerate(results):
                         interaction_num = collected_htmls[i][0]
                         if isinstance(result, Exception):
-                            print(f"❌ 상호작용 {interaction_num} 처리 중 예외: {str(result)}")
+                            print(
+                                f"❌ 상호작용 {interaction_num} 처리 중 예외: {str(result)}"
+                            )
                         elif result:
-                            new_products = self._deduplicate_products(all_products, result)
+                            new_products = self._deduplicate_products(
+                                all_products, result
+                            )
                             all_products.extend(new_products)
-                            print(f"🔗 상호작용 {interaction_num}: {len(result)}개 추출 → {len(new_products)}개 신규 (총 {len(all_products)}개)")
+                            print(
+                                f"🔗 상호작용 {interaction_num}: {len(result)}개 추출 → {len(new_products)}개 신규 (총 {len(all_products)}개)"
+                            )
                         else:
                             print(f"📭 상호작용 {interaction_num}: 추출된 상품 없음")
 
@@ -159,7 +183,7 @@ class UnifiedSPAContentScraper:
                     products=all_products,
                     interactions_performed=interactions_performed,
                     content_states=content_states,
-                    processing_time=processing_time
+                    processing_time=processing_time,
                 )
 
             except Exception as e:
@@ -170,7 +194,7 @@ class UnifiedSPAContentScraper:
                     interactions_performed=0,
                     content_states=[],
                     error=str(e),
-                    processing_time=processing_time
+                    processing_time=processing_time,
                 )
 
             finally:
@@ -182,49 +206,43 @@ class UnifiedSPAContentScraper:
         # 메뉴/네비게이션 요소 우선 탐지 (일반적인 패턴들)
         menu_selectors = [
             # 최고 우선순위: 데이터 속성 기반 메뉴
-            '[data-target]',  # 데이터 타겟 속성 (일반적인 메뉴 패턴)
-            '[data-toggle]',  # 데이터 토글 속성
-            '[data-category]',  # 데이터 카테고리 속성
-
+            "[data-target]",  # 데이터 타겟 속성 (일반적인 메뉴 패턴)
+            "[data-toggle]",  # 데이터 토글 속성
+            "[data-category]",  # 데이터 카테고리 속성
             # 높은 우선순위: 메뉴/카테고리 클래스 (사용자 요청 반영)
-            '.mainCateBox a',  # 메인 카테고리 (사용자 예시 기반)
-            '.subCateBox a',   # 서브 카테고리 (사용자 예시 기반)
-            '.category a',     # 일반 카테고리
-            '.menu-item a',    # 메뉴 아이템
-            '.nav-item a',     # 네비게이션 아이템
-
+            ".mainCateBox a",  # 메인 카테고리 (사용자 예시 기반)
+            ".subCateBox a",  # 서브 카테고리 (사용자 예시 기반)
+            ".category a",  # 일반 카테고리
+            ".menu-item a",  # 메뉴 아이템
+            ".nav-item a",  # 네비게이션 아이템
             # 중간 우선순위: 슬라이더/탭 네비게이션
-            '.swiper-slide a',  # 스와이퍼 슬라이드 내 링크
-            '.tabs li a',       # 탭 메뉴
-            '.tab-list a',      # 탭 리스트
-            '[role="tab"]',     # ARIA 탭
-            '[role="menuitem"]', # ARIA 메뉴 아이템
-
+            ".swiper-slide a",  # 스와이퍼 슬라이드 내 링크
+            ".tabs li a",  # 탭 메뉴
+            ".tab-list a",  # 탭 리스트
+            '[role="tab"]',  # ARIA 탭
+            '[role="menuitem"]',  # ARIA 메뉴 아이템
             # 낮은 우선순위: 카테고리/메뉴 버튼
-            '.btn-category',    # 카테고리 버튼
-            '.btn-menu',        # 메뉴 버튼
-            'button[class*="category"]', # 카테고리가 포함된 버튼
-            'button[class*="menu"]',     # 메뉴가 포함된 버튼
-
+            ".btn-category",  # 카테고리 버튼
+            ".btn-menu",  # 메뉴 버튼
+            'button[class*="category"]',  # 카테고리가 포함된 버튼
+            'button[class*="menu"]',  # 메뉴가 포함된 버튼
             # 기존 더보기/페이지네이션 (낮은 우선순위)
             'button:contains("더보기")',
             'button:contains("더 보기")',
             'a:contains("더보기")',
             'a:contains("더 보기")',
-            '.load-more',
-            '.btn-more',
-            '.more-button',
+            ".load-more",
+            ".btn-more",
+            ".more-button",
             '[data-action="load-more"]',
-
             # 페이지네이션
-            '.pagination .next',
-            '.pagination a:last-child',
-            '.page-next',
+            ".pagination .next",
+            ".pagination a:last-child",
+            ".page-next",
             'a:contains("다음")',
-
             # 최저 우선순위: 일반 링크/버튼
-            'a[href]:not([href="#"]):not([href="javascript:void(0)"])', # 유효한 링크
-            'button:not([disabled])', # 활성화된 버튼
+            'a[href]:not([href="#"]):not([href="javascript:void(0)"])',  # 유효한 링크
+            "button:not([disabled])",  # 활성화된 버튼
         ]
 
         clicked_element = None
@@ -241,7 +259,7 @@ class UnifiedSPAContentScraper:
                         is_enabled = await element.is_enabled()
                         if is_visible and is_enabled:
                             visible_elements.append(element)
-                    except:
+                    except Exception:
                         continue
 
                 if visible_elements:
@@ -253,24 +271,33 @@ class UnifiedSPAContentScraper:
                             available_elements.append(element)
 
                     if not available_elements:
-                        print(f"   🔄 모든 '{selector}' 요소와 이미 상호작용 완료, 다음 셀렉터 시도...")
+                        print(
+                            f"   🔄 모든 '{selector}' 요소와 이미 상호작용 완료, 다음 셀렉터 시도..."
+                        )
                         continue
 
                     # 사용 가능한 요소 중에서 랜덤 선택
                     import random
+
                     clicked_element = random.choice(available_elements)
 
                     try:
                         # 클릭하기 전에 요소 서명 생성 (추가는 나중에)
-                        element_signature = await self._get_element_signature(clicked_element)
+                        element_signature = await self._get_element_signature(
+                            clicked_element
+                        )
 
                         # 요소 정보 수집
                         element_text = await clicked_element.text_content()
-                        element_tag = await clicked_element.evaluate('el => el.tagName.toLowerCase()')
-                        element_class = await clicked_element.get_attribute('class') or ''
-                        element_id = await clicked_element.get_attribute('id') or ''
-                        element_href = await clicked_element.get_attribute('href') or ''
-                        element_data_attrs = await clicked_element.evaluate('''el => {
+                        element_tag = await clicked_element.evaluate(
+                            "el => el.tagName.toLowerCase()"
+                        )
+                        element_class = (
+                            await clicked_element.get_attribute("class") or ""
+                        )
+                        element_id = await clicked_element.get_attribute("id") or ""
+                        element_href = await clicked_element.get_attribute("href") or ""
+                        element_data_attrs = await clicked_element.evaluate("""el => {
                             const attrs = {};
                             for (let attr of el.attributes) {
                                 if (attr.name.startsWith('data-')) {
@@ -278,7 +305,7 @@ class UnifiedSPAContentScraper:
                                 }
                             }
                             return attrs;
-                        }''')
+                        }""")
 
                         # 요소 위치 정보
                         bounding_box = await clicked_element.bounding_box()
@@ -297,20 +324,25 @@ class UnifiedSPAContentScraper:
                         if element_data_attrs:
                             print(f"   📊 데이터 속성: {element_data_attrs}")
                         if bounding_box:
-                            print(f"   📍 위치: ({bounding_box['x']:.1f}, {bounding_box['y']:.1f}) 크기: {bounding_box['width']:.1f}x{bounding_box['height']:.1f}")
+                            print(
+                                f"   📍 위치: ({bounding_box['x']:.1f}, {bounding_box['y']:.1f}) 크기: {bounding_box['width']:.1f}x{bounding_box['height']:.1f}"
+                            )
 
                         # 상호작용 로그를 파일에도 저장
-                        await self._log_interaction_details(interaction_num, {
-                            'selector': selector,
-                            'element_text': element_text,
-                            'element_tag': element_tag,
-                            'element_class': element_class,
-                            'element_id': element_id,
-                            'element_href': element_href,
-                            'element_data_attrs': element_data_attrs,
-                            'bounding_box': bounding_box,
-                            'timestamp': time.time()
-                        })
+                        await self._log_interaction_details(
+                            interaction_num,
+                            {
+                                "selector": selector,
+                                "element_text": element_text,
+                                "element_tag": element_tag,
+                                "element_class": element_class,
+                                "element_id": element_id,
+                                "element_href": element_href,
+                                "element_data_attrs": element_data_attrs,
+                                "bounding_box": bounding_box,
+                                "timestamp": time.time(),
+                            },
+                        )
 
                         # 부드러운 스크롤 후 클릭
                         await clicked_element.scroll_into_view_if_needed()
@@ -331,15 +363,17 @@ class UnifiedSPAContentScraper:
                                 # 방법 2: force 클릭 (가로막는 요소 무시)
                                 await clicked_element.click(force=True, timeout=3000)
                                 click_success = True
-                                print(f"   ✅ Force 클릭으로 성공")
+                                print("   ✅ Force 클릭으로 성공")
                             except Exception:
                                 try:
                                     # 방법 3: JavaScript 클릭
-                                    await clicked_element.evaluate("element => element.click()")
+                                    await clicked_element.evaluate(
+                                        "element => element.click()"
+                                    )
                                     click_success = True
-                                    print(f"   ✅ JavaScript 클릭으로 성공")
+                                    print("   ✅ JavaScript 클릭으로 성공")
                                 except Exception:
-                                    print(f"   ❌ 모든 클릭 방법 실패")
+                                    print("   ❌ 모든 클릭 방법 실패")
                                     raise e1  # 원래 에러를 다시 발생시킴
 
                         if not click_success:
@@ -355,23 +389,30 @@ class UnifiedSPAContentScraper:
 
                         # 클릭 성공 시에만 interacted_elements에 추가
                         self.interacted_elements.add(element_signature)
-                        print(f"   ✅ 클릭 성공 (총 {len(self.interacted_elements)}개 요소와 상호작용 완료)")
+                        print(
+                            f"   ✅ 클릭 성공 (총 {len(self.interacted_elements)}개 요소와 상호작용 완료)"
+                        )
                         return True
 
                     except Exception as e:
                         print(f"⚠️ 클릭 실행 오류: {str(e)}")
-                        print(f"   🔄 요소 '{element_signature[:50]}...'는 다음 상호작용에서 재시도 가능")
+                        print(
+                            f"   🔄 요소 '{element_signature[:50]}...'는 다음 상호작용에서 재시도 가능"
+                        )
                         # 실패한 상호작용도 로깅 (단, interacted_elements에는 추가하지 않음)
-                        await self._log_interaction_details(interaction_num, {
-                            'selector': selector,
-                            'element_signature': element_signature,
-                            'error': str(e),
-                            'timestamp': time.time(),
-                            'status': 'failed'
-                        })
+                        await self._log_interaction_details(
+                            interaction_num,
+                            {
+                                "selector": selector,
+                                "element_signature": element_signature,
+                                "error": str(e),
+                                "timestamp": time.time(),
+                                "status": "failed",
+                            },
+                        )
                         continue
 
-            except Exception as e:
+            except Exception:
                 continue
 
         # 메뉴 요소를 찾지 못한 경우 스크롤 시도
@@ -381,14 +422,16 @@ class UnifiedSPAContentScraper:
                 await page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
                 await page.wait_for_timeout(1000)
                 return True
-            except:
+            except Exception:
                 pass
 
         print(f"⚠️ 상호작용 {interaction_num}: 상호작용 가능한 요소를 찾을 수 없습니다.")
         print(f"   📋 총 {len(self.interacted_elements)}개 요소와 이미 상호작용 완료")
         return False
 
-    async def _log_interaction_details(self, interaction_num: int, interaction_data: Dict[str, Any]) -> None:
+    async def _log_interaction_details(
+        self, interaction_num: int, interaction_data: Dict[str, Any]
+    ) -> None:
         """상호작용 상세 정보를 파일에 로깅"""
         try:
             from datetime import datetime
@@ -396,22 +439,26 @@ class UnifiedSPAContentScraper:
             import os
 
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S_%f")[:-3]
-            log_filename = f"log/interactions/interaction_{interaction_num}_{timestamp}.json"
+            log_filename = (
+                f"log/interactions/interaction_{interaction_num}_{timestamp}.json"
+            )
 
             os.makedirs("log/interactions", exist_ok=True)
 
             # 타임스탬프를 ISO 형식으로 변환
-            if 'timestamp' in interaction_data:
-                interaction_data['timestamp'] = datetime.fromtimestamp(interaction_data['timestamp']).isoformat()
+            if "timestamp" in interaction_data:
+                interaction_data["timestamp"] = datetime.fromtimestamp(
+                    interaction_data["timestamp"]
+                ).isoformat()
 
             log_data = {
-                'interaction_number': interaction_num,
-                'status': interaction_data.get('status', 'success'),
-                'details': interaction_data,
-                'logged_at': datetime.now().isoformat()
+                "interaction_number": interaction_num,
+                "status": interaction_data.get("status", "success"),
+                "details": interaction_data,
+                "logged_at": datetime.now().isoformat(),
             }
 
-            with open(log_filename, 'w', encoding='utf-8') as f:
+            with open(log_filename, "w", encoding="utf-8") as f:
                 json.dump(log_data, f, ensure_ascii=False, indent=2)
 
             print(f"   📄 상호작용 로그 저장: {log_filename}")
@@ -422,14 +469,14 @@ class UnifiedSPAContentScraper:
     async def _get_element_signature(self, element) -> str:
         """요소의 간단한 식별자 생성"""
         try:
-            text = (await element.text_content() or '').strip()
-            tag = await element.evaluate('el => el.tagName.toLowerCase()')
-            class_name = await element.get_attribute('class') or ''
-            element_id = await element.get_attribute('id') or ''
-            href = await element.get_attribute('href') or ''
+            text = (await element.text_content() or "").strip()
+            tag = await element.evaluate("el => el.tagName.toLowerCase()")
+            class_name = await element.get_attribute("class") or ""
+            element_id = await element.get_attribute("id") or ""
+            href = await element.get_attribute("href") or ""
 
             # data attributes 수집
-            data_attrs = await element.evaluate('''el => {
+            data_attrs = await element.evaluate("""el => {
                 const attrs = [];
                 for (let attr of el.attributes) {
                     if (attr.name.startsWith('data-')) {
@@ -437,15 +484,19 @@ class UnifiedSPAContentScraper:
                     }
                 }
                 return attrs.sort().join('|');
-            }''')
+            }""")
 
             # 간단한 서명 생성: 태그명 + 텍스트 + 클래스 + ID + href + data attributes
-            signature = f"{tag}:{text[:50]}:{class_name}:{element_id}:{href}:{data_attrs}"
+            signature = (
+                f"{tag}:{text[:50]}:{class_name}:{element_id}:{href}:{data_attrs}"
+            )
             return signature
-        except:
+        except Exception:
             return f"unknown:{time.time()}"
 
-    def _deduplicate_products(self, existing_products: List[ProductItem], new_products: List[ProductItem]) -> List[ProductItem]:
+    def _deduplicate_products(
+        self, existing_products: List[ProductItem], new_products: List[ProductItem]
+    ) -> List[ProductItem]:
         """중복 제품 제거"""
         existing_names = {p.product_name for p in existing_products}
         return [p for p in new_products if p.product_name not in existing_names]
@@ -454,7 +505,9 @@ class UnifiedSPAContentScraper:
 class UnifiedConfigurableScraper:
     """통합 설정 기반 스크래퍼 (Claude/Gemini 지원)"""
 
-    def __init__(self, config: ScrapingConfig, llm_extractor: UnifiedLLMTreatmentExtractor):
+    def __init__(
+        self, config: ScrapingConfig, llm_extractor: UnifiedLLMTreatmentExtractor
+    ):
         self.config = config
         self.llm_extractor = llm_extractor
 
@@ -484,7 +537,9 @@ class UnifiedConfigurableScraper:
             # 결과 수집
             for i, result in enumerate(results):
                 if isinstance(result, Exception):
-                    print(f"❌ URL {self.config.static_urls[i]} 처리 중 예외: {str(result)}")
+                    print(
+                        f"❌ URL {self.config.static_urls[i]} 처리 중 예외: {str(result)}"
+                    )
                 else:
                     all_products.extend(result)
 
@@ -498,7 +553,11 @@ class UnifiedConfigurableScraper:
             spa_scraper = UnifiedSPAContentScraper(self.config, self.llm_extractor)
 
             # 시작 URL 결정
-            start_url = self.config.static_urls[0] if self.config.static_urls else self.config.base_url
+            start_url = (
+                self.config.static_urls[0]
+                if self.config.static_urls
+                else self.config.base_url
+            )
 
             result = await spa_scraper.scrape_spa_content(start_url)
 
@@ -506,6 +565,8 @@ class UnifiedConfigurableScraper:
                 print(f"❌ SPA 스크래핑 오류: {result.error}")
             else:
                 all_products.extend(result.products)
-                print(f"✅ SPA 스크래핑 완료: {len(result.products)}개 제품, {result.interactions_performed}번 상호작용")
+                print(
+                    f"✅ SPA 스크래핑 완료: {len(result.products)}개 제품, {result.interactions_performed}번 상호작용"
+                )
 
         return all_products

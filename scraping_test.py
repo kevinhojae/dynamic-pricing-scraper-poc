@@ -2,21 +2,24 @@
 """
 실제 스크래핑 테스트 (타임아웃 추적용)
 """
+
 import asyncio
 import os
 import sys
 from datetime import datetime
 
+
 async def test_actual_scraping():
     print("🚀 실제 스크래핑 테스트 시작")
     print(f"⏰ 시작 시간: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print("="*50)
+    print("=" * 50)
 
     # 환경 설정
     from dotenv import load_dotenv
+
     load_dotenv()
 
-    sys.path.append('.')
+    sys.path.append(".")
     from ppeum_global_scraper import PpeumGlobalScraper
 
     api_key = os.getenv("ANTHROPIC_AUTH_TOKEN")
@@ -41,13 +44,13 @@ async def test_actual_scraping():
         print(f"✅ 스크래핑 완료! 소요시간: {duration:.1f}초")
 
         if products:
-            print(f"\n3️⃣ 결과 확인")
+            print("\n3️⃣ 결과 확인")
             print(f"   📦 발견된 상품: {len(products)}개")
 
             total_treatments = sum(len(product.treatments) for product in products)
             print(f"   💉 총 시술 수: {total_treatments}개")
 
-            print(f"\n   📋 첫 번째 상품 샘플:")
+            print("\n   📋 첫 번째 상품 샘플:")
             if products:
                 product = products[0]
                 print(f"      상품명: {product.product_name}")
@@ -68,9 +71,11 @@ async def test_actual_scraping():
     except Exception as e:
         print(f"❌ 스크래핑 오류: {e}")
         import traceback
+
         traceback.print_exc()
 
     print(f"\n⏰ 완료 시간: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
 
 if __name__ == "__main__":
     asyncio.run(test_actual_scraping())

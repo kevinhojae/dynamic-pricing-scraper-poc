@@ -8,6 +8,7 @@ from playwright.async_api import async_playwright
 from bs4 import BeautifulSoup
 import re
 
+
 async def test_playwright_content():
     """Playwright로 JavaScript 렌더링 후 콘텐츠 확인"""
 
@@ -19,15 +20,15 @@ async def test_playwright_content():
         # 브라우저 실행 (headless 모드)
         browser = await p.chromium.launch(headless=True)
         context = await browser.new_context(
-            user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-            viewport={'width': 1920, 'height': 1080}
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+            viewport={"width": 1920, "height": 1080},
         )
         page = await context.new_page()
 
         try:
             # 페이지로 이동
             print("⏳ Loading page...")
-            await page.goto(test_url, wait_until='domcontentloaded', timeout=30000)
+            await page.goto(test_url, wait_until="domcontentloaded", timeout=30000)
 
             # JavaScript 실행 완료 대기
             print("⏳ Waiting for content to load...")
@@ -36,9 +37,11 @@ async def test_playwright_content():
             # 특정 콘텐츠가 로드될 때까지 대기
             try:
                 # 일반적인 콘텐츠 요소들을 기다림
-                await page.wait_for_selector('main, .content, .product, h1, h2, p', timeout=10000)
+                await page.wait_for_selector(
+                    "main, .content, .product, h1, h2, p", timeout=10000
+                )
                 print("✅ Content elements detected")
-            except:
+            except Exception:
                 print("⚠️  No specific content elements found, proceeding...")
 
             # 추가 대기 (동적 콘텐츠를 위해)
@@ -46,9 +49,9 @@ async def test_playwright_content():
 
             # 네트워크 요청이 완료될 때까지 대기
             try:
-                await page.wait_for_load_state('networkidle', timeout=5000)
+                await page.wait_for_load_state("networkidle", timeout=5000)
                 print("✅ Network requests completed")
-            except:
+            except Exception:
                 print("⚠️  Network still active, proceeding...")
 
             # 페이지 콘텐츠 가져오기
@@ -56,7 +59,7 @@ async def test_playwright_content():
             print(f"📊 Playwright HTML Length: {len(content)} characters")
 
             # 일부 HTML 출력
-            print(f"\n📝 Playwright HTML Sample (first 1000 chars):")
+            print("\n📝 Playwright HTML Sample (first 1000 chars):")
             print("-" * 50)
             print(content[:1000])
             print("-" * 50)
@@ -70,19 +73,38 @@ async def test_playwright_content():
 
             # 텍스트 추출
             text_content = soup.get_text(separator=" ", strip=True)
-            print(f"📊 Playwright Extracted Text Length: {len(text_content)} characters")
+            print(
+                f"📊 Playwright Extracted Text Length: {len(text_content)} characters"
+            )
 
             # 추출된 텍스트 샘플
-            print(f"\n📝 Playwright Extracted Text Sample (first 2000 chars):")
+            print("\n📝 Playwright Extracted Text Sample (first 2000 chars):")
             print("-" * 50)
             print(text_content[:2000])
             print("-" * 50)
 
             # 시술 관련 키워드 검색
             treatment_keywords = [
-                '시술', '치료', '서비스', '가격', '원', '샷', 'cc', '보톡스', '필러',
-                '레이저', '슈링크', '울쎄라', '리프팅', '주사', '프로그램', '예약',
-                '이벤트', '할인', '정상가', '특가'
+                "시술",
+                "치료",
+                "서비스",
+                "가격",
+                "원",
+                "샷",
+                "cc",
+                "보톡스",
+                "필러",
+                "레이저",
+                "슈링크",
+                "울쎄라",
+                "리프팅",
+                "주사",
+                "프로그램",
+                "예약",
+                "이벤트",
+                "할인",
+                "정상가",
+                "특가",
             ]
 
             found_keywords = []
@@ -91,15 +113,17 @@ async def test_playwright_content():
                     count = text_content.count(keyword)
                     found_keywords.append(f"{keyword}({count}회)")
 
-            print(f"\n🔍 Playwright Found Treatment Keywords: {', '.join(found_keywords) if found_keywords else '없음'}")
+            print(
+                f"\n🔍 Playwright Found Treatment Keywords: {', '.join(found_keywords) if found_keywords else '없음'}"
+            )
 
             # 가격 패턴 검색
             price_patterns = [
-                r'\d+,?\d+원',
-                r'\d+,?\d+\s*원',
-                r'₩\s*\d+,?\d+',
-                r'\d+만원',
-                r'\d{1,3}(?:,\d{3})*원',
+                r"\d+,?\d+원",
+                r"\d+,?\d+\s*원",
+                r"₩\s*\d+,?\d+",
+                r"\d+만원",
+                r"\d{1,3}(?:,\d{3})*원",
             ]
 
             found_prices = []
@@ -107,10 +131,12 @@ async def test_playwright_content():
                 matches = re.findall(pattern, text_content)
                 found_prices.extend(matches)
 
-            print(f"💰 Playwright Found Price Patterns: {found_prices[:15] if found_prices else '없음'}")
+            print(
+                f"💰 Playwright Found Price Patterns: {found_prices[:15] if found_prices else '없음'}"
+            )
 
             # HTML 구조 분석
-            print(f"\n🏗️  Playwright HTML Structure Analysis:")
+            print("\n🏗️  Playwright HTML Structure Analysis:")
             print(f"- <title>: {soup.title.string if soup.title else 'None'}")
             print(f"- <h1> tags: {len(soup.find_all('h1'))}")
             print(f"- <h2> tags: {len(soup.find_all('h2'))}")
@@ -122,13 +148,25 @@ async def test_playwright_content():
 
             # 특정 클래스나 ID로 콘텐츠 찾기
             potential_selectors = [
-                ".product", ".treatment", ".service", ".content", ".main", ".container",
-                "#product", "#treatment", "#service", "#content", "#main",
-                "[class*='product']", "[class*='treatment']", "[class*='service']",
-                "[class*='price']", "[class*='cost']"
+                ".product",
+                ".treatment",
+                ".service",
+                ".content",
+                ".main",
+                ".container",
+                "#product",
+                "#treatment",
+                "#service",
+                "#content",
+                "#main",
+                "[class*='product']",
+                "[class*='treatment']",
+                "[class*='service']",
+                "[class*='price']",
+                "[class*='cost']",
             ]
 
-            print(f"\n🎯 Content Element Search:")
+            print("\n🎯 Content Element Search:")
             for selector in potential_selectors:
                 try:
                     elements = soup.select(selector)
@@ -137,12 +175,12 @@ async def test_playwright_content():
                         for i, element in enumerate(elements[:2]):  # 처음 2개만 확인
                             element_text = element.get_text(strip=True)
                             if element_text and len(element_text) > 10:
-                                print(f"    [{i+1}] {element_text[:150]}...")
-                except Exception as e:
+                                print(f"    [{i + 1}] {element_text[:150]}...")
+                except Exception:
                     continue
 
             # DOM에서 직접 데이터 찾기 (React state 등)
-            print(f"\n🔍 JavaScript Data Search:")
+            print("\n🔍 JavaScript Data Search:")
             try:
                 # 페이지에서 JavaScript 실행하여 데이터 찾기
                 js_data = await page.evaluate("""
@@ -177,8 +215,10 @@ async def test_playwright_content():
 
                 if js_data:
                     print(f"   JavaScript Data Found: {list(js_data.keys())}")
-                    if 'next_data' in js_data:
-                        print(f"   Next.js Data Keys: {list(js_data['next_data'].keys()) if isinstance(js_data['next_data'], dict) else 'Not dict'}")
+                    if "next_data" in js_data:
+                        print(
+                            f"   Next.js Data Keys: {list(js_data['next_data'].keys()) if isinstance(js_data['next_data'], dict) else 'Not dict'}"
+                        )
                 else:
                     print("   No JavaScript data found")
 
@@ -189,18 +229,22 @@ async def test_playwright_content():
             success_criteria = [
                 len(text_content) > 500,  # 충분한 텍스트 길이
                 len(found_keywords) > 3,  # 시술 관련 키워드 발견
-                len(found_prices) > 0,    # 가격 정보 발견
+                len(found_prices) > 0,  # 가격 정보 발견
             ]
 
             success_count = sum(success_criteria)
             print(f"\n📊 Success Criteria Met: {success_count}/3")
 
             if success_count >= 2:
-                print("✅ SUCCESS: Playwright successfully extracted meaningful content!")
+                print(
+                    "✅ SUCCESS: Playwright successfully extracted meaningful content!"
+                )
                 # 텍스트가 30000자 제한 확인
                 if len(text_content) > 30000:
                     final_text = text_content[:30000] + "..."
-                    print(f"⚠️  Text will be truncated from {len(text_content)} to 30000 chars for LLM")
+                    print(
+                        f"⚠️  Text will be truncated from {len(text_content)} to 30000 chars for LLM"
+                    )
                 else:
                     final_text = text_content
                     print(f"✅ Text within LLM limit: {len(text_content)} chars")
@@ -217,9 +261,10 @@ async def test_playwright_content():
         finally:
             await browser.close()
 
+
 if __name__ == "__main__":
     success, content = asyncio.run(test_playwright_content())
     if success:
-        print(f"\n🎉 Ready to integrate Playwright into LLM extraction pipeline!")
+        print("\n🎉 Ready to integrate Playwright into LLM extraction pipeline!")
     else:
-        print(f"\n⚠️  Need to investigate further or try different approach")
+        print("\n⚠️  Need to investigate further or try different approach")

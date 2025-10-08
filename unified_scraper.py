@@ -4,19 +4,20 @@
 
 import argparse
 import asyncio
-import os
 import json
+import os
 from datetime import datetime
-from typing import List, Dict, Any
+from typing import List
+
 from dotenv import load_dotenv
+
+from src.config.site_configs import SiteConfigManager
+from src.models.schemas import ProductItem, ScrapingConfig
+from src.scrapers.unified_spa_scraper import UnifiedConfigurableScraper
+from src.utils.unified_llm_extractor import UnifiedLLMTreatmentExtractor
 
 # .env 파일 로드
 load_dotenv()
-
-from src.config.site_configs import SiteConfigManager, site_config_manager
-from src.scrapers.unified_spa_scraper import UnifiedConfigurableScraper
-from src.utils.unified_llm_extractor import UnifiedLLMTreatmentExtractor
-from src.models.schemas import ProductItem, ScrapingConfig
 
 
 class UnifiedScraper:
@@ -36,7 +37,7 @@ class UnifiedScraper:
     async def scrape_treatments(self) -> List[ProductItem]:
         """클리닉의 시술 정보 스크래핑"""
         print(f"🚀 클리닉 스크래핑 시작... (모델: {self.provider_type.title()})")
-        print(f"📋 설정:")
+        print("📋 설정:")
         print(f"   - 소스 타입: {self.config.source_type}")
         print(
             f"   - 대상 URL: {self.config.static_urls[0] if self.config.static_urls else self.config.base_url}"
@@ -49,7 +50,7 @@ class UnifiedScraper:
             scraper = UnifiedConfigurableScraper(self.config, self.llm_extractor)
             products = await scraper.scrape_by_config()
 
-            print(f"✅ 스크래핑 완료!")
+            print("✅ 스크래핑 완료!")
             print(f"📦 발견된 상품: {len(products)}개")
 
             if products:
@@ -58,7 +59,7 @@ class UnifiedScraper:
                 print(f"💉 총 시술 수: {total_treatments}개")
 
                 # 샘플 상품 정보 출력
-                print(f"\n📄 샘플 상품들:")
+                print("\n📄 샘플 상품들:")
                 for i, product in enumerate(products[:3], 1):
                     print(f"   {i}. {product.product_name}")
                     print(f"      클리닉: {product.clinic_name}")
@@ -102,7 +103,7 @@ class UnifiedScraper:
             json.dump(result_data, f, ensure_ascii=False, indent=2, default=str)
 
         print(f"💾 결과 저장 완료: {filename}")
-        print(f"📊 모델 정보:")
+        print("📊 모델 정보:")
         print(f"   - 제공자: {model_info['source']} ({model_info['provider']})")
         print(f"   - 모델: {model_info['model']}")
         print(f"   - 프롬프트 버전: {model_info['prompt_version']}")
@@ -182,7 +183,7 @@ async def main():
     # else:
     #     print("📭 스크래핑된 데이터가 없습니다.")
 
-    print(f"세니아 클리닉 스크래핑을 시작합니다...")
+    print("세니아 클리닉 스크래핑을 시작합니다...")
 
     xenia_scraper = UnifiedScraper(
         args.model, api_key, SiteConfigManager().get_config("xenia")
@@ -194,7 +195,7 @@ async def main():
     else:
         print("📭 스크래핑된 데이터가 없습니다.")
 
-    print(f"세니아 클리닉 스크래핑 완료!")
+    print("세니아 클리닉 스크래핑 완료!")
 
 
 if __name__ == "__main__":

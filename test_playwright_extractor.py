@@ -8,6 +8,7 @@ import os
 from dotenv import load_dotenv
 from src.utils.llm_extractor import LLMTreatmentExtractor
 
+
 async def test_playwright_extraction():
     """Playwright 통합 LLM Extractor 테스트"""
 
@@ -23,7 +24,7 @@ async def test_playwright_extraction():
     # 테스트 URL
     test_url = "https://xenia.clinic/ko/products/8a2a54b8-0eaa-4d28-945b-2c76cb98eb9b"
 
-    print(f"🚀 Playwright 통합 LLM Extractor 테스트")
+    print("🚀 Playwright 통합 LLM Extractor 테스트")
     print(f"URL: {test_url}")
     print("=" * 80)
 
@@ -41,8 +42,16 @@ async def test_playwright_extraction():
                 print(f"\n🎯 상품 {i}:")
                 print(f"  - 클리닉: {product.clinic_name}")
                 print(f"  - 상품명: {product.product_name}")
-                print(f"  - 정상가: {product.product_original_price:,}원" if product.product_original_price else "  - 정상가: 없음")
-                print(f"  - 이벤트가: {product.product_event_price:,}원" if product.product_event_price else "  - 이벤트가: 없음")
+                print(
+                    f"  - 정상가: {product.product_original_price:,}원"
+                    if product.product_original_price
+                    else "  - 정상가: 없음"
+                )
+                print(
+                    f"  - 이벤트가: {product.product_event_price:,}원"
+                    if product.product_event_price
+                    else "  - 이벤트가: 없음"
+                )
                 print(f"  - 카테고리: {product.category}")
                 print(f"  - 시술 수: {len(product.treatments)}개")
 
@@ -63,7 +72,9 @@ async def test_playwright_extraction():
     except Exception as e:
         print(f"❌ 테스트 실패: {str(e)}")
         import traceback
+
         traceback.print_exc()
+
 
 if __name__ == "__main__":
     asyncio.run(test_playwright_extraction())

@@ -1,15 +1,17 @@
 """
 통합 스크래퍼 테스트 스크립트
 """
+
 import asyncio
 import os
+
 from dotenv import load_dotenv
+
+from src.utils.llm_providers import create_llm_provider
+from src.utils.prompt_manager import PromptManager
 
 # .env 파일 로드
 load_dotenv()
-
-from src.utils.prompt_manager import PromptManager
-from src.utils.llm_providers import create_llm_provider
 
 
 async def test_prompt_manager():
@@ -23,18 +25,18 @@ async def test_prompt_manager():
         print(f"전체 프롬프트 버전: {pm.get_global_version()}")
 
         # 프롬프트 정보 확인
-        prompt_info = pm.get_prompt_info('product_extraction')
+        prompt_info = pm.get_prompt_info("product_extraction")
         print(f"상품 추출 프롬프트 버전: {prompt_info['version']}")
         print(f"상품 추출 프롬프트 설명: {prompt_info['description']}")
 
         # 프롬프트 템플릿 생성 테스트
         formatted_prompt = pm.format_prompt(
-            'product_extraction',
+            "product_extraction",
             text_content="테스트 콘텐츠",
-            source_url="https://test.com"
+            source_url="https://test.com",
         )
 
-        print(f"✅ 프롬프트 매니저 테스트 성공")
+        print("✅ 프롬프트 매니저 테스트 성공")
         print(f"📝 생성된 프롬프트 길이: {len(formatted_prompt)} 문자")
 
     except Exception as e:

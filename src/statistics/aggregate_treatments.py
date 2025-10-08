@@ -9,7 +9,7 @@ import pandas as pd
 from collections import Counter, defaultdict
 from datetime import datetime
 import os
-from typing import Dict, List, Any
+from typing import Dict, Any
 
 
 class TreatmentDataAnalyzer:
@@ -212,10 +212,13 @@ class TreatmentDataAnalyzer:
             "dosage_stats": dosage_stats,
         }
 
-    def create_comprehensive_report(self, output_files: Dict[str, str] = None) -> Dict[str, Any]:
+    def create_comprehensive_report(
+        self, output_files: Dict[str, str] = None
+    ) -> Dict[str, Any]:
         """종합 리포트 생성"""
         # 상대 경로로 변환
         import os
+
         current_dir = os.getcwd()
         relative_input_path = os.path.relpath(self.json_file_path, current_dir)
 
@@ -252,7 +255,7 @@ class TreatmentDataAnalyzer:
         # 모든 생성된 파일들의 상대 경로
         generated_files = {
             "json_report": relative_json_path,
-            **{k: os.path.relpath(v, current_dir) for k, v in csv_files.items()}
+            **{k: os.path.relpath(v, current_dir) for k, v in csv_files.items()},
         }
 
         # 종합 리포트 생성 (파일 경로 정보 포함)
@@ -311,10 +314,7 @@ class TreatmentDataAnalyzer:
         print(f"✅ 시술 CSV 저장: {treatments_csv}")
 
         # 생성된 CSV 파일 경로들을 딕셔너리로 반환
-        return {
-            "products_csv": products_csv,
-            "treatments_csv": treatments_csv
-        }
+        return {"products_csv": products_csv, "treatments_csv": treatments_csv}
 
 
 def main():
@@ -346,7 +346,7 @@ def main():
 
     # 기본 통계 출력
     basic_stats = analyzer.get_basic_stats()
-    print(f"\n📊 기본 통계:")
+    print("\n📊 기본 통계:")
     print(f"  - 총 제품 수: {basic_stats['total_products']:,}개")
     print(f"  - 총 시술 수: {basic_stats['total_treatments']:,}개")
     print(f"  - 병원명: {basic_stats['clinic_name']}")
@@ -355,9 +355,9 @@ def main():
     # 리포트 생성 및 저장
     output_file = analyzer.save_report_to_files()
 
-    print(f"\n✅ 분석 완료! 결과는 다음 위치에 저장되었습니다:")
+    print("\n✅ 분석 완료! 결과는 다음 위치에 저장되었습니다:")
     print(f"   - 종합 리포트: {output_file}")
-    print(f"   - CSV 파일들: data/statistics/ 디렉토리")
+    print("   - CSV 파일들: data/statistics/ 디렉토리")
 
 
 if __name__ == "__main__":

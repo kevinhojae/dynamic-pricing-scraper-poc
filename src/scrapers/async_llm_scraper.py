@@ -137,7 +137,7 @@ class AsyncLLMWebCrawler:
                 return False
 
             return True
-        except:
+        except Exception:
             return False
 
     def _get_url_priority(self, url: str) -> int:
@@ -284,7 +284,8 @@ class AsyncLLMWebCrawler:
 
         # 세니아 클리닉의 개별 상품 페이지 패턴 우선 체크
         import re
-        if re.match(r'.*xenia\.clinic/ko/products/[a-f0-9-]{36}.*', url_lower):
+
+        if re.match(r".*xenia\.clinic/ko/products/[a-f0-9-]{36}.*", url_lower):
             return True
 
         # 제외할 URL 패턴들
@@ -367,7 +368,8 @@ class AsyncLLMWebCrawler:
 
         # 세니아 클리닉의 개별 상품 페이지는 최고 우선순위
         import re
-        if re.match(r'.*xenia\.clinic/ko/products/[a-f0-9-]{36}.*', url_lower):
+
+        if re.match(r".*xenia\.clinic/ko/products/[a-f0-9-]{36}.*", url_lower):
             priority += 100
 
         # 높은 우선순위 키워드
@@ -420,7 +422,7 @@ class AsyncLLMWebCrawler:
             if base_url.endswith(".xml") or "xml" in html_content[:100].lower():
                 try:
                     soup = BeautifulSoup(html_content, "xml")
-                except:
+                except Exception:
                     soup = BeautifulSoup(html_content, "html.parser")
             else:
                 soup = BeautifulSoup(html_content, "html.parser")
@@ -677,7 +679,9 @@ class AsyncLLMWebCrawler:
 
                     if result.products:
                         successful_extractions += 1
-                        total_treatments_in_batch += sum(len(product.treatments) for product in result.products)
+                        total_treatments_in_batch += sum(
+                            len(product.treatments) for product in result.products
+                        )
 
                     # 성공적으로 가져온 페이지에서 새로운 URL들 추출
                     if result.content and result.status_code == 200:
@@ -773,7 +777,6 @@ class AsyncLLMTreatmentScraper:
                 max_pages=self.max_pages,
                 max_concurrent=self.max_concurrent,
             ) as crawler:
-
                 print(f"🚀 Starting async LLM crawl of {self.site_name}...")
                 crawl_results = await crawler.crawl_and_extract()
 
@@ -806,8 +809,12 @@ class AsyncLLMTreatmentScraper:
                 print(f"🎯 Final count: {len(unique_products)} unique products")
 
                 # 총 시술 개수 계산
-                total_treatments = sum(len(product.treatments) for product in unique_products)
-                print(f"💉 Total treatments: {total_treatments} treatments across all products")
+                total_treatments = sum(
+                    len(product.treatments) for product in unique_products
+                )
+                print(
+                    f"💉 Total treatments: {total_treatments} treatments across all products"
+                )
 
                 # 통계 출력
                 total_llm_time = sum(
@@ -874,7 +881,7 @@ async def run_async_llm_scraping_demo(api_key: str):
                     scraping_results, f, ensure_ascii=False, indent=2, default=str
                 )
 
-            print(f"\n💾 부분 결과 저장됨:")
+            print("\n💾 부분 결과 저장됨:")
             print(f"   - 시술 정보: {len(all_treatments)}개")
             print(f"   - 파일: data/raw/partial_treatments_{timestamp}.json")
 
@@ -920,7 +927,7 @@ async def run_async_llm_scraping_demo(api_key: str):
                 print(f"❌ {name}: Error - {str(e)}")
 
     except KeyboardInterrupt:
-        print(f"\n⚠️ 사용자에 의해 중단됨")
+        print("\n⚠️ 사용자에 의해 중단됨")
         save_partial_results()
     except Exception as e:
         print(f"\n❌ 전체 스크래핑 오류: {str(e)}")

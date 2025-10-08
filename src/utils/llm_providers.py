@@ -1,7 +1,7 @@
 import os
 import time
 import asyncio
-from typing import List, Optional, Dict, Any
+from typing import Dict, Any
 from abc import ABC, abstractmethod
 from tqdm import tqdm
 
@@ -55,9 +55,9 @@ class ClaudeProvider(LLMProvider):
         # OpenAI 클라이언트 import (LiteLLM Proxy 사용)
         try:
             import openai
+
             self.client = openai.OpenAI(
-                api_key=api_key,
-                base_url=os.getenv("ANTHROPIC_BASE_URL")
+                api_key=api_key, base_url=os.getenv("ANTHROPIC_BASE_URL")
             )
             self.model = "bedrock-claude-sonnet-4"
         except ImportError:
@@ -99,7 +99,7 @@ class ClaudeProvider(LLMProvider):
             "source": "claude",
             "model": self.model,
             "provider": "Anthropic",
-            "version": "4.0"
+            "version": "4.0",
         }
 
 
@@ -111,11 +111,14 @@ class GeminiProvider(LLMProvider):
 
         try:
             import google.generativeai as genai
+
             genai.configure(api_key=api_key)
-            self.model = genai.GenerativeModel('gemini-2.5-flash-lite')
+            self.model = genai.GenerativeModel("gemini-2.5-flash-lite")
             self.genai = genai
         except ImportError:
-            raise ImportError("google-generativeai 패키지가 필요합니다: pip install google-generativeai")
+            raise ImportError(
+                "google-generativeai 패키지가 필요합니다: pip install google-generativeai"
+            )
 
     async def generate_async(self, prompt: str) -> str:
         """비동기 Gemini API 호출"""
@@ -143,8 +146,7 @@ class GeminiProvider(LLMProvider):
             }
 
             response = self.model.generate_content(
-                prompt,
-                generation_config=generation_config
+                prompt, generation_config=generation_config
             )
             return response.text
 
@@ -157,15 +159,19 @@ class GeminiProvider(LLMProvider):
             "source": "gemini",
             "model": "gemini-2.5-flash-lite",
             "provider": "Google",
-            "version": "1.5"
+            "version": "1.5",
         }
 
 
-def create_llm_provider(provider_type: str, api_key: str, requests_per_minute: int = 10) -> LLMProvider:
+def create_llm_provider(
+    provider_type: str, api_key: str, requests_per_minute: int = 10
+) -> LLMProvider:
     """LLM 제공자 팩토리 함수"""
     if provider_type.lower() == "claude":
         return ClaudeProvider(api_key, requests_per_minute)
     elif provider_type.lower() == "gemini":
         return GeminiProvider(api_key, requests_per_minute)
     else:
-        raise ValueError(f"지원하지 않는 LLM 제공자: {provider_type}. 'claude' 또는 'gemini'를 사용하세요.")
+        raise ValueError(
+            f"지원하지 않는 LLM 제공자: {provider_type}. 'claude' 또는 'gemini'를 사용하세요."
+        )

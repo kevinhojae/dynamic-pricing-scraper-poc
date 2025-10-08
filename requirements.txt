@@ -23,3 +23,6 @@ openai>=1.0.0
 
 # statistics
 pandas>=2.0.0
+
+# ruff
+ruff>=0.10.0

@@ -16,6 +16,7 @@ from dotenv import load_dotenv
 from src.scrapers.async_llm_scraper import AsyncLLMTreatmentScraper
 from src.models.schemas import ProductItem
 
+
 def load_api_key() -> str:
     """API 키를 환경변수에서 로드"""
     # .env 파일 로드
@@ -30,7 +31,10 @@ def load_api_key() -> str:
         exit(1)
     return api_key
 
-async def scrape_single_site(site_name: str, base_url: str, api_key: str, max_pages: int = 15) -> List[ProductItem]:
+
+async def scrape_single_site(
+    site_name: str, base_url: str, api_key: str, max_pages: int = 15
+) -> List[ProductItem]:
     """단일 사이트 스크래핑"""
     print(f"🚀 {site_name} 스크래핑 시작...")
 
@@ -39,13 +43,14 @@ async def scrape_single_site(site_name: str, base_url: str, api_key: str, max_pa
         base_url=base_url,
         api_key=api_key,
         max_pages=max_pages,
-        max_concurrent=2
+        max_concurrent=2,
     )
 
     products = await scraper.scrape_all_treatments()
     print(f"✅ {site_name}: {len(products)}개 상품 정보 수집 완료")
 
     return products
+
 
 def save_results(products: List[ProductItem], filename: str = None):
     """결과를 JSON 파일로 저장"""
@@ -62,7 +67,7 @@ def save_results(products: List[ProductItem], filename: str = None):
             f,
             ensure_ascii=False,
             indent=2,
-            default=str
+            default=str,
         )
 
     # 총 시술 개수 계산
@@ -72,13 +77,18 @@ def save_results(products: List[ProductItem], filename: str = None):
     print(f"📦 총 {len(products)}개 상품 정보")
     print(f"💉 총 {total_treatments}개 시술 정보")
 
+
 async def main():
     """메인 실행 함수"""
     api_key = load_api_key()
 
     # 스크래핑할 사이트 설정 - 세니아 클리닉 테스트
     sites = [
-        ("Xenia Clinic", "https://xenia.clinic/", 10),  # 더 많은 개별 상품 페이지 크롤링
+        (
+            "Xenia Clinic",
+            "https://xenia.clinic/",
+            10,
+        ),  # 더 많은 개별 상품 페이지 크롤링
     ]
 
     all_products = []
@@ -94,6 +104,7 @@ async def main():
         save_results(all_products)
     else:
         print("❌ 수집된 데이터가 없습니다.")
+
 
 if __name__ == "__main__":
     asyncio.run(main())

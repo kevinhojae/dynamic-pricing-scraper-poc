@@ -12,7 +12,6 @@ from src.models.schemas import (
     ProductItem,
     IndividualTreatment,
     TreatmentType,
-    EquipmentType,
 )
 
 # OpenAI API를 선택적으로 import
@@ -45,9 +44,7 @@ class LLMTreatmentExtractor:
         self.min_delay_between_requests = 60.0 / requests_per_minute  # 초 단위
         self.last_request_time = 0.0
 
-    async def extract_treatments_from_url(
-        self, source_url: str
-    ) -> List[ProductItem]:
+    async def extract_treatments_from_url(self, source_url: str) -> List[ProductItem]:
         """URL에서 JavaScript 렌더링 후 시술 정보를 추출합니다."""
         if not self.api_key:
             return []
@@ -72,12 +69,16 @@ class LLMTreatmentExtractor:
 
         # 텍스트가 너무 짧으면 추출할 의미가 없음
         if len(text_content.strip()) < 100:
-            tqdm.write(f"⚠️  텍스트가 너무 짧습니다 ({len(text_content.strip())} chars): {source_url}")
+            tqdm.write(
+                f"⚠️  텍스트가 너무 짧습니다 ({len(text_content.strip())} chars): {source_url}"
+            )
             return []
 
         prompt = self._create_extraction_prompt(text_content, source_url)
 
-        return await self._make_api_request_with_retry_async(prompt, source_url, text_content)
+        return await self._make_api_request_with_retry_async(
+            prompt, source_url, text_content
+        )
 
     def extract_treatments_from_html(
         self, html_content: str, source_url: str
@@ -101,7 +102,9 @@ class LLMTreatmentExtractor:
 
         # 텍스트가 너무 짧으면 추출할 의미가 없음
         if len(text_content.strip()) < 100:
-            tqdm.write(f"⚠️  텍스트가 너무 짧습니다 ({len(text_content.strip())} chars): {source_url}")
+            tqdm.write(
+                f"⚠️  텍스트가 너무 짧습니다 ({len(text_content.strip())} chars): {source_url}"
+            )
             return []
 
         prompt = self._create_extraction_prompt(text_content, source_url)
@@ -130,12 +133,16 @@ class LLMTreatmentExtractor:
 
         # 텍스트가 너무 짧으면 추출할 의미가 없음
         if len(text_content.strip()) < 100:
-            tqdm.write(f"⚠️  텍스트가 너무 짧습니다 ({len(text_content.strip())} chars): {source_url}")
+            tqdm.write(
+                f"⚠️  텍스트가 너무 짧습니다 ({len(text_content.strip())} chars): {source_url}"
+            )
             return []
 
         prompt = self._create_extraction_prompt(text_content, source_url)
 
-        return await self._make_api_request_with_retry_async(prompt, source_url, text_content)
+        return await self._make_api_request_with_retry_async(
+            prompt, source_url, text_content
+        )
 
     async def _fetch_rendered_html(self, url: str) -> Optional[str]:
         """Playwright를 사용하여 JavaScript 렌더링 후 HTML을 가져옵니다."""
@@ -143,22 +150,24 @@ class LLMTreatmentExtractor:
             async with async_playwright() as p:
                 browser = await p.chromium.launch(headless=True)
                 context = await browser.new_context(
-                    user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-                    viewport={'width': 1920, 'height': 1080}
+                    user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+                    viewport={"width": 1920, "height": 1080},
                 )
                 page = await context.new_page()
 
                 try:
                     # 페이지 로드
-                    await page.goto(url, wait_until='domcontentloaded', timeout=30000)
+                    await page.goto(url, wait_until="domcontentloaded", timeout=30000)
 
                     # JavaScript 실행 완료 대기
                     await page.wait_for_timeout(3000)
 
                     # 콘텐츠 요소가 로드될 때까지 대기
                     try:
-                        await page.wait_for_selector('main, .content, .product, h1, h2, p', timeout=10000)
-                    except:
+                        await page.wait_for_selector(
+                            "main, .content, .product, h1, h2, p", timeout=10000
+                        )
+                    except Exception:
                         pass  # 특정 요소를 찾지 못해도 계속 진행
 
                     # 추가 대기 (동적 콘텐츠)
@@ -166,14 +175,16 @@ class LLMTreatmentExtractor:
 
                     # 네트워크 완료 대기 (선택적)
                     try:
-                        await page.wait_for_load_state('networkidle', timeout=5000)
-                    except:
+                        await page.wait_for_load_state("networkidle", timeout=5000)
+                    except Exception:
                         pass  # 네트워크가 계속 활성화되어도 진행
 
                     # HTML 콘텐츠 가져오기
                     content = await page.content()
 
-                    tqdm.write(f"🌐 Playwright HTML 가져옴: {len(content)} chars from {url}")
+                    tqdm.write(
+                        f"🌐 Playwright HTML 가져옴: {len(content)} chars from {url}"
+                    )
                     return content
 
                 except Exception as e:
@@ -422,7 +433,7 @@ JSON만 응답해주세요:
 
                 domain = urlparse(source_url).netloc
                 return domain.replace("www.", "")
-            except:
+            except Exception:
                 return "알 수 없음"
 
     async def _make_api_request_with_retry_async(
@@ -441,7 +452,7 @@ JSON만 응답해주세요:
                 response = self.client.chat.completions.create(
                     model=self.model,
                     messages=[{"role": "user", "content": prompt}],
-                    max_tokens=4000  # thinking 기능을 위한 충분한 토큰 설정
+                    max_tokens=4000,  # thinking 기능을 위한 충분한 토큰 설정
                 )
 
                 response_text = response.choices[0].message.content
@@ -496,7 +507,7 @@ JSON만 응답해주세요:
                 response = self.client.chat.completions.create(
                     model=self.model,
                     messages=[{"role": "user", "content": prompt}],
-                    max_tokens=4000  # thinking 기능을 위한 충분한 토큰 설정
+                    max_tokens=4000,  # thinking 기능을 위한 충분한 토큰 설정
                 )
 
                 response_text = response.choices[0].message.content
@@ -573,5 +584,5 @@ JSON만 응답해주세요:
                     )
                 else:
                     return domain.replace(".com", "").replace(".co.kr", "").title()
-            except:
+            except Exception:
                 return "알 수 없는 클리닉"
