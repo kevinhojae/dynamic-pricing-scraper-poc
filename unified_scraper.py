@@ -1,6 +1,7 @@
 """
 쁨 글로벌 클리닉 통합 스크래퍼 (Claude/Gemini 지원)
 """
+
 import argparse
 import asyncio
 import os
@@ -12,28 +13,37 @@ from dotenv import load_dotenv
 # .env 파일 로드
 load_dotenv()
 
-from src.config.site_configs import site_config_manager
+from src.config.site_configs import SiteConfigManager, site_config_manager
 from src.scrapers.unified_spa_scraper import UnifiedConfigurableScraper
 from src.utils.unified_llm_extractor import UnifiedLLMTreatmentExtractor
-from src.models.schemas import ProductItem
+from src.models.schemas import ProductItem, ScrapingConfig
 
 
-class UnifiedPpeumGlobalScraper:
+class UnifiedScraper:
     """쁨 글로벌 클리닉 통합 스크래퍼 (Claude/Gemini 지원)"""
 
-    def __init__(self, provider_type: str, api_key: str = None):
+    def __init__(
+        self,
+        provider_type: str,
+        api_key: str,
+        site_config: ScrapingConfig,
+    ):
         self.provider_type = provider_type.lower()
         self.api_key = api_key
         self.llm_extractor = UnifiedLLMTreatmentExtractor(provider_type, api_key)
-        self.config = site_config_manager.create_ppeum_global_config()
+        self.config = site_config
 
     async def scrape_treatments(self) -> List[ProductItem]:
-        """쁨 글로벌 클리닉의 시술 정보 스크래핑"""
-        print(f"🚀 쁨 글로벌 클리닉 스크래핑 시작... (모델: {self.provider_type.title()})")
+        """클리닉의 시술 정보 스크래핑"""
+        print(f"🚀 클리닉 스크래핑 시작... (모델: {self.provider_type.title()})")
         print(f"📋 설정:")
         print(f"   - 소스 타입: {self.config.source_type}")
-        print(f"   - 대상 URL: {self.config.static_urls[0] if self.config.static_urls else self.config.base_url}")
-        print(f"   - SPA 모드: {self.config.spa_config.max_interactions}번 최대 상호작용")
+        print(
+            f"   - 대상 URL: {self.config.static_urls[0] if self.config.static_urls else self.config.base_url}"
+        )
+        print(
+            f"   - SPA 모드: {self.config.spa_config.max_interactions}번 최대 상호작용"
+        )
 
         try:
             scraper = UnifiedConfigurableScraper(self.config, self.llm_extractor)
@@ -81,19 +91,15 @@ class UnifiedPpeumGlobalScraper:
                 **model_info,
                 "extraction_timestamp": datetime.now().isoformat(),
                 "total_products": len(products),
-                "total_treatments": sum(len(product.treatments) for product in products)
+                "total_treatments": sum(
+                    len(product.treatments) for product in products
+                ),
             },
-            "results": [product.model_dump() for product in products]
+            "results": [product.model_dump() for product in products],
         }
 
         with open(filename, "w", encoding="utf-8") as f:
-            json.dump(
-                result_data,
-                f,
-                ensure_ascii=False,
-                indent=2,
-                default=str
-            )
+            json.dump(result_data, f, ensure_ascii=False, indent=2, default=str)
 
         print(f"💾 결과 저장 완료: {filename}")
         print(f"📊 모델 정보:")
@@ -133,30 +139,26 @@ def get_api_key(provider_type: str) -> str:
 async def main():
     """메인 실행 함수"""
     parser = argparse.ArgumentParser(
-        description="쁨 글로벌 클리닉 스크래퍼 (Claude/Gemini 지원)",
+        description="클리닉 스크래퍼 (Claude/Gemini 지원)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 사용 예시:
-  python unified_ppeum_scraper.py claude     # Claude로 스크래핑
-  python unified_ppeum_scraper.py gemini     # Gemini로 스크래핑
+  python unified_scraper.py claude     # Claude로 스크래핑
+  python unified_scraper.py gemini     # Gemini로 스크래핑
 
 환경변수 설정:
   Claude 사용시: ANTHROPIC_AUTH_TOKEN=your-claude-api-key
   Gemini 사용시: GEMINI_API_KEY=your-gemini-api-key
-        """
+        """,
     )
 
     parser.add_argument(
         "model",
         choices=["claude", "gemini"],
-        help="사용할 LLM 모델 (claude 또는 gemini)"
+        help="사용할 LLM 모델 (claude 또는 gemini)",
     )
 
-    parser.add_argument(
-        "--suffix",
-        default="",
-        help="출력 파일명에 추가할 접미사"
-    )
+    parser.add_argument("--suffix", default="", help="출력 파일명에 추가할 접미사")
 
     args = parser.parse_args()
 
@@ -165,15 +167,34 @@ async def main():
 
     print(f"🤖 {args.model.title()} 모델을 사용하여 스크래핑을 시작합니다...")
 
-    # 스크래퍼 실행
-    scraper = UnifiedPpeumGlobalScraper(args.model, api_key)
-    products = await scraper.scrape_treatments()
+    # print(f"쁨 글로벌 클리닉 스크래핑을 시작합니다...")
 
-    # 결과 저장
+    # # 스크래퍼 실행
+    # ppeum_global_scraper = UnifiedScraper(
+    #     args.model, api_key, SiteConfigManager().create_ppeum_global_config()
+    # )
+    # products = await ppeum_global_scraper.scrape_treatments()
+    # print(f"쁨 글로벌 클리닉 스크래핑 완료!")
+
+    # # 결과 저장
+    # if products:
+    #     ppeum_global_scraper.save_results(products, args.suffix)
+    # else:
+    #     print("📭 스크래핑된 데이터가 없습니다.")
+
+    print(f"세니아 클리닉 스크래핑을 시작합니다...")
+
+    xenia_scraper = UnifiedScraper(
+        args.model, api_key, SiteConfigManager().get_config("xenia")
+    )
+    products = await xenia_scraper.scrape_treatments()
+
     if products:
-        scraper.save_results(products, args.suffix)
+        xenia_scraper.save_results(products, args.suffix)
     else:
         print("📭 스크래핑된 데이터가 없습니다.")
+
+    print(f"세니아 클리닉 스크래핑 완료!")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,289 @@
+{
+  "metadata": {
+    "input_file_path": "data/raw/ppeum_global_treatments_20251009_010758_gemini.json",
+    "generated_files": {
+      "json_report": "data/statistics/treatment_analysis_20251009_011454.json",
+      "products_csv": "data/statistics/products_20251009_011454.csv",
+      "treatments_csv": "data/statistics/treatments_20251009_011454.csv"
+    },
+    "generated_at": "2025-10-09T01:14:54.135464"
+  },
+  "basic_stats": {
+    "total_products": 178,
+    "total_treatments": 286,
+    "model_info": {
+      "source": "gemini",
+      "model": "gemini-2.5-flash-lite",
+      "provider": "Google",
+      "version": "1.5",
+      "prompt_version": "1.0",
+      "prompt_global_version": "1.0",
+      "extraction_timestamp": "2025-10-09T01:07:58.380875",
+      "total_products": 178,
+      "total_treatments": 286
+    },
+    "extraction_date": "2025-10-09T01:07:58.380875",
+    "clinic_name": "PPEUM Global Clinic Gangnam(쁨글로벌의원)"
+  },
+  "price_analysis": {
+    "original_price_stats": {
+      "count": 130,
+      "mean": 965431.5384615385,
+      "min": 1950.0,
+      "max": 8590000.0,
+      "median": 250000.0
+    },
+    "event_price_stats": {
+      "count": 176,
+      "mean": 452583.29545454547,
+      "min": 990.0,
+      "max": 4890000.0,
+      "median": 130000.0
+    },
+    "discount_stats": {
+      "count": 130,
+      "mean_discount_rate": 40.81525219995518,
+      "min_discount": 9.375,
+      "max_discount": 49.494949494949495
+    }
+  },
+  "treatment_analysis": {
+    "treatment_types": {
+      "injection": 144,
+      "device": 92,
+      "laser": 26,
+      "skincare": 16,
+      "surgical": 8
+    },
+    "popular_treatments": {
+      "SS주사": 8,
+      "수입 턱라인 스킨보톡스": 8,
+      "슈링크 유니버스 울트라": 7,
+      "티타늄 리프팅": 7,
+      "볼뉴머": 6,
+      "울트라인": 6,
+      "트리플토닝": 6,
+      "플라필": 6,
+      "피코토닝": 6,
+      "국산 바디보톡스": 6,
+      "울쎄라 프라임": 6,
+      "써마지": 6,
+      "울트라인 바디": 5,
+      "수입 독일산 얼굴전체 스킨보톡스": 5,
+      "필로드 아이": 4,
+      "페이스 온다 리프팅": 4,
+      "촉촉팩": 4,
+      "점제거": 4,
+      "포텐자 기미모드": 4,
+      "연어주사": 4
+    },
+    "popular_equipments": {
+      "울트라인": 16,
+      "슈링크 유니버스": 15,
+      "티타늄": 12,
+      "울쎄라": 10,
+      "볼뉴머": 9,
+      "큐페이셜": 6,
+      "피코토닝": 6,
+      "써마지": 6,
+      "포텐자": 5,
+      "인모드": 5,
+      "바디온다": 4,
+      "페이스 온다": 4,
+      "트리플토닝": 4,
+      "플라필": 4,
+      "슈링크": 2
+    },
+    "popular_medications": {
+      "국산 프리미엄 보톡스(영국산 균주 사용)": 8,
+      "쥬베룩": 7,
+      "국산 보톡스": 7,
+      "수입 보톡스": 6,
+      "수입 독일산 스킨보톡스": 5,
+      "필로드": 4,
+      "SS주사": 4,
+      "국산 스킨보톡스": 4,
+      "수입 스킨보톡스": 4,
+      "리쥬란": 4,
+      "히알루론산": 3,
+      "연어주사": 3,
+      "수입 미국산 스킨보톡스": 3,
+      "오로라앰플": 2,
+      "필로드 아이": 2
+    },
+    "popular_target_areas": {
+      "바디": 37,
+      "얼굴 전체": 26,
+      "눈가": 12,
+      "턱라인": 8,
+      "목주름": 6,
+      "이중턱": 5,
+      "풀페이스": 5,
+      "턱": 5,
+      "입꼬리": 5,
+      "인중": 5,
+      "복부": 3,
+      "V라인": 2,
+      "페이스": 2,
+      "얼굴": 2,
+      "눈밑": 2
+    },
+    "popular_benefits": {
+      "탄력 개선": 15,
+      "리프팅": 14,
+      "주름 개선": 14,
+      "톤업": 13,
+      "콜라겐 재생": 5,
+      "모공 개선": 5,
+      "탄력": 4,
+      "색소 개선": 4,
+      "중안부 축소": 4,
+      "피부 타이트닝": 4,
+      "모공 축소": 4,
+      "피부결 개선": 3,
+      "피부톤 회복": 3,
+      "기미 개선": 3,
+      "입매 라인 개선": 3
+    }
+  },
+  "category_analysis": {
+    "category_counts": {
+      "볼뉴머 X 슈링크 콜라보위크": 175,
+      "리프팅/안티에이징": 3
+    },
+    "category_price_stats": {
+      "볼뉴머 X 슈링크 콜라보위크": {
+        "count": 174,
+        "mean": 454567.5862068966,
+        "min": 990.0,
+        "max": 4890000.0,
+        "median": 130000.0
+      },
+      "리프팅/안티에이징": {
+        "count": 2,
+        "mean": 279950.0,
+        "min": 9900.0,
+        "max": 550000.0,
+        "median": 550000.0
+      }
+    }
+  },
+  "dosage_analysis": {
+    "unit_counts": {
+      "샷": 53,
+      "cc": 40,
+      "부위": 21,
+      "회": 13,
+      "KJ": 10,
+      "CC": 8,
+      "kj": 8,
+      "U": 8,
+      "u": 7,
+      "분": 6,
+      "줄": 4,
+      "개": 4,
+      "매": 2,
+      "vial": 2
+    },
+    "dosage_stats": {
+      "샷": {
+        "count": 53,
+        "mean": 332.07547169811323,
+        "min": 100.0,
+        "max": 1000.0,
+        "median": 300.0
+      },
+      "매": {
+        "count": 2,
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "cc": {
+        "count": 40,
+        "mean": 41.725,
+        "min": 1.0,
+        "max": 300.0,
+        "median": 3.0
+      },
+      "KJ": {
+        "count": 10,
+        "mean": 52.0,
+        "min": 40.0,
+        "max": 60.0,
+        "median": 60.0
+      },
+      "CC": {
+        "count": 8,
+        "mean": 1.5,
+        "min": 1.0,
+        "max": 2.0,
+        "median": 2.0
+      },
+      "부위": {
+        "count": 21,
+        "mean": 1.1904761904761905,
+        "min": 1.0,
+        "max": 2.0,
+        "median": 1.0
+      },
+      "kj": {
+        "count": 8,
+        "mean": 27.5,
+        "min": 10.0,
+        "max": 40.0,
+        "median": 40.0
+      },
+      "줄": {
+        "count": 4,
+        "mean": 7.0,
+        "min": 6.0,
+        "max": 8.0,
+        "median": 8.0
+      },
+      "회": {
+        "count": 13,
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "vial": {
+        "count": 2,
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "U": {
+        "count": 8,
+        "mean": 118.75,
+        "min": 50.0,
+        "max": 200.0,
+        "median": 100.0
+      },
+      "u": {
+        "count": 7,
+        "mean": 71.42857142857143,
+        "min": 50.0,
+        "max": 100.0,
+        "median": 50.0
+      },
+      "개": {
+        "count": 4,
+        "mean": 1.0,
+        "min": 1.0,
+        "max": 1.0,
+        "median": 1.0
+      },
+      "분": {
+        "count": 6,
+        "mean": 12.0,
+        "min": 6.0,
+        "max": 20.0,
+        "median": 10.0
+      }
+    }
+  }
+}

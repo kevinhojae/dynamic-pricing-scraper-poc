@@ -4,9 +4,13 @@ Claude/Gemini 지원
 """
 import asyncio
 import time
+import aiohttp
 from typing import List, Dict, Set, Optional, Any
 from playwright.async_api import async_playwright, Page, Browser, TimeoutError as PlaywrightTimeoutError
 from dataclasses import dataclass
+from urllib.parse import urljoin
+from bs4 import BeautifulSoup
+from tqdm import tqdm
 
 from src.models.schemas import ProductItem, ScrapingConfig, ScrapingSourceType, SPAConfig
 from src.utils.unified_llm_extractor import UnifiedLLMTreatmentExtractor
@@ -29,6 +33,7 @@ class UnifiedSPAContentScraper:
         self.config = config
         self.llm_extractor = llm_extractor
         self.spa_config = config.spa_config
+        self.interacted_elements: Set[str] = set()  # 이미 상호작용한 요소들의 fingerprint 저장
         if not self.spa_config:
             raise ValueError("SPA config is required for SPA scraping")
 
@@ -240,11 +245,25 @@ class UnifiedSPAContentScraper:
                         continue
 
                 if visible_elements:
-                    # 랜덤하게 요소 선택 (다양한 메뉴 탐색을 위해)
+                    # 이미 상호작용한 요소들 제외
+                    available_elements = []
+                    for element in visible_elements:
+                        signature = await self._get_element_signature(element)
+                        if signature not in self.interacted_elements:
+                            available_elements.append(element)
+
+                    if not available_elements:
+                        print(f"   🔄 모든 '{selector}' 요소와 이미 상호작용 완료, 다음 셀렉터 시도...")
+                        continue
+
+                    # 사용 가능한 요소 중에서 랜덤 선택
                     import random
-                    clicked_element = random.choice(visible_elements)
+                    clicked_element = random.choice(available_elements)
 
                     try:
+                        # 클릭하기 전에 요소 서명 생성 (추가는 나중에)
+                        element_signature = await self._get_element_signature(clicked_element)
+
                         # 요소 정보 수집
                         element_text = await clicked_element.text_content()
                         element_tag = await clicked_element.evaluate('el => el.tagName.toLowerCase()')
@@ -267,6 +286,7 @@ class UnifiedSPAContentScraper:
                         # 상세 로깅
                         print(f"🎯 상호작용 {interaction_num}: 메뉴 요소 클릭")
                         print(f"   🔍 셀렉터: {selector}")
+                        print(f"   🔑 서명: {element_signature}")
                         print(f"   📝 텍스트: '{element_text[:50]}...'")
                         print(f"   🏷️  태그: {element_tag}")
                         print(f"   🎨 클래스: '{element_class[:50]}...'")
@@ -298,7 +318,32 @@ class UnifiedSPAContentScraper:
 
                         # 클릭 전 페이지 URL 기록
                         before_url = page.url
-                        await clicked_element.click()
+
+                        # 여러 클릭 방법 시도
+                        click_success = False
+                        try:
+                            # 방법 1: 기본 클릭 (타임아웃 짧게)
+                            await clicked_element.click(timeout=5000)
+                            click_success = True
+                        except Exception as e1:
+                            print(f"   ⚠️ 기본 클릭 실패: {str(e1)[:80]}...")
+                            try:
+                                # 방법 2: force 클릭 (가로막는 요소 무시)
+                                await clicked_element.click(force=True, timeout=3000)
+                                click_success = True
+                                print(f"   ✅ Force 클릭으로 성공")
+                            except Exception:
+                                try:
+                                    # 방법 3: JavaScript 클릭
+                                    await clicked_element.evaluate("element => element.click()")
+                                    click_success = True
+                                    print(f"   ✅ JavaScript 클릭으로 성공")
+                                except Exception:
+                                    print(f"   ❌ 모든 클릭 방법 실패")
+                                    raise e1  # 원래 에러를 다시 발생시킴
+
+                        if not click_success:
+                            raise Exception("All click methods failed")
 
                         # 클릭 후 페이지 변화 대기 및 확인
                         await page.wait_for_timeout(1500)
@@ -308,14 +353,18 @@ class UnifiedSPAContentScraper:
                         if before_url != after_url:
                             print(f"   🔀 URL 변화: {before_url} → {after_url}")
 
-                        print(f"   ✅ 클릭 성공")
+                        # 클릭 성공 시에만 interacted_elements에 추가
+                        self.interacted_elements.add(element_signature)
+                        print(f"   ✅ 클릭 성공 (총 {len(self.interacted_elements)}개 요소와 상호작용 완료)")
                         return True
 
                     except Exception as e:
                         print(f"⚠️ 클릭 실행 오류: {str(e)}")
-                        # 실패한 상호작용도 로깅
+                        print(f"   🔄 요소 '{element_signature[:50]}...'는 다음 상호작용에서 재시도 가능")
+                        # 실패한 상호작용도 로깅 (단, interacted_elements에는 추가하지 않음)
                         await self._log_interaction_details(interaction_num, {
                             'selector': selector,
+                            'element_signature': element_signature,
                             'error': str(e),
                             'timestamp': time.time(),
                             'status': 'failed'
@@ -336,6 +385,7 @@ class UnifiedSPAContentScraper:
                 pass
 
         print(f"⚠️ 상호작용 {interaction_num}: 상호작용 가능한 요소를 찾을 수 없습니다.")
+        print(f"   📋 총 {len(self.interacted_elements)}개 요소와 이미 상호작용 완료")
         return False
 
     async def _log_interaction_details(self, interaction_num: int, interaction_data: Dict[str, Any]) -> None:
@@ -368,6 +418,32 @@ class UnifiedSPAContentScraper:
 
         except Exception as e:
             print(f"   ⚠️ 상호작용 로그 저장 실패: {str(e)}")
+
+    async def _get_element_signature(self, element) -> str:
+        """요소의 간단한 식별자 생성"""
+        try:
+            text = (await element.text_content() or '').strip()
+            tag = await element.evaluate('el => el.tagName.toLowerCase()')
+            class_name = await element.get_attribute('class') or ''
+            element_id = await element.get_attribute('id') or ''
+            href = await element.get_attribute('href') or ''
+
+            # data attributes 수집
+            data_attrs = await element.evaluate('''el => {
+                const attrs = [];
+                for (let attr of el.attributes) {
+                    if (attr.name.startsWith('data-')) {
+                        attrs.push(`${attr.name}=${attr.value}`);
+                    }
+                }
+                return attrs.sort().join('|');
+            }''')
+
+            # 간단한 서명 생성: 태그명 + 텍스트 + 클래스 + ID + href + data attributes
+            signature = f"{tag}:{text[:50]}:{class_name}:{element_id}:{href}:{data_attrs}"
+            return signature
+        except:
+            return f"unknown:{time.time()}"
 
     def _deduplicate_products(self, existing_products: List[ProductItem], new_products: List[ProductItem]) -> List[ProductItem]:
         """중복 제품 제거"""
