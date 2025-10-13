@@ -118,7 +118,7 @@ class SiteConfigManager:
     def create_ppeum_global_config(self) -> ScrapingConfig:
         """쁨 글로벌 클리닉 전용 설정 생성"""
         return ScrapingConfig(
-            site_name="PPEUM Global Clinic",
+            site_name="PPEUM Global",
             base_url="https://global.ppeum.com/",
             source_type=ScrapingSourceType.SPA_DYNAMIC,
             static_urls=[

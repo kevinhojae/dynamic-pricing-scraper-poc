@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 from datetime import datetime
@@ -149,3 +150,15 @@ class ScrapingConfig(BaseModel):
 
     # 사이트별 커스텀 설정
     custom_settings: Dict[str, Any] = {}
+
+
+@dataclass
+class ScrapingResult:
+    """스크래핑 결과 데이터 클래스"""
+
+    url: str
+    products: List[ProductItem]
+    interactions_performed: int
+    content_states: List[str]  # 각 상호작용 후 콘텐츠 상태
+    error: Optional[str] = None
+    processing_time: float = 0.0
